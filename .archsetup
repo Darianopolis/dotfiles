@@ -1,0 +1,286 @@
+---- Set up keys ----
+
+$ loadkeys uk
+$ timedatectl
+
+---- Partition ----
+
+$ fdisk /dev/nvme0n1
+  g
+  n
+  Enter *2
+  +1G
+  t
+  1
+  n
+  Enter *3
+$ mkfs.fat -F32 /dev/nvme0n1p1
+$ mkfs.ext4 /dev/nvme0n1p2
+
+---- Bootstrap pacman, setup fstab, and move to installed context ----
+
+$ mount /dev/nvme0n1p2 /mnt
+$ mount --mkdir /dev/nvme0n1p1 /mnt/boot
+$ pacstrap -K /mnt base linux linux-firmware amd-ucode nano
+$ genfstab -U /mnt >> /mnt/etc/fstab
+$ arch-chroot /mnt
+
+---- Install common packages ----
+
+$ pacman -S grub efibootmgr nano sudo
+
+---- Configure locale persistently ----
+
+$ ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
+$ hwclock --systohc
+
+$ echo "en_US.UTF-8 UTF-8
+  en_GB.UTF-8 UTF-8" > /etc/locale.gen
+$ locale-gen
+$ echo "LANG=en_GB.UTF-8" > /etc/locale.conf
+$ echo "KEYMAP=uk" > /etc/vconsole.conf
+
+---- Setup GRUB bootloader ----
+
+$ mount --mkdir /dev/nvme0n1p1 /mnt/boot
+$ grub-install --target=x86_64-efi --efi-directory=/boot bootloader-id=GRUB
+$ grub-mkconfig -o /boot/grub/grub.cfg
+
+---- Setup users ----
+
+$ passwd
+  ...
+
+$ useradd -m -g users -G wheel -s /bin/bash darian
+$ passwd
+  ...
+
+$ sudo nano /etc/sudoers
+  Uncomment:
+  %wheel ALL=(ALL:ALL) NOPASSWD: ALL
+
+---- Setup networking ----
+
+$ echo "darian" > /etc/hostname
+$ systemctl enable systemd-networkd.service
+$ systemctl enable systemd-resolved.service
+
+---- Remove install media and restart ----
+
+$ exit
+$ shutdown -h now
+
+---- Complete network setup ----
+
+$ sudo ln -fs /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+$ sudo nano /etc/systemd/network/20-wired.network
+  [Match]
+  Name=%NameOfNetworkAdapterFrom`networkctl`
+  
+  [Network]
+  DHCP=yes
+$ networkctl reload
+
+---- Setup yay AUR helper ----
+
+! <https://itsfoss.com/install-yay-arch-linux/>
+$ sudo pacman -S base-devel git
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+$ cd ..
+$ rm -rf yay
+
+---- Enable multilib for 32 bit applications ----
+
+$ sudo nano /etc/pacman.conf
+  Uncomment:
+  [multilib]
+  Include = /etc/pacman.d/mirrorlist
+
+---- Setup nvidia beta drivers ----
+
+-- Remove old drivers if necessary
+$ sudo yay -Rd --nodeps nvidia-dkms nvidia-utils lib32-nvidia-utils
+-- `--nodeps` is used so Steam doesn't complain about having its dependencies removed.
+
+$ sudo yay -S nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
+
+-- See <https://wiki.hyprland.org/Nvidia/>
+$ sudo pacman -S linux-headers egl-wayland
+> /etc/default/grub
+  add `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+-- TODO: Do this during initial install to avoid duplicated commands
+? /etc/modprobe.d/nvidia.conf
+  options NVreg_PreserveVideoMemoryAllocations=1
+> /etc/mkinitcpio.conf
+! add to `MODULES` and `FILES`:
+  MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+  FILES=(/etc/modprobe.d/nvidia.conf)
+$ sudo mkinitcpio -P
+$ sudo systemctl enable nvidia-suspend.service
+$ sudo systemctl enable nvidia-hibernate.service
+$ sudo systemctl enable nvidia-resume.service
+$ reboot
+
+---- Setup Pipewire Audio ----
+
+$ sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack
+
+---- Install USB utilities ----
+
+$ sudo pacman -S evtest joyutils game-devices-udev
+-- joyutils for `jstest`
+-- TODO: Figure out why joysticks aren't accessible within xorg session
+
+---- Setup device rules for Wootility ----
+
+> /etc/udev/rules.d/70-wooting.rules
+```
+# Wooting One Legacy
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", TAG+="uaccess"
+
+# Wooting One update mode
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402", TAG+="uaccess"
+
+# Wooting Two Legacy
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", TAG+="uaccess"
+
+# Wooting Two update mode
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403", TAG+="uaccess"
+
+# Generic Wootings
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", TAG+="uaccess"
+```
+$ sudo udevadm control --reload-rules && sudo udevadm trigger
+
+---- Install Steam + Proton GE ----
+
+$ sudo pacman -S steam
+$ mkdir ~/.steam/root/compatibilitytools.d
+! Download latest release from <https://github.com/GloriousEggroll/proton-ge-custom/releases>
+$ tar -xf GE-ProtonVERSION.tar.gz -C ~/.steam/root/compatibilitytools.d/
+! Restart Steam to udpate Proton versions
+
+---- Setup Kitty ----
+
+$ sudo pacman -S kitty starship nerd-fonts
+! Select firacode nerd font
+
+! List available fonts
+$ kitty +list-fonts --ps-names
+
+! Kitty > Ctrl-Shift-F2 
+! set font_family
+  font_family FiraCode Nerd Font Mono Reg
+  background #0a0a0a
+  background_opacity 0.90
+
+! Add `eval "$(starship init bash)"` to ~/.bashrc
+
+-- Blesh auto suggestions <https://github.com/akinomyoga/ble.sh>
+$ sudo pacman -S blesh
+> ~/.blerc
+  Copy contents from  <https://github.com/akinomyoga/ble.sh/blob/master/blerc.template>
+! Add `source /usr/share/blesh/ble.sh` to ~/.bashrc
+
+---- Install GUI apps ----
+
+$ sudo pacman -S alacritty
+$ sudo pacman -S flatpak
+$ sudo flatpak install flathub com.discordapp.Discord
+$ sudo flatpak install flathub com.brave.Browser
+$ sudo flatpak install flathub com.obsproject.Studio
+
+---- ExpressVPN ----
+
+$ yay -S expressvpn
+$ sudo systemctl enable expressvpn
+$ sudo systemctl start expressvpn
+
+---- 1Password ----
+
+$ yay -S 1password
+
+---- Clang ----
+
+$ cd ~/dev/cloned
+$ git clone https://github.com/llvm/llvm-project.git && cd llvm-project
+$ mkdir build && cd build
+$ cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lldb;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ../llvm
+$ ninja
+$ sudo ninja install
+
+---- Installing KDE ----
+
+$ sudo pacman -S plasma-meta
+-- TODO: Minimal plasma-desktop install?
+-- Create a launch script
+> ~/plasma
+  #!/bin/bash
+  /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
+$ chmod +x ~/plasma
+
+! KWin Script > Get New > KZones
+! KZones properties:
+  ! Untick: `Remember and restore window geometries`
+  ! Layouts
+```lua
+[
+    {
+        "name": "Master Grid",
+        "padding":2,
+        "zones":[
+            {"x":0,     "y":0, "height":50,"width":16.667},
+            {"x":0,     "y":50,"height":50,"width":16.667},
+            {"x":16.667,"y":0, "height":50,"width":16.667},
+            {"x":16.667,"y":50,"height":50,"width":16.667},
+            {"x":33.333,"y":0, "height":50,"width":16.667},
+            {"x":33.333,"y":50,"height":50,"width":16.667},
+            {"x":50,    "y":0, "height":50,"width":16.667},
+            {"x":50,    "y":50,"height":50,"width":16.667},
+            {"x":66.667,"y":0, "height":50,"width":16.667},
+            {"x":66.667,"y":50,"height":50,"width":16.667},
+            {"x":83.333,"y":0, "height":50,"width":16.667},
+            {"x":83.333,"y":50,"height":50,"width":16.667},
+
+            {"x":0,     "y":0, "height":50,"width":33.333},
+            {"x":0,     "y":50,"height":50,"width":33.333},
+            {"x":33.333,"y":0, "height":50,"width":33.333},
+            {"x":33.333,"y":50,"height":50,"width":33.333},
+            {"x":66.667,"y":0, "height":50,"width":33.333},
+            {"x":66.667,"y":50,"height":50,"width":33.333},
+
+            {"x":33.333,"y":12.5,"height":50,"width":33.333},
+
+            {"x":16.667,"y":0, "height":50,"width":33.333},
+            {"x":16.667,"y":50,"height":50,"width":33.333},
+            {"x":50,    "y":0, "height":50,"width":33.333},
+            {"x":50,    "y":50,"height":50,"width":33.333},
+
+            {"x":0,     "y":0,"height":100,"width":33.333},
+            {"x":33.333,"y":0,"height":100,"width":33.333},
+            {"x":66.667,"y":0,"height":100,"width":33.333},
+
+            {"x":16.667,"y":0,"height":100,"width":33.333},
+            {"x":50,    "y":0,"height":100,"width":33.333},
+
+            {"x":0,     "y":0,"height":100,"width":50    },
+            {"x":50,    "y":0,"height":100,"width":50    }
+        ]
+    },
+    {
+        "name": "2/3rd Overlaps",
+        "padding":2,
+        "zones":[
+            {"x":0,     "y":0,"height":100,"width":66.667},
+            {"x":16.667,"y":0,"height":100,"width":66.667},
+            {"x":33.333,"y":0,"height":100,"width":66.667}
+        ]
+    }
+]
+```
