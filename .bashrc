@@ -16,12 +16,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --all'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-# starship prompt
+# Starship prompt
 eval "$(starship init bash)"
+
+# Show fastfetch
+fastfetch
+
+echo ""
 
 # ble.sh auto suggestions
 source /usr/share/blesh/ble.sh
