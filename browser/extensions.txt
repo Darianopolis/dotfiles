@@ -1,0 +1,10 @@
+1Password
+DeArrow - Better Titles and thumbnails
+    Replace Thumbnails  - Unchecked (we remove them anyway)
+    Title Format        - Disabled (unnecessary title reformatting clutters DeArrow flagged contents)
+    Remove Emojis       - Ditto
+Enhancer for YouTube
+Hide YouTube Shorts
+Hide YouTube thumbnails
+Return YouTube Dislikes
+SponsorBlock for YouTube - Skip Sonsorships
