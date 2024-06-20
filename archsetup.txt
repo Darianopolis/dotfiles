@@ -27,21 +27,16 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base linux linux-firmware amd-ucode
+$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less code cmake ninja flatpak
 $ genfstab -U /mnt >> /mnt/etc/fstab
 $ arch-chroot /mnt
-
---------------------------------------------------------------------------------
---                         Install common packages
---------------------------------------------------------------------------------
-
-$ pacman -S grub efibootmgr vim sudo less code
 
 --------------------------------------------------------------------------------
 --                      Configure locale persistently
 --------------------------------------------------------------------------------
 
 $ ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
+$ systemctl enable systemd-timesyncd.service
 $ hwclock --systohc
 
 $ echo "en_US.UTF-8 UTF-8
@@ -74,32 +69,21 @@ $ visudo
   %wheel ALL=(ALL:ALL) NOPASSWD: ALL
 
 --------------------------------------------------------------------------------
---                            Networking Part 1
+--                                Networking
 --------------------------------------------------------------------------------
 
 $ echo "darian" > /etc/hostname
 $ systemctl enable systemd-networkd.service
 $ systemctl enable systemd-resolved.service
-
---------------------------------------------------------------------------------
---                          Reboot into install
---------------------------------------------------------------------------------
-
-$ exit
-$ shutdown -h now
-
---------------------------------------------------------------------------------
---                           Networking Part 2
---------------------------------------------------------------------------------
-
 $ sudo ln -fs /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 $ sudo nano /etc/systemd/network/20-wired.network
-  [Match]
-  Name=%NameOfNetworkAdapterFrom`networkctl`
+```
+[Match]
+Name=%NameOfNetworkAdapterFrom`networkctl`
   
-  [Network]
-  DHCP=yes
-$ networkctl reload
+[Network]
+DHCP=yes
+```
 
 --------------------------------------------------------------------------------
 --                                GPG Keys
@@ -115,8 +99,12 @@ $ pass init <gpg-id>
 --                          Git Credential Manager
 --------------------------------------------------------------------------------
 
-curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/download/gcm-linux_amd64.2.5.0.tar.gz
-sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
+-- curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/2.5.0/download/gcm-linux_amd64.2.5.0.tar.gz
+-- sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
+-- rm gcm-linux_amd64.2.5.0.tar.gz
+
+curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+-- TODO: Why does this script install so much?
 git-credential-manager configure
 export GCM_CREDENTIAL_STORE=cache
 
@@ -216,17 +204,33 @@ $ echo RELOADAGENT | gpg-connect-agent
 --                             Common Flatpaks
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S flatpak
-$ sudo flatpak install flathub com.discordapp.Discord
-$ sudo flatpak install flathub com.brave.Browser
-$ sudo flatpak install flathub com.obsproject.Studio
-$ sudo flatpak install flathub com.spotify.Client
+$ flatpak install flathub com.discordapp.Discord
+$ flatpak install flathub com.brave.Browser
+$ flatpak install flathub com.obsproject.Studio
+$ flatpak install flathub com.spotify.Client
 
 --------------------------------------------------------------------------------
 --                                 Browser
 --------------------------------------------------------------------------------
 
-! Add the following extensions
+New Tab
+  Customisepacman install specific package within group
+    Background images: Disable
+
+Settings
+  Appearance
+    ToolBar
+      Disable "Show Brave News Button"
+      Disable "Show Brave Rewards Button"
+      Disable "Show Brave Wallet Button"
+      Disable "Show sidebar button"
+      Disable "Leo AI assistant"
+    Sidebar
+      Set "Show Sidebar" to "Never"
+  Search Engine
+    DuckDuckGo
+
+Add the following extensions
   1Password
   DeArrow - Better Titles and thumbnails
     Replace Thumbnails  - Unchecked (we remove them anyway)
@@ -239,12 +243,38 @@ $ sudo flatpak install flathub com.spotify.Client
   SponsorBlock for YouTube - Skip Sonsorships
 
 --------------------------------------------------------------------------------
+--                               Setup Kitty
+--------------------------------------------------------------------------------
+
+-- https://starship.rs/
+
+$ sudo pacman -S kitty fastfetch starship otf-firamono-nerd
+
+! List available fonts
+$ kitty +list-fonts --ps-names
+
+! Kitty > Ctrl-Shift-F2 
+! set font_family
+  font_family FiraCode Nerd Font Mono Reg
+  background #0a0a0a
+  background_opacity 0.90
+
+! Add `eval "$(starship init bash)"` to ~/.bashrc
+! Add `fastfetch` to ~/.bashrc
+
+-- Blesh auto suggestions <https://github.com/akinomyoga/ble.sh>
+$ yay -S blesh
+> ~/.blerc
+  Copy contents from  <https://github.com/akinomyoga/ble.sh/blob/master/blerc.template>
+! Add `source /usr/share/blesh/ble.sh` to ~/.bashrc
+
+--------------------------------------------------------------------------------
 --                           USB Debugging Utilities
 --------------------------------------------------------------------------------
 
 $ sudo pacman -S evtest joyutils game-devices-udev
 -- joyutils for `jstest`
--- TODO: Figure out why joysticks aren't accessible within xorg session
+-- TODO: Figure out why joysticks aren't accessible within xorg session?
 
 --------------------------------------------------------------------------------
 --                           Wooting Keyboard Setup
@@ -279,35 +309,8 @@ $ sudo udevadm control --reload-rules && sudo udevadm trigger
 $ sudo pacman -S steam
 $ mkdir ~/.steam/root/compatibilitytools.d
 ! Download latest release from <https://github.com/GloriousEggroll/proton-ge-custom/releases>
-$ tar -xf GE-ProtonVERSION.tar.gz -C ~/.steam/root/compatibilitytools.d/
+$ tar -xf GE-Proton9.7.tar.gz -C ~/.steam/root/compatibilitytools.d/
 ! Restart Steam to udpate Proton versions
-
---------------------------------------------------------------------------------
---                               Setup Kitty
---------------------------------------------------------------------------------
-
--- https://starship.rs/
-
-$ sudo pacman -S kitty fastfetch starship nerd-fonts
-! Select firacode nerd font
-
-! List available fonts
-$ kitty +list-fonts --ps-names
-
-! Kitty > Ctrl-Shift-F2 
-! set font_family
-  font_family FiraCode Nerd Font Mono Reg
-  background #0a0a0a
-  background_opacity 0.90
-
-! Add `eval "$(starship init bash)"` to ~/.bashrc
-! Add `fastfetch` to ~/.bashrc
-
--- Blesh auto suggestions <https://github.com/akinomyoga/ble.sh>
-$ sudo pacman -S blesh
-> ~/.blerc
-  Copy contents from  <https://github.com/akinomyoga/ble.sh/blob/master/blerc.template>
-! Add `source /usr/share/blesh/ble.sh` to ~/.bashrc
 
 --------------------------------------------------------------------------------
 --                                ExpressVPN
