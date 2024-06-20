@@ -6,15 +6,6 @@ $ loadkeys uk
 $ timedatectl
 
 --------------------------------------------------------------------------------
---                          Git Credential Manager
---------------------------------------------------------------------------------
-
-curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/download/gcm-linux_amd64.2.5.0.tar.gz
-sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
-git-credential-manager configure
-export GCM_CREDENTIAL_STORE=cache
-
---------------------------------------------------------------------------------
 --                               Drive setup
 --------------------------------------------------------------------------------
 
@@ -44,7 +35,7 @@ $ arch-chroot /mnt
 --                         Install common packages
 --------------------------------------------------------------------------------
 
-$ pacman -S grub efibootmgr nano sudo
+$ pacman -S grub efibootmgr vim sudo less code
 
 --------------------------------------------------------------------------------
 --                      Configure locale persistently
@@ -75,10 +66,10 @@ $ passwd
   ...
 
 $ useradd -m -g users -G wheel -s /bin/bash darian
-$ passwd
+$ passwd darian
   ...
 
-$ sudo nano /etc/sudoers
+$ visudo
   Uncomment:
   %wheel ALL=(ALL:ALL) NOPASSWD: ALL
 
@@ -109,6 +100,29 @@ $ sudo nano /etc/systemd/network/20-wired.network
   [Network]
   DHCP=yes
 $ networkctl reload
+
+--------------------------------------------------------------------------------
+--                                GPG Keys
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S pass
+$ gpg --gen-key
+$ gpg --export-secret-keys | gpg2 --import
+$ pass init <gpg-id>
+! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
+
+--------------------------------------------------------------------------------
+--                          Git Credential Manager
+--------------------------------------------------------------------------------
+
+curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/download/gcm-linux_amd64.2.5.0.tar.gz
+sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
+git-credential-manager configure
+export GCM_CREDENTIAL_STORE=cache
+
+git config --global credential.credentialStore gpg
+git config --global user.name "Darianopolis"
+git config --global user.email "darianopolis@gmail.com
 
 --------------------------------------------------------------------------------
 --                         Setup yay AUR helper
@@ -163,9 +177,9 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg
   FILES=(/etc/modprobe.d/nvidia.conf)
 $ sudo mkinitcpio -P
 $ sudo systemctl enable nvidia-suspend.service
-$ sudo systemctl enable nvidia-hibernate.service
 $ sudo systemctl enable nvidia-resume.service
-$ reboot
+$!! sudo systemctl enable nvidia-hibernate.service
+!! reboot for changes to take effect
 
 --------------------------------------------------------------------------------
 --                              Pipewire audio
@@ -190,6 +204,13 @@ $ chmod +x ~/plasma
 ! KZones properties:
   ! Untick: `Remember and restore window geometries`
   ! Set layout to contents of <kzones.layout.json>
+
+-- use qt5 pinentry program so that KWallet doesn't crash
+-- TODO: Use alternative wallet?
+-- TODO: Fallback gpg-agent for TTY
+$ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
+$ echo RELOADAGENT | gpg-connect-agent
+! see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
 
 --------------------------------------------------------------------------------
 --                             Common Flatpaks
