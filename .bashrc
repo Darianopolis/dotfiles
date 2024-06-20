@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# ble.sh start
+source "/usr/share/blesh/ble.sh" --noattach
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -25,8 +28,7 @@ eval "$(starship init bash)"
 
 # Show fastfetch
 fastfetch
-
 echo ""
 
 # ble.sh auto suggestions
-source /usr/share/blesh/ble.sh
+[[ ${BLE_VERSION-} ]] && ble-attach
