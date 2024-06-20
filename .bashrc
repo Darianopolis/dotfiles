@@ -30,5 +30,8 @@ eval "$(starship init bash)"
 fastfetch
 echo ""
 
+# Add ~/go/bin to path
+export PATH="$PATH:$HOME/go/bin"
+
 # ble.sh auto suggestions
 [[ ${BLE_VERSION-} ]] && ble-attach
