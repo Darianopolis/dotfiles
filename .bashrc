@@ -30,8 +30,10 @@ eval "$(starship init bash)"
 fastfetch
 echo ""
 
-# Add ~/go/bin to path
+# Add user package locations
 export PATH="$PATH:$HOME/go/bin"
+export LD_LIBRARY_PATH="/usr/local/lib"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # ble.sh auto suggestions
 [[ ${BLE_VERSION-} ]] && ble-attach

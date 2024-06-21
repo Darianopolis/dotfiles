@@ -27,7 +27,7 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less code cmake ninja flatpak
+$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less code cmake ninja meson flatpak
 $ genfstab -U /mnt >> /mnt/etc/fstab
 $ arch-chroot /mnt
 
@@ -96,19 +96,23 @@ $ pass init <gpg-id>
 ! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
 
 --------------------------------------------------------------------------------
---                          Git Credential Manager
+--                                  Git
 --------------------------------------------------------------------------------
 
--- curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/2.5.0/download/gcm-linux_amd64.2.5.0.tar.gz
--- sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
--- rm gcm-linux_amd64.2.5.0.tar.gz
+-- Manual (lightest instal)
+! Replace 2.5.0 with current latest version
+$ curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/2.5.0/download/gcm-linux_amd64.2.5.0.tar.gz
+$ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
+$ rm gcm-linux_amd64.2.5.0.tar.gz
 
-curl -L https://aka.ms/gcm/linux-install-source.sh | sh
--- TODO: Why does this script install so much?
+-- Automatic (installs a bunch of extra stuff)
+$ curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+
 git-credential-manager configure
 export GCM_CREDENTIAL_STORE=cache
 
 git config --global credential.credentialStore gpg
+git config --global core.editor "nano"
 git config --global user.name "Darianopolis"
 git config --global user.email "darianopolis@gmail.com
 
@@ -359,6 +363,18 @@ $ git clone https://github.com/SaschaWillems/VulkanCapsViewer.git --recursive
 $ cd VulkanCapsViewer
 $ qmake -config release DEFINES+=WAYLAND
 $ make
+
+--------------------------------------------------------------------------------
+--                                 wlroots
+--------------------------------------------------------------------------------
+
+$ git clone https://gitlab.freedesktop.org/wlroots/wlroots.git &&
+$ cd wlroots
+! play package whackamole until everything is buildable
+$ sudo pacman -S wayland-protocols seatd libliftoff xcb-util-errors
+$ meson setup --reconfigure build/
+$ ninja -C build
+$ sudo ninja -C build/ install
 
 --------------------------------------------------------------------------------
 --                            Known bugs / issues
