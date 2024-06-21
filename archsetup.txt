@@ -68,6 +68,10 @@ $ visudo
   Uncomment:
   %wheel ALL=(ALL:ALL) NOPASSWD: ALL
 
+# Reduce lockout time to 5s
+> /etc/security/faillock.conf
+! Change `# unlock_time = 600` to `unlock_time = 5`
+
 --------------------------------------------------------------------------------
 --                                Networking
 --------------------------------------------------------------------------------
@@ -139,7 +143,7 @@ $ rm -rf yay
 --------------------------------------------------------------------------------
 
 $ sudo nano /etc/pacman.conf
-  Uncomment:
+-- Uncomment the following
   [multilib]
   Include = /etc/pacman.d/mirrorlist
 
@@ -160,24 +164,27 @@ $ sudo yay -S nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 -- To fix system corruption on sleep/resume
 
 $ sudo pacman -S linux-headers egl-wayland
-> /etc/default/grub
-  add `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
 
-!!! Instead of the following modprobe.d stuff, try adding `nvidia.NVreg_PreserveVideoMemoryAllocations=1` to `GRUB_CMDLINE_LINUX_DEFAULT` as well 
-!!! GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+> /etc/default/grub
+-- add `nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
+  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1"
 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
-? /etc/modprobe.d/nvidia.conf
-  options NVreg_PreserveVideoMemoryAllocations=1
+
 > /etc/mkinitcpio.conf
-! add to `MODULES` and `FILES`:
+-- add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to MODULES
   MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-  FILES=(/etc/modprobe.d/nvidia.conf)
+
+-- remove `kms` from `HOOKS` as per https://wiki.archlinux.org/title/NVIDIA > Installation > Step 5
+-- (this avoids dragging in the nouveau module just to be blacklisted later anyway)
+-- E.g BEFORE removal: HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems fsck)
+  HOOKS=(base udev autodetect microcode modconf keyboard keymap consolefont block filesystems fsck)
+
 $ sudo mkinitcpio -P
+
 $ sudo systemctl enable nvidia-suspend.service
 $ sudo systemctl enable nvidia-resume.service
-$!! sudo systemctl enable nvidia-hibernate.service
-!! reboot for changes to take effect
+-- $ sudo systemctl enable nvidia-hibernate.service
 
 --------------------------------------------------------------------------------
 --                              Pipewire audio
