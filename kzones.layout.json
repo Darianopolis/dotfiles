@@ -1,7 +1,7 @@
 [
     {
         "name": "Master Grid",
-        "padding":2,
+        "padding":0,
         "zones":[
             {"x":0,     "y":0, "height":50,"width":16.667},
             {"x":0,     "y":50,"height":50,"width":16.667},
@@ -43,7 +43,7 @@
     },
     {
         "name": "2/3rd Overlaps",
-        "padding":2,
+        "padding":0,
         "zones":[
             {"x":0,     "y":0,"height":100,"width":66.667},
             {"x":16.667,"y":0,"height":100,"width":66.667},

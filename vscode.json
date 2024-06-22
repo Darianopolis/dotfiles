@@ -1,0 +1,12 @@
+{
+    "workbench.sideBar.location": "right",
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.openRepositoryInParentFolders": "always",
+    "clangd.arguments": [
+        "--function-arg-placeholders=0"
+    ],
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+        ".slang": "slang"
+    }
+}

@@ -84,7 +84,7 @@ $ sudo nano /etc/systemd/network/20-wired.network
 ```
 [Match]
 Name=%NameOfNetworkAdapterFrom`networkctl`
-  
+
 [Network]
 DHCP=yes
 ```
@@ -210,8 +210,13 @@ $ chmod +x ~/plasma
   ! Untick: `Remember and restore window geometries`
   ! Set layout to contents of <kzones.layout.json>
 
--- use qt5 pinentry program so that KWallet doesn't crash
--- TODO: Use alternative wallet?
+-- KeePassXC
+$ sudo pacman -S keepassxc
+! KDE System Settings -> KDE Wallet -> Disable the KDE wallet subsystem
+! KeePassXC -> Tools -> Settings -> Secret Service Integration -> Enable KeepassXC Freedesktop.org Secret Service integration
+
+-- TODO: Is this still necessary with KeePassXC?
+-- Use qt5 pinentry program so that KWallet doesn't crash
 -- TODO: Fallback gpg-agent for TTY
 $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ echo RELOADAGENT | gpg-connect-agent
@@ -263,27 +268,14 @@ Add the following extensions
 --                               Setup Kitty
 --------------------------------------------------------------------------------
 
--- https://starship.rs/
+-- Starship Prompt  : https://starship.rs/
+-- Bash Suggestions : https://github.com/akinomyoga/ble.sh
 
 $ sudo pacman -S kitty fastfetch starship otf-firamono-nerd
-
-! List available fonts
-$ kitty +list-fonts --ps-names
-
-! Kitty > Ctrl-Shift-F2 
-! set font_family
-  font_family FiraCode Nerd Font Mono Reg
-  background #0a0a0a
-  background_opacity 0.90
-
-! Add `eval "$(starship init bash)"` to ~/.bashrc
-! Add `fastfetch` to ~/.bashrc
-
--- Blesh auto suggestions <https://github.com/akinomyoga/ble.sh>
 $ yay -S blesh
-> ~/.blerc
-  Copy contents from  <https://github.com/akinomyoga/ble.sh/blob/master/blerc.template>
-! Add `source /usr/share/blesh/ble.sh` to ~/.bashrc
+
+-- Helper function to list available fonts
+-- $ kitty +list-fonts --ps-names
 
 --------------------------------------------------------------------------------
 --                           USB Debugging Utilities
@@ -297,11 +289,29 @@ $ sudo pacman -S evtest joyutils game-devices-udev
 --                           UDev Configuration
 --------------------------------------------------------------------------------
 
-yay -S game-devices-udev
+$ yay -S game-devices-udev
+
+--------------------------------------------------------------------------------
+--                            Mouse Accel Drivers
+--------------------------------------------------------------------------------
+
+-- https://github.com/Gnarus-G/maccel
+-- Verify install.sh to make sure it hasn't been tampered with!
+
+$ curl -fsSL https://www.maccel.org/install.sh | sudo sh
+$ sudo usermod -aG maccel darian
+
+$ sudo maccel set accel 0.075
+$ sudo maccel set offset 2
+
+-- WARNING: DOES NOT WORK WITH GLORIOUS O MOUSE CURRENTLY
+$ sudo maccel bindall
 
 --------------------------------------------------------------------------------
 --                           Wooting Keyboard Setup
 --------------------------------------------------------------------------------
+
+-- https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules
 
 > /etc/udev/rules.d/70-wooting.rules
 ```
@@ -334,6 +344,13 @@ $ mkdir ~/.steam/root/compatibilitytools.d
 ! Download latest release from <https://github.com/GloriousEggroll/proton-ge-custom/releases>
 $ tar -xf GE-Proton9.7.tar.gz -C ~/.steam/root/compatibilitytools.d/
 ! Restart Steam to udpate Proton versions
+
+-- Euro Truck Simulator 2 Virtual Cursor Fix
+
+-- Might need to adjust path for different /compatdata/xxxxxx/
+> ~/.local/share/Steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro Truck Simulator 2/config.cfg
+! Modify `i_virtual_cursor_speed` to set cursor speed to 0
+uset i_virtual_cursor_speed "0"
 
 --------------------------------------------------------------------------------
 --                                ExpressVPN
@@ -393,7 +410,7 @@ $ sudo ninja -C build/ install
 --                            Known bugs / issues
 --------------------------------------------------------------------------------
 
-Brave 
+Brave
   - Video fullscreen spilling out of screen when window not previously maximized
       https://www.reddit.com/r/kde/comments/1dg33mg/fullscreen_invading_other_monitor/
 
@@ -415,3 +432,6 @@ Investigate Exquisite as an alternative to KZones?
   https://github.com/qewer33/Exquisite
 
 Migrate from 1Password to free open source alternative?
+
+Load from UEFI directly and drop GRUB?
+  https://wiki.archlinux.org/title/EFISTUB

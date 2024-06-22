@@ -7,3 +7,4 @@ echo "Setting up dotfiles from: $(pwd)"
 ln -fs $(pwd)/.bashrc ~/.bashrc
 ln -fs $(pwd)/.blerc ~/.blerc
 ln -f  $(pwd)/kitty.conf ~/.config/kitty/kitty.conf
+ln -fs $(pwd)/vscode.json $HOME/.config/Code\ -\ OSS/User/settings.json
