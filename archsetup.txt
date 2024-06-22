@@ -219,6 +219,11 @@ $ chmod +x ~/plasma
   startx /usr/bin/startplasma-x11
 $ chmod +x ~/plasmax
 
+! KRunner: Centre
+! Theme: Plasma Dark
+
+! KDE System Settings > Keyboard > Shortcuts > KRunner > KRunner > Add Custom Shortcut: Ctrl+Shift+Space
+
 -- KZones: <https://github.com/SinanAkkoyun/kde-kzone>
 ! KWin Script > Get New > KZones
 ! KZones properties:
@@ -243,10 +248,14 @@ $ echo RELOADAGENT | gpg-connect-agent
 !                                          > Turn off screen: Never
 ! KDE > System Settings > Screen Locking > Lock screen automatically: Never
 
--- Fix mouse default settings
+-- Keyboard settings
+! KDE > System Settings > Keyboard > Layouts > Configure Layout: Enable > Add Layout: English (UK) (map = gb)
+
+-- Mouse settings
 ! KDE > System Settings > Mouse & Touchpad > Screen Edges > Edge Barrier: None
 !                                          > Mouse > Pointer Speed:        0.20
 !                                                  > Pointer Acceleration: None
+!                       > Accessibility > Shake Cursor: Disable
 
 -- TODO: Migrate all this to stored .config files
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
@@ -436,10 +445,7 @@ $ sudo ninja -C build/ install
 --                                 TODO
 --------------------------------------------------------------------------------
 
-Pick and install calculator
-  https://askubuntu.com/questions/1078571/powerful-gui-calculator-for-linux
-
-Setup bash prompt
+Impproved bash prompt setup?
   https://www.youtube.com/watch?v=0phdCAFFicY&list=PLhJQdULc4pyWR-u84ATOcNdG72ynrzls3&index=8
 
 Investigate Exquisite as an alternative to KZones?
@@ -449,3 +455,7 @@ Migrate from 1Password to free open source alternative?
 
 Load from UEFI directly and drop GRUB?
   https://wiki.archlinux.org/title/EFISTUB
+
+Freeze on suspend
+  Related issue: "System stays frozen after suspend" https://github.com/systemd/systemd/issues/33269
+  Seems to be fixed in kernel 6.9.6, released 21st June https://lwn.net/Articles/979263/
