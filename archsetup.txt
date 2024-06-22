@@ -175,8 +175,10 @@ $ sudo yay -S nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 $ sudo pacman -S linux-headers egl-wayland
 
 > /etc/default/grub
--- add `nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
-  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+-- add `nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia.NVreg_TemporaryFilePath=/var/tmp nvidia.NVreg_UsePageAttributeTable=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
+  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia.NVreg_TemporaryFilePath=/var/tmp nvidia.NVreg_UsePageAttributeTable=1"
+
+-- TODO: What about `nvidia_drm.fbdev=1`? Causes black screen when launching KDE Plasma in Wayland
 
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -205,13 +207,17 @@ $ sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-puls
 --                                   KDE
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S plasma-meta
+$ sudo pacman -S plasma-meta xorg-xinit
 -- TODO: Minimal plasma-desktop install?
 -- Create a launch script
 > ~/plasma
   #!/bin/bash
   /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
 $ chmod +x ~/plasma
+> ~/plasmax
+  #!/bin/bash
+  startx /usr/bin/startplasma-x11
+$ chmod +x ~/plasmax
 
 -- KZones: <https://github.com/SinanAkkoyun/kde-kzone>
 ! KWin Script > Get New > KZones
@@ -230,6 +236,12 @@ $ sudo pacman -S keepassxc
 $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ echo RELOADAGENT | gpg-connect-agent
 ! see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
+
+-- Fix mouse default settings
+! KDE > System Settings > Mouse & Touchpad > Screen Edges > Edge Barrier: None
+!                                          > Mouse > Pointer Speed:        0.20
+!                                                  > Pointer Acceleration: None
+-- Remember to check this setting if something changes, KDE defaults to acceleration on
 
 --------------------------------------------------------------------------------
 --                             Common Flatpaks
