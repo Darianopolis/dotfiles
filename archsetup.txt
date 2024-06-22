@@ -54,6 +54,15 @@ $ grub-install --target=x86_64-efi --efi-directory=/boot bootloader-id=GRUB
 $ grub-mkconfig -o /boot/grub/grub.cfg
 
 --------------------------------------------------------------------------------
+--                               Swapfile
+--------------------------------------------------------------------------------
+
+$ mkswap -U clear --size 96G --file /swapfile
+> /etc/fstab
+! Add the following line:
+/swapfile none swap defaults 0 0
+
+--------------------------------------------------------------------------------
 --                                Users
 --------------------------------------------------------------------------------
 
@@ -184,7 +193,7 @@ $ sudo mkinitcpio -P
 
 $ sudo systemctl enable nvidia-suspend.service
 $ sudo systemctl enable nvidia-resume.service
--- $ sudo systemctl enable nvidia-hibernate.service
+$ sudo systemctl enable nvidia-hibernate.service
 
 --------------------------------------------------------------------------------
 --                              Pipewire audio
@@ -298,13 +307,15 @@ $ yay -S game-devices-udev
 -- https://github.com/Gnarus-G/maccel
 -- Verify install.sh to make sure it hasn't been tampered with!
 
-$ curl -fsSL https://www.maccel.org/install.sh | sudo sh
+! Download https://www.maccel.org/install.sh
+! add `--branch feat/leetmouse-hid-parser` to `git clone` line
+$ sudo sh install.sh
 $ sudo usermod -aG maccel darian
 
+$ sudo maccel set sens-mult 0.5
 $ sudo maccel set accel 0.075
 $ sudo maccel set offset 2
 
--- WARNING: DOES NOT WORK WITH GLORIOUS O MOUSE CURRENTLY
 $ sudo maccel bindall
 
 --------------------------------------------------------------------------------
@@ -405,18 +416,6 @@ $ sudo pacman -S wayland-protocols seatd libliftoff xcb-util-errors
 $ meson setup --reconfigure build/
 $ ninja -C build
 $ sudo ninja -C build/ install
-
---------------------------------------------------------------------------------
---                            Known bugs / issues
---------------------------------------------------------------------------------
-
-Brave
-  - Video fullscreen spilling out of screen when window not previously maximized
-      https://www.reddit.com/r/kde/comments/1dg33mg/fullscreen_invading_other_monitor/
-
-KZones
-  - Sometimes places windows a pixels out of alignment
-  - Sometimes breaks window resize zones
 
 --------------------------------------------------------------------------------
 --                                 TODO

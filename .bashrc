@@ -20,6 +20,7 @@ if ! shopt -oq posix; then
 fi
 
 alias ls='ls --color=auto --all'
+alias ll='ls -l --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
