@@ -22,7 +22,7 @@ $ mkfs.fat -F32 /dev/nvme0n1p1
 $ mkfs.ext4 /dev/nvme0n1p2
 
 --------------------------------------------------------------------------------
---                             Bootstrap Arch
+--                              Bootstrap Arch
 --------------------------------------------------------------------------------
 
 $ mount /dev/nvme0n1p2 /mnt
@@ -46,7 +46,7 @@ $ echo "LANG=en_GB.UTF-8" > /etc/locale.conf
 $ echo "KEYMAP=uk" > /etc/vconsole.conf
 
 --------------------------------------------------------------------------------
---                            GRUB Bootloader
+--                              GRUB Bootloader
 --------------------------------------------------------------------------------
 
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
@@ -54,7 +54,7 @@ $ grub-install --target=x86_64-efi --efi-directory=/boot bootloader-id=GRUB
 $ grub-mkconfig -o /boot/grub/grub.cfg
 
 --------------------------------------------------------------------------------
---                               Swapfile
+--                                 Swapfile
 --------------------------------------------------------------------------------
 
 $ mkswap -U clear --size 96G --file /swapfile
@@ -63,7 +63,7 @@ $ mkswap -U clear --size 96G --file /swapfile
 /swapfile none swap defaults 0 0
 
 --------------------------------------------------------------------------------
---                                Users
+--                                  Users
 --------------------------------------------------------------------------------
 
 $ passwd
@@ -82,7 +82,7 @@ $ visudo
 ! Change `# unlock_time = 600` to `unlock_time = 5`
 
 --------------------------------------------------------------------------------
---                                Networking
+--                               Networking
 --------------------------------------------------------------------------------
 
 $ echo "darian" > /etc/hostname
@@ -99,7 +99,7 @@ DHCP=yes
 ```
 
 --------------------------------------------------------------------------------
---                           SysRq shortcut Enable
+--                          SysRq shortcut Enable
 --------------------------------------------------------------------------------
 
 echo "kernel.sysrq=1" > /etc/sysctl.d/99-sysctl.conf
@@ -136,7 +136,7 @@ git config --global user.name "Darianopolis"
 git config --global user.email "darianopolis@gmail.com
 
 --------------------------------------------------------------------------------
---                         Setup yay AUR helper
+--                           Setup yay AUR helper
 --------------------------------------------------------------------------------
 
 ! <https://itsfoss.com/install-yay-arch-linux/>
@@ -148,7 +148,7 @@ $ cd ..
 $ rm -rf yay
 
 --------------------------------------------------------------------------------
---                 Enable multilib for 32 bit applications
+--                  Enable multilib for 32 bit applications
 --------------------------------------------------------------------------------
 
 $ sudo nano /etc/pacman.conf
@@ -157,7 +157,7 @@ $ sudo nano /etc/pacman.conf
   Include = /etc/pacman.d/mirrorlist
 
 --------------------------------------------------------------------------------
---                           NVIDIA beta drivers
+--                            NVIDIA beta drivers
 --------------------------------------------------------------------------------
 
 -- Remove old drivers if necessary
@@ -198,7 +198,7 @@ $ sudo systemctl enable nvidia-resume.service
 $ sudo systemctl enable nvidia-hibernate.service
 
 --------------------------------------------------------------------------------
---                              Pipewire audio
+--                                 Pipewire
 --------------------------------------------------------------------------------
 
 $ sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack
@@ -237,11 +237,19 @@ $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ echo RELOADAGENT | gpg-connect-agent
 ! see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
 
+-- Disable automatic sleep / display lock
+! KDE > System Settings > Power Management > After a period of inactivity: Do Nothing
+!                                          > Dim automatically: Never
+!                                          > Turn off screen: Never
+! KDE > System Settings > Screen Locking > Lock screen automatically: Never
+
 -- Fix mouse default settings
 ! KDE > System Settings > Mouse & Touchpad > Screen Edges > Edge Barrier: None
 !                                          > Mouse > Pointer Speed:        0.20
 !                                                  > Pointer Acceleration: None
--- Remember to check this setting if something changes, KDE defaults to acceleration on
+
+-- TODO: Migrate all this to stored .config files
+--       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
 
 --------------------------------------------------------------------------------
 --                             Common Flatpaks
@@ -286,7 +294,7 @@ Add the following extensions
   SponsorBlock for YouTube - Skip Sonsorships
 
 --------------------------------------------------------------------------------
---                               Setup Kitty
+--                                  Kitty
 --------------------------------------------------------------------------------
 
 -- Starship Prompt  : https://starship.rs/
@@ -299,18 +307,13 @@ $ yay -S blesh
 -- $ kitty +list-fonts --ps-names
 
 --------------------------------------------------------------------------------
---                           USB Debugging Utilities
---------------------------------------------------------------------------------
-
-$ sudo pacman -S evtest joyutils game-devices-udev
--- joyutils for `jstest`
--- TODO: Figure out why joysticks aren't accessible within xorg session?
-
---------------------------------------------------------------------------------
---                           UDev Configuration
+--                               USB Devices
 --------------------------------------------------------------------------------
 
 $ yay -S game-devices-udev
+$ sudo pacman -S evtest joyutils
+-- joyutils for `jstest`
+-- TODO: Figure out why joysticks aren't accessible within xorg session?
 
 --------------------------------------------------------------------------------
 --                            Mouse Accel Drivers
