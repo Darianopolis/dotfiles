@@ -5,11 +5,18 @@ Arch Maintenance - https://wiki.archlinux.org/title/System_maintenance
     ! Also check in /var/logs
     BEFORE UPDATING: Check https://archlinux.org/ for any posts about manual intervention required on update
 
+    Clean up systemd logs
+
+        journalctl --rotate                 Rotates out current log file to free it up for vacuuming
+        journalctl -m --vacuum-time=1s      Merges journals and then cleans them up based on time (changed 1s for time desired)
+
 Packages
 
     pacman
+
         -Syu                    System Upgrade
         -Qe                     Show explicitly installed packages
+        -Qm                     Show unoffical (AUR) installed packages
         -Rns                    Remove packages (R), Remove configuration (n), Remove unnused dependencies (s)
 
 Process management
@@ -17,12 +24,13 @@ Process management
     ps -A | grep process_name   List processes matching name
     pkill -ef process_name      Kill processes matching name and print output
 
-Keyboard debugging
+Input debugging
 
     $ showkeys              Shows keycodes for all key entries
     $ wev                   Show Wayland keycode events
     $ xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
                             Show X keycode events
+    $ evtest                Show raw input event information for devices
 
 X debugging
 

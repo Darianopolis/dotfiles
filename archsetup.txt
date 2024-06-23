@@ -63,6 +63,17 @@ $ mkswap -U clear --size 96G --file /swapfile
 /swapfile none swap defaults 0 0
 
 --------------------------------------------------------------------------------
+--                               Systemd logs
+--------------------------------------------------------------------------------
+
+mkdir /etc/systemd/journald.conf.d
+> /etc/systemd/journald.conf.d/10-maxsize.conf
+[Journal]
+SystemMaxUse=100M
+
+$ sudo systemctl restart systemd-journald
+
+--------------------------------------------------------------------------------
 --                                  Users
 --------------------------------------------------------------------------------
 
@@ -254,12 +265,17 @@ $ echo RELOADAGENT | gpg-connect-agent
 !                                          > Dim automatically: Never
 !                                          > Turn off screen: Never
 ! System Settings > Screen Locking > Lock screen automatically: Never
+!                                  > Lock after waking from sleep: Disabled
 
 -- Mouse settings
-! System Settings > Mouse & Touchpad > Screen Edges > Edge Barrier: None
-!                                          > Mouse > Pointer Speed:        0.20
-!                                                  > Pointer Acceleration: None
-!                       > Accessibility > Shake Cursor: Disable
+! System Settings > Mouse & Touchpad > Screen Edges > Screen Top-Left: No Action
+!                                                   > Maximize (Windows dragged to top edge): Disabled
+!                                                   > Tile (Windows dragged to left or right edge): Disabled
+!                                                   > Corner barrier: Disabled
+!                                                   > Edge Barrier: None
+!                                    > Mouse > Pointer Speed:        0.20
+!                                            > Pointer Acceleration: None
+!                 > Accessibility > Shake Cursor: Disable
 
 -- TODO: Migrate all this to stored .config files
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
@@ -344,6 +360,10 @@ $ sudo maccel set offset 2
 
 $ sudo maccel bindall
 
+IMPORTANT: *uninstall* before booting into updated kernel or you will break mouse input
+  $ sh /opt/maccel/uninstall.sh
+  reboot, then reinstall with above instructions
+
 --------------------------------------------------------------------------------
 --                           Wooting Keyboard Setup
 --------------------------------------------------------------------------------
@@ -371,6 +391,8 @@ SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", TAG+="uaccess"
 ```
 $ sudo udevadm control --reload-rules && sudo udevadm trigger
+
+TODO: Check if "mouse" device was causing menu issues in Elite Dangerous - "Wooting Wooting Two HE (ARM) Mouse"
 
 --------------------------------------------------------------------------------
 --                             Steam + Proton GE
