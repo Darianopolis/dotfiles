@@ -24,17 +24,22 @@ alias ll='ls -lh --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# History
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch"
+
+# Add user package locations
+export PATH="$PATH:$HOME/go/bin"
+export LD_LIBRARY_PATH="/usr/local/lib"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+
 # Starship prompt
 eval "$(starship init bash)"
 
 # Show fastfetch
 fastfetch
 echo ""
-
-# Add user package locations
-export PATH="$PATH:$HOME/go/bin"
-export LD_LIBRARY_PATH="/usr/local/lib"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # ble.sh auto suggestions
 [[ ${BLE_VERSION-} ]] && ble-attach

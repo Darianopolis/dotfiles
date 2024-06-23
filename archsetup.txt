@@ -219,20 +219,9 @@ $ chmod +x ~/plasma
   startx /usr/bin/startplasma-x11
 $ chmod +x ~/plasmax
 
-! KRunner: Centre
-! Theme: Plasma Dark
-
-! KDE System Settings > Keyboard > Shortcuts > KRunner > KRunner > Add Custom Shortcut: Ctrl+Shift+Space
-
--- KZones: <https://github.com/SinanAkkoyun/kde-kzone>
-! KWin Script > Get New > KZones
-! KZones properties:
-  ! Untick: `Remember and restore window geometries`
-  ! Set layout to contents of <kzones.layout.json>
-
 -- KeePassXC
 $ sudo pacman -S keepassxc
-! KDE System Settings -> KDE Wallet -> Disable the KDE wallet subsystem
+! System Settings -> KDE Wallet -> Disable the KDE wallet subsystem
 ! KeePassXC -> Tools -> Settings -> Secret Service Integration -> Enable KeepassXC Freedesktop.org Secret Service integration
 
 -- TODO: Is this still necessary with KeePassXC?
@@ -242,17 +231,32 @@ $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ echo RELOADAGENT | gpg-connect-agent
 ! see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
 
--- Disable automatic sleep / display lock
-! KDE > System Settings > Power Management > After a period of inactivity: Do Nothing
-!                                          > Dim automatically: Never
-!                                          > Turn off screen: Never
-! KDE > System Settings > Screen Locking > Lock screen automatically: Never
+-- Styling
+! System Settings > Colours & Themes > Global Theme: Breeze Dark
+! System Settings > Window Management > Desktop Effects > Blur > Blur strength: 4th notch
+!                                                              > Noise strength: 6th notch
 
 -- Keyboard settings
-! KDE > System Settings > Keyboard > Layouts > Configure Layout: Enable > Add Layout: English (UK) (map = gb)
+! System Settings > Keyboard > Layouts > Configure Layout: Enable > Add Layout: English (UK) (map = gb)
+
+-- KRunner
+! System Settings > Plasma Search > Configure KRunner > Position on screen: Centre
+! System Settings > Keyboard > Shortcuts > KRunner > KRunner > Add Custom Shortcut: Ctrl+Shift+Space
+
+-- KZones: <https://github.com/SinanAkkoyun/kde-kzone>
+! KWin Script > Get New > KZones
+! KZones properties:
+  ! Untick: `Remember and restore window geometries`
+  ! Set layout to contents of <kzones.layout.json>
+
+-- Disable automatic sleep / display lock
+! System Settings > Power Management > After a period of inactivity: Do Nothing
+!                                          > Dim automatically: Never
+!                                          > Turn off screen: Never
+! System Settings > Screen Locking > Lock screen automatically: Never
 
 -- Mouse settings
-! KDE > System Settings > Mouse & Touchpad > Screen Edges > Edge Barrier: None
+! System Settings > Mouse & Touchpad > Screen Edges > Edge Barrier: None
 !                                          > Mouse > Pointer Speed:        0.20
 !                                                  > Pointer Acceleration: None
 !                       > Accessibility > Shake Cursor: Disable
@@ -330,6 +334,7 @@ $ sudo pacman -S evtest joyutils
 
 -- https://github.com/Gnarus-G/maccel
 -- Verify install.sh to make sure it hasn't been tampered with!
+-- Fix branch referenced by issue: <https://github.com/Gnarus-G/maccel/issues/9>
 
 ! Download https://www.maccel.org/install.sh
 ! add `--branch feat/leetmouse-hid-parser` to `git clone` line
@@ -422,7 +427,7 @@ $ go install github.com/boyter/scc@master
 --                                Vulkan dev
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S vulkan-devel
+$ sudo pacman -S vulkan-devel renderdoc
 
 $ git clone https://github.com/SaschaWillems/VulkanCapsViewer.git --recursive
 $ cd VulkanCapsViewer
