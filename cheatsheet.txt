@@ -1,3 +1,10 @@
+Arch Maintenance - https://wiki.archlinux.org/title/System_maintenance
+
+    $ systemctl --failed        Check for failed systemd services
+    $ journalctl -b             Check for errors in systemd journal
+    ! Also check in /var/logs
+    BEFORE UPDATING: Check https://archlinux.org/ for any posts about manual intervention required on update
+
 Packages
 
     pacman
@@ -21,6 +28,18 @@ X debugging
 
     $ xinit /usr/bin/xterm -- :N        Start a fresh X.org session running xterm on VTY N
 
-Systemd debugging
+Desktop files
 
-    $ journalctl            Dump systemd logs
+    ~/.local/share/applications
+
+Steam
+
+    ~/.local/share/Steam/steamapps
+
+AppImageLauncher
+
+    ail-cli
+
+Kitty
+
+    kitty +list-fonts --ps-names        Show available fonts

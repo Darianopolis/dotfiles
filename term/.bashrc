@@ -30,7 +30,7 @@ export HISTFILESIZE=10000
 export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch"
 
 # Add user package locations
-export PATH="$PATH:$HOME/go/bin"
+export PATH="~/.local/bin:$PATH:$HOME/go/bin"
 export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 

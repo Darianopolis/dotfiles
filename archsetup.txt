@@ -307,7 +307,7 @@ Add the following extensions
   SponsorBlock for YouTube - Skip Sonsorships
 
 --------------------------------------------------------------------------------
---                                  Kitty
+--                            Kitty + Terminal Setup
 --------------------------------------------------------------------------------
 
 -- Starship Prompt  : https://starship.rs/
@@ -316,11 +316,8 @@ Add the following extensions
 $ sudo pacman -S kitty fastfetch starship otf-firamono-nerd
 $ yay -S blesh
 
--- Helper function to list available fonts
--- $ kitty +list-fonts --ps-names
-
 --------------------------------------------------------------------------------
---                               USB Devices
+--                                USB Devices
 --------------------------------------------------------------------------------
 
 $ yay -S game-devices-udev
@@ -399,8 +396,8 @@ uset i_virtual_cursor_speed "0"
 $ yay -S expressvpn
 $ sudo systemctl enable expressvpn
 $ sudo systemctl start expressvpn
-$ expressvpn preferences set network_lock off
 $ expressvpn activate
+$ expressvpn preferences set network_lock off
 $ expressvpn connect
 
 --------------------------------------------------------------------------------
@@ -433,6 +430,7 @@ $ git clone https://github.com/SaschaWillems/VulkanCapsViewer.git --recursive
 $ cd VulkanCapsViewer
 $ qmake -config release DEFINES+=WAYLAND
 $ make
+TODO: Add .desktop file
 
 --------------------------------------------------------------------------------
 --                                 wlroots
@@ -460,6 +458,16 @@ Migrate from 1Password to free open source alternative?
 
 Load from UEFI directly and drop GRUB?
   https://wiki.archlinux.org/title/EFISTUB
+
+KDE Tweaks
+  Always open krunner and window switcher on primary display?
+
+Set up AppImage manager
+  - AM - https://github.com/ivan-hc/AM
+  - AppMan - https://github.com/ivan-hc/AppMan
+  - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
+
+Move to "VS Code" instead of "Code - OSS" to get full plugin ecosystem
 
 Freeze on suspend
   Related issue: "System stays frozen after suspend" https://github.com/systemd/systemd/issues/33269
