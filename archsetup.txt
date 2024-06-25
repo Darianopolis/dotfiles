@@ -30,7 +30,7 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less tldr cmake ninja meson flatpak
+$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less tldr cmake ninja meson flatpak kitty
 $ genfstab -U /mnt >> /mnt/etc/fstab
 $ arch-chroot /mnt
 
@@ -117,37 +117,6 @@ DHCP=yes
 --------------------------------------------------------------------------------
 
 echo "kernel.sysrq=1" > /etc/sysctl.d/99-sysctl.conf
-
---------------------------------------------------------------------------------
---                                GPG Keys
---------------------------------------------------------------------------------
-
-$ sudo pacman -S pass
-$ gpg --gen-key
-$ gpg --export-secret-keys | gpg2 --import
-$ pass init <gpg-id>
-! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
-
---------------------------------------------------------------------------------
---                                  Git
---------------------------------------------------------------------------------
-
--- Manual (lightest instal)
-! Replace 2.5.0 with current latest version
-$ curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/2.5.0/download/gcm-linux_amd64.2.5.0.tar.gz
-$ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
-$ rm gcm-linux_amd64.2.5.0.tar.gz
-
--- Automatic (installs a bunch of extra stuff)
-$ curl -L https://aka.ms/gcm/linux-install-source.sh | sh
-
-git-credential-manager configure
-export GCM_CREDENTIAL_STORE=cache
-
-git config --global credential.credentialStore gpg
-git config --global core.editor "nano"
-git config --global user.name "Darianopolis"
-git config --global user.email "darianopolis@gmail.com
 
 --------------------------------------------------------------------------------
 --                           Setup yay AUR helper
@@ -281,12 +250,52 @@ $ echo RELOADAGENT | gpg-connect-agent
 -- TODO: Migrate all this to stored .config files
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
 
+--------------------------------------------------------------------------------
+--                              Terminal Setup
+--------------------------------------------------------------------------------
+
+-- Starship Prompt  : https://starship.rs/
+-- Bash Suggestions : https://github.com/akinomyoga/ble.sh
+
+$ sudo pacman -S fastfetch starship otf-firamono-nerd
+$ yay -S blesh
 
 --------------------------------------------------------------------------------
 --                                 VS Code
 --------------------------------------------------------------------------------
 
 $ yay -S visual-studio-code-bin
+
+--------------------------------------------------------------------------------
+--                                GPG Keys
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S pass
+$ gpg --gen-key
+$ gpg --export-secret-keys | gpg2 --import
+$ pass init <gpg-id>
+! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
+
+--------------------------------------------------------------------------------
+--                                  Git
+--------------------------------------------------------------------------------
+
+-- Manual (lightest install)
+! Replace 2.5.0 with current latest version
+$ curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/2.5.0/download/gcm-linux_amd64.2.5.0.tar.gz
+$ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
+$ rm gcm-linux_amd64.2.5.0.tar.gz
+
+-- Automatic (installs a bunch of extra stuff)
+$ curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+
+git-credential-manager configure
+export GCM_CREDENTIAL_STORE=cache
+
+git config --global credential.credentialStore gpg
+git config --global core.editor "nano"
+git config --global user.name "Darianopolis"
+git config --global user.email "darianopolis@gmail.com
 
 --------------------------------------------------------------------------------
 --                                 Firefox
@@ -376,16 +385,6 @@ Add the following extensions
 $ flatpak install flathub com.discordapp.Discord
 $ flatpak install flathub com.obsproject.Studio
 $ flatpak install flathub com.spotify.Client
-
---------------------------------------------------------------------------------
---                            Kitty + Terminal Setup
---------------------------------------------------------------------------------
-
--- Starship Prompt  : https://starship.rs/
--- Bash Suggestions : https://github.com/akinomyoga/ble.sh
-
-$ sudo pacman -S kitty fastfetch starship otf-firamono-nerd
-$ yay -S blesh
 
 --------------------------------------------------------------------------------
 --                                USB Devices
