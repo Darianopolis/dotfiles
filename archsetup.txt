@@ -9,6 +9,9 @@ $ timedatectl
 --                               Drive setup
 --------------------------------------------------------------------------------
 
+-- Also `cgdisk` for a graphical setup
+
+$ lsblk
 $ fdisk /dev/nvme0n1
   g
   n
@@ -27,7 +30,7 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less code cmake ninja meson flatpak
+$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less tldr code cmake ninja meson flatpak
 $ genfstab -U /mnt >> /mnt/etc/fstab
 $ arch-chroot /mnt
 
@@ -281,17 +284,56 @@ $ echo RELOADAGENT | gpg-connect-agent
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
 
 --------------------------------------------------------------------------------
---                             Common Flatpaks
+--                                 Firefox
 --------------------------------------------------------------------------------
 
-$ flatpak install flathub com.discordapp.Discord
+$ sudo pacman -S firefox
+
+! about:preferences > General > Startup > Open previous windows and tabs
+!                                       > Always check if Firefox is your default browser
+!                             > Language & Appearance > Website appearance: Dark
+!                             > Files and Applications > Downloads > Always ask you where to save files: Yes
+!                   > Home > Firefox Home Content > Shortcuts > Sponsored Shortcuts: Disabled
+!                                                 > Recent Activity: enabled
+!                                                                   > Pages saved to Pocket: Disabled
+!                   > Search > Default Search Engine: DuckDuckGo
+!                   > Privacy & Security > Passwords > Ask to save passwords: Disable
+!                                        > Autofill > Save and fill addresses: Disable
+!                                        > Save and fill payment methods: Disable
+!                                        > Firefox Data Collection and Use > Allow Firefox to send technical and interaction data to Mozilla: Disable
+
+Addons
+  1Password - Password Manager                    Password Manager
+
+  Privacy Badger                                  Privacy
+  AdBlocker Ultimate                              Privacy
+  uBlock Origin                                   Privacy
+  DuckDuckGo Privacy essentials                   Privacy
+  ClearURLs                                       Privacy
+  I don't care about cookies                      Privacy
+  Cookie AutoDelete                               Privacy
+    Whitelist:
+      *.youtube.com
+      *.google.com
+      *.amazon.co.uk
+      *.github.com
+    Settings > Extension Options > Show Notifications After Automatic Cleanup: Disabled
+
+  Copy PlainText                                  Utility
+  Search by Image                                 Utility
+  Tree Style Tab                                  Utility
+  Video Flipper                                   Utility
+
+  DeArrow                                         YouTube
+  Hide shorts for YouTube                         YouTube
+  Return YouTube Dislike                          YouTube
+  SponsorBlock for YouTube - Skip Sponsorships    YouTube
+
+--------------------------------------------------------------------------------
+--                                 Brave
+--------------------------------------------------------------------------------
+
 $ flatpak install flathub com.brave.Browser
-$ flatpak install flathub com.obsproject.Studio
-$ flatpak install flathub com.spotify.Client
-
---------------------------------------------------------------------------------
---                                 Browser
---------------------------------------------------------------------------------
 
 New Tab
   Customisepacman install specific package within group
@@ -321,6 +363,14 @@ Add the following extensions
   Hide YouTube thumbnails
   Return YouTube Dislikes
   SponsorBlock for YouTube - Skip Sonsorships
+
+--------------------------------------------------------------------------------
+--                             Common Flatpaks
+--------------------------------------------------------------------------------
+
+$ flatpak install flathub com.discordapp.Discord
+$ flatpak install flathub com.obsproject.Studio
+$ flatpak install flathub com.spotify.Client
 
 --------------------------------------------------------------------------------
 --                            Kitty + Terminal Setup
