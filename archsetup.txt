@@ -30,7 +30,7 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less tldr code cmake ninja meson flatpak
+$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode grub efibootmgr sudo wget vim less tldr cmake ninja meson flatpak
 $ genfstab -U /mnt >> /mnt/etc/fstab
 $ arch-chroot /mnt
 
@@ -221,9 +221,7 @@ $ sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-puls
 --                                   KDE
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S plasma-meta xorg-xinit
--- TODO: Minimal plasma-desktop install?
--- Create a launch script
+$ sudo pacman -S plasma-desktop xorg-xinit
 > ~/plasma
   #!/bin/bash
   /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
@@ -282,6 +280,13 @@ $ echo RELOADAGENT | gpg-connect-agent
 
 -- TODO: Migrate all this to stored .config files
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
+
+
+--------------------------------------------------------------------------------
+--                                 VS Code
+--------------------------------------------------------------------------------
+
+$ yay -S visual-studio-code-bin
 
 --------------------------------------------------------------------------------
 --                                 Firefox
@@ -538,8 +543,6 @@ Set up AppImage manager
   - AM - https://github.com/ivan-hc/AM
   - AppMan - https://github.com/ivan-hc/AppMan
   - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
-
-Move to "VS Code" instead of "Code - OSS" to get full plugin ecosystem
 
 Freeze on suspend
   Related issue: "System stays frozen after suspend" https://github.com/systemd/systemd/issues/33269

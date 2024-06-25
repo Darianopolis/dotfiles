@@ -8,5 +8,6 @@
     "files.trimTrailingWhitespace": true,
     "files.associations": {
         ".slang": "slang"
-    }
+    },
+    "window.titleBarStyle": "custom"
 }
