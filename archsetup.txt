@@ -292,7 +292,9 @@ X-AppImage-Version=wayland
 -- https://github.com/Gnarus-G/maccel
 -- Verify install.sh to make sure it hasn't been tampered with!
 
-$ curl -fsSL https://www.maccel.org/install.sh | sudo MACCEL_LEETMOUSE_HID_PARSER=1 sh
+$ cd /var/tmp
+$ curl -OL https://www.maccel.org/install.sh
+$ sudo MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
 $ sudo usermod -aG maccel darian
 
 $ sudo maccel set sens-mult 0.5
@@ -339,9 +341,6 @@ TODO: Check if "mouse" device was causing menu issues in Elite Dangerous - "Woot
 --                                KDE Plasma
 --------------------------------------------------------------------------------
 
-sudo pacman -S plasma-meta xorg-init kwalletmanager dolphin
-
-$ sudo pacman -S plasma-desktop xorg-xinit
 > ~/plasma
   #!/bin/bash
   /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
