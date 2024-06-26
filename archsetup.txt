@@ -519,7 +519,3 @@ Set up AppImage manager
   - AM - https://github.com/ivan-hc/AM
   - AppMan - https://github.com/ivan-hc/AppMan
   - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
-
-Freeze on suspend
-  Related issue: "System stays frozen after suspend" https://github.com/systemd/systemd/issues/33269
-  Seems to be fixed in kernel 6.9.6, released 21st June https://lwn.net/Articles/979263/
