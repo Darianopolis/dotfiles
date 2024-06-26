@@ -30,7 +30,7 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode
+$ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware amd-ucode
 $ genfstab -U /mnt >> /mnt/etc/fstab
 
 --------------------------------------------------------------------------------
@@ -99,7 +99,8 @@ $ mkdir /etc/systemd/journald.conf.d
 [Journal]
 SystemMaxUse=100M
 
-$ sudo systemctl restart systemd-journald
+-- Restart journald if editing at runtime
+-- $ sudo systemctl restart systemd-journald
 
 --------------------------------------------------------------------------------
 --                                  Users
@@ -114,7 +115,7 @@ $ passwd darian
 
 $ visudo
   Uncomment:
-  %wheel ALL=(ALL:ALL) NOPASSWD: ALL
+  %wheel ALL=(ALL:ALL): ALL
 
 # Reduce lockout time to 5s
 > /etc/security/faillock.conf
@@ -160,10 +161,10 @@ $ pacman -Syu
 --------------------------------------------------------------------------------
 
 -- Remove old drivers if necessary
-$ sudo yay -Rd --nodeps nvidia-dkms nvidia-utils lib32-nvidia-utils
+$ yay -Rd --nodeps nvidia-dkms nvidia-utils lib32-nvidia-utils
 -- `--nodeps` is used so Steam doesn't complain about having its dependencies removed.
 
-$ sudo yay -S nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
+$ yay -S nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 
 -- See <https://wiki.hyprland.org/Nvidia/>
 -- To fix wayland compositors crashing on launch
@@ -171,11 +172,11 @@ $ sudo yay -S nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 -- See<https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend>
 -- To fix system corruption on sleep/resume
 
-$ sudo pacman -S linux-headers egl-wayland
+$ sudo pacman -S egl-wayland
 
 > /etc/default/grub
--- add `nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia.NVreg_TemporaryFilePath=/var/tmp nvidia.NVreg_UsePageAttributeTable=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
-  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia.NVreg_TemporaryFilePath=/var/tmp nvidia.NVreg_UsePageAttributeTable=1"
+-- add `nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia.NVreg_TemporaryFilePath=/tmp nvidia.NVreg_UsePageAttributeTable=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=`
+  GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1 nvidia.NVreg_TemporaryFilePath=/tmp nvidia.NVreg_UsePageAttributeTable=1"
 
 -- TODO: What about `nvidia_drm.fbdev=1`? Causes black screen when launching KDE Plasma in Wayland
 
@@ -190,8 +191,6 @@ $ sudo pacman -S linux-headers egl-wayland
 
 $ sudo systemctl enable nvidia-suspend.service
 $ sudo systemctl enable nvidia-resume.service
-
--- grub-mkconfig && mkinitcpio if reinstalling / updating
 
 --------------------------------------------------------------------------------
 --                                  Reboot
@@ -209,7 +208,7 @@ $ reboot
 $ sudo pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack
 
 --------------------------------------------------------------------------------
---                                GPG Keys
+--                                 GPG Keys
 --------------------------------------------------------------------------------
 
 $ sudo pacman -S pass
@@ -219,7 +218,7 @@ $ pass init <gpg-id>
 ! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
 
 --------------------------------------------------------------------------------
---                                  Git
+--                            Git Credential Manager
 --------------------------------------------------------------------------------
 
 -- Replace 2.5.0 with current latest version
@@ -347,10 +346,10 @@ $ sudo pacman -S plasma-desktop xorg-xinit
   #!/bin/bash
   /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
 $ chmod +x ~/plasma
-> ~/plasmax
+> ~/xplasma
   #!/bin/bash
   startx /usr/bin/startplasma-x11
-$ chmod +x ~/plasmax
+$ chmod +x ~/xplasma
 
 --------------------------------------------------------------------------------
 --                            KDE Plasma GUI Tweaks
@@ -370,7 +369,7 @@ $ echo RELOADAGENT | gpg-connect-agent
 
 -- Styling
 ! System Settings > Colours & Themes > Global Theme: Breeze Dark
-! System Settings > Window Management > Desktop Effects > Blur > Blur strength: 4th notch
+! System Settings > Window Management > Desktop Effects > Blur > Blur strength:  6th notch
 !                                                              > Noise strength: 6th notch
 
 -- KRunner
@@ -454,6 +453,9 @@ Addons
   Hide shorts for YouTube                         YouTube
   Return YouTube Dislike                          YouTube
   SponsorBlock for YouTube - Skip Sponsorships    YouTube
+  Enhancer for YouTube                            YouTube
+  Hide YouTube Thumbnails                         YouTube
+    Pref > Disable extension on: Channel's page
 
 --------------------------------------------------------------------------------
 --                             Steam + Proton GE
