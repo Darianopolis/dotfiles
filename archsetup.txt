@@ -250,9 +250,12 @@ git config --global user.email "darianopolis@gmail.com
 -- KDE Plasma:  plasma-meta xorg-init kwalletmanager     (kwalletmanager just to disable KWallet system)
 -- KeePassXC:   keepassxc
 
+-- Lutris:      (flathub)new.lutris.Lutris
+-- PolyMC:      (flathub)org.polymc.PolyMC
+
 $ sudo pacman -S evtest joyutils kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop firefox steam dolphin plasma-meta xorg-init kwalletmanager keepassxc
 $ yay -S game-devices-udev visual-studio-code-bin 1password expressvpn
-$ flatpak install flathub com.discordapp.Discord com.obsproject.Studio com.spotify.Client
+$ flatpak install flathub com.discordapp.Discord com.obsproject.Studio com.spotify.Client new.lutris.Lutris org.polymc.PolyMC
 
 --------------------------------------------------------------------------------
 --                               Development
