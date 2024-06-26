@@ -9,5 +9,7 @@
     "files.associations": {
         ".slang": "slang"
     },
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "vscode-blur-linux.opacity": 90,
+    "editor.fontFamily": "FiraMono Nerd Font, 'monospace', monospace"
 }

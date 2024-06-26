@@ -58,7 +58,7 @@ $ arch-chroot /mnt
 ! Uncomment `ParallelDownloads` and set to 16
 ParallelDownloads = 16
 
-$ pacman -S grub efibootmgr sudo wget vim nano less tldr git pass cmake ninja meson flatpak kitty
+$ pacman -S grub efibootmgr sudo wget vim nano less tldr git pass flatpak
 
 --------------------------------------------------------------------------------
 --                      Configure locale persistently
@@ -237,15 +237,36 @@ git config --global user.email "darianopolis@gmail.com
 --                               Applications
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S firefox blesh fastfetch starship otf-firamono-nerd evtest joyutils steam
-$ yay -S visual-studio-code-bin 1password expressvpn game-devices-udev
+-- USB Devices: evtest, joyutils, (AUR)game-devices-udev
+-- Kitty:       kitty blesh fastfetch starship otf-firamono-nerd
+-- VS Code:     (AUR)visual-studio-code-bin wmctrl xprop
+-- Firefox:     firefox
+-- Steam:       steam
+-- 1Password:   (AUR)1password
+-- ExpressVPN:  (AUR)expressvpn
+-- Discord:     (flathub)com.discordapp.Discord
+-- OBS:         (flathub)com.obsproject.Studio
+-- Spotify:     (flathub)com.spotify.Client
+-- Dolphin:     dolphin
+-- KDE Plasma:  plasma-meta xorg-init kwalletmanager     (kwalletmanager just to disable KWallet system)
+-- KeePassXC:   keepassxc
+
+$ sudo pacman -S evtest joyutils kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop firefox steam dolphin plasma-meta xorg-init kwalletmanager keepassxc
+$ yay -S game-devices-udev visual-studio-code-bin 1password expressvpn
 $ flatpak install flathub com.discordapp.Discord com.obsproject.Studio com.spotify.Client
 
 --------------------------------------------------------------------------------
---                         Dev Applications & Packages
+--                               Development
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S go vulkan-devel renderdoc
+$ sudo pacman -S cmake ninja meson go
+$ go install github.com/boyter/scc@master
+
+--------------------------------------------------------------------------------
+--                            Vulkan Development
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S vulkan-devel renderdoc
 
 -- Vulkan Caps Viewer
 $ curl -L -o vulkanCapsViewer.AppImage https://vulkan.gpuinfo.org/downloads/vulkancapsviewer_3.40_linux64_wayland.AppImage
@@ -265,8 +286,6 @@ Categories=Application;Graphics;Development;
 X-AppImage-Version=wayland
 ```
 
-$ go install github.com/boyter/scc@master
-
 --------------------------------------------------------------------------------
 --                            Mouse Accel Drivers
 --------------------------------------------------------------------------------
@@ -283,9 +302,9 @@ $ sudo maccel set offset 2
 
 $ sudo maccel bindall
 
-IMPORTANT: *uninstall* before booting into updated kernel or you will break mouse input
-  $ sh /opt/maccel/uninstall.sh
-  reboot, then reinstall with above instructions
+IMPORTANT: *reinstall* before booting into updated kernel or you will break mouse input
+
+-- Uninstall with: $ sh /opt/maccel/uninstall.sh
 
 --------------------------------------------------------------------------------
 --                           Wooting Keyboard Setup
@@ -345,6 +364,10 @@ $ sudo pacman -S keepassxc
 ! System Settings -> KDE Wallet -> Disable the KDE wallet subsystem
 ! KeePassXC -> Tools -> Settings -> Secret Service Integration -> Enable KeepassXC Freedesktop.org Secret Service integration
 
+$ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
+$ echo RELOADAGENT | gpg-connect-agent
+! see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
+
 -- Styling
 ! System Settings > Colours & Themes > Global Theme: Breeze Dark
 ! System Settings > Window Management > Desktop Effects > Blur > Blur strength: 4th notch
@@ -360,7 +383,7 @@ $ sudo pacman -S keepassxc
   ! Untick: `Remember and restore window geometries`
   ! Set layout to contents of <kzones.layout.json>
 
--- Disable automatic sleep / display lock
+-- Disable automatic sleep / display lock -==
 ! System Settings > Power Management > After a period of inactivity: Do Nothing
 !                                          > Dim automatically: Never
 !                                          > Turn off screen: Never
@@ -379,6 +402,14 @@ $ sudo pacman -S keepassxc
 
 -- TODO: Migrate all this to stored .config files
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
+
+--------------------------------------------------------------------------------
+--                                  VS Code
+--------------------------------------------------------------------------------
+
+Extensions:
+  vscode-blur-linux
+  clangd
 
 --------------------------------------------------------------------------------
 --                                Firefox Tweaks
