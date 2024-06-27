@@ -60,6 +60,11 @@ Settings
     Personalisation
         Themes
             Current Theme:	Windows (dark)
+
+        Lock screen
+            Get fun facts, tips, tricks, and more on your lock screen:  No
+            Lock Screen status:                                         None
+
         Taskbar
             Search: 	Hide
             Copilot: 	Disable
@@ -70,6 +75,11 @@ Settings
         Startup
             On:
                 - 1Password
+
+    Accounts
+        Sign-in options
+            Additional Settings
+                If you've been away, when should Windows require you to sign in again?: Never
 
     Privacy & Security
         Searching Windows
@@ -180,7 +190,6 @@ Brave
             Replace Thumbnails:	Disabled
             Title Format:		Disabled
             Remove Emojis:		Disabled
-
 
         Enable "Allow in Private" for all
 
