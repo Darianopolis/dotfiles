@@ -9,7 +9,9 @@ Applications
 	Discord		https://discord.com
 	1Password	https://1password.com/downloads/windows/
 	VS Code		https://code.visualstudio.com/
-	Spotifty	https://www.spotify.com/uk/download/windows/
+	Spotify		https://www.spotify.com/uk/download/windows/
+	SumatraPDF	https://www.sumatrapdfreader.org/downloadafter
+		Portable - Unpack to C:\Programs\SumatraPDF
 
 	Link Shell Extensions	https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
 	7-zip					https://7-zip.org/
@@ -68,6 +70,14 @@ Settings
 		Startup
 			On:
 				- 1Password
+
+	Privacy & Security
+		Searching Windows
+			Find my files
+				Click "Customize search locations"
+					Add "C:\Programs" to Indexed Locations
+				Select "Enhanced"
+
 
 Control Panel
 
@@ -219,4 +229,3 @@ Raw Accel
 		Create Shortcut in:	C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 			Target:			C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
 			Start in:		C:\Programs\RawAccel
-
