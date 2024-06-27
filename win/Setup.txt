@@ -41,13 +41,15 @@ Drivers
 --                             Windows Configuration
 --------------------------------------------------------------------------------
 
-Modifications
+Desktop
 
     Right Click Desktop
         View
             Show Desktop Icons:	False
 
-    Add to path
+Environment Variables
+
+    Path Extras
         C:\Bin
 
 Settings
@@ -58,10 +60,14 @@ Settings
                 Enhance pointer precision:	Disabled
 
     Personalisation
+        Background
+            Picture:    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
+
         Themes
             Current Theme:	Windows (dark)
 
         Lock screen
+            Picture:                                                    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
             Get fun facts, tips, tricks, and more on your lock screen:  No
             Lock Screen status:                                         None
 
@@ -88,7 +94,6 @@ Settings
                     Add "C:\Programs" to Indexed Locations
                 Select "Enhanced"
 
-
 Control Panel
 
     Hardware and Sound
@@ -114,6 +119,12 @@ WinaeroTweaker
 PowerShell
 
     $ Set-ExecutionPolicy Unrestricted
+
+File Explorer
+    View
+        Show
+            - File eame extensions
+            - Hidden names
 
 --------------------------------------------------------------------------------
 --                         Application Configuration
