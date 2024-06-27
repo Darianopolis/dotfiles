@@ -4,38 +4,38 @@
 
 Applications
 
-	Brave		https://brave.com/
-	PowerToys	https://learn.microsoft.com/en-us/windows/powertoys/install
-	Discord		https://discord.com
-	1Password	https://1password.com/downloads/windows/
-	VS Code		https://code.visualstudio.com/
-	Spotify		https://www.spotify.com/uk/download/windows/
-	SumatraPDF	https://www.sumatrapdfreader.org/downloadafter
-		Portable - Unpack to C:\Programs\SumatraPDF
+    Brave		https://brave.com/
+    PowerToys	https://learn.microsoft.com/en-us/windows/powertoys/install
+    Discord		https://discord.com
+    1Password	https://1password.com/downloads/windows/
+    VS Code		https://code.visualstudio.com/
+    Spotify		https://www.spotify.com/uk/download/windows/
+    SumatraPDF	https://www.sumatrapdfreader.org/downloadafter
+        Portable - Unpack to C:\Programs\SumatraPDF
 
-	Link Shell Extensions	https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
-	7-zip					https://7-zip.org/
+    Link Shell Extensions	https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
+    7-zip					https://7-zip.org/
 
-	WinaeroTweaker	https://winaerotweaker.com/
+    WinaeroTweaker	https://winaerotweaker.com/
 
 Games
 
-	Steam		https://store.steampowered.com/about/
-	Battle.net	https://download.battle.net/en-gb/?product=bnetdesk
+    Steam		https://store.steampowered.com/about/
+    Battle.net	https://download.battle.net/en-gb/?product=bnetdesk
 
 Development
 
-	Git					https://git-scm.com/downloads
-	Visual Studio 2022	https://visualstudio.microsoft.com/downloads/
+    Git					https://git-scm.com/downloads
+    Visual Studio 2022	https://visualstudio.microsoft.com/downloads/
 
 Drivers
 
-	Vulkan Beta Drivers		https://developer.nvidia.com/vulkan-driver
-	Volt 2 Audio Interface	https://www.uaudio.com/volt/start
-		Install Volt 2 drivers
-		Uninstall UA Connect afterwards
-	RawAccel				https://github.com/a1xd/rawaccel/releases
-		Unpack to C:\Programs\RawAccel
+    Vulkan Beta Drivers		https://developer.nvidia.com/vulkan-driver
+    Volt 2 Audio Interface	https://www.uaudio.com/volt/start
+        Install Volt 2 drivers
+        Uninstall UA Connect afterwards
+    RawAccel				https://github.com/a1xd/rawaccel/releases
+        Unpack to C:\Programs\RawAccel
 
 --------------------------------------------------------------------------------
 --                             Windows Configuration
@@ -43,67 +43,67 @@ Drivers
 
 Modifications
 
-	Right Click Desktop
-		View
-			Show Desktop Icons:	False
+    Right Click Desktop
+        View
+            Show Desktop Icons:	False
 
-	Add to path
-		C:\Bin
+    Add to path
+        C:\Bin
 
 Settings
 
-	Bluetooth & devices
-		Additional mouse settings -> (Mouse Properties)
-			Pointer Options
-				Enhance pointer precision:	Disabled
+    Bluetooth & devices
+        Additional mouse settings -> (Mouse Properties)
+            Pointer Options
+                Enhance pointer precision:	Disabled
 
-	Personalisation
-		Themes
-			Current Theme:	Windows (dark)
-		Taskbar
-			Search: 	Hide
-			Copilot: 	Disable
-			Task view: 	Disable
-			Widgets: 	Disable
+    Personalisation
+        Themes
+            Current Theme:	Windows (dark)
+        Taskbar
+            Search: 	Hide
+            Copilot: 	Disable
+            Task view: 	Disable
+            Widgets: 	Disable
 
-	Apps
-		Startup
-			On:
-				- 1Password
+    Apps
+        Startup
+            On:
+                - 1Password
 
-	Privacy & Security
-		Searching Windows
-			Find my files
-				Click "Customize search locations"
-					Add "C:\Programs" to Indexed Locations
-				Select "Enhanced"
+    Privacy & Security
+        Searching Windows
+            Find my files
+                Click "Customize search locations"
+                    Add "C:\Programs" to Indexed Locations
+                Select "Enhanced"
 
 
 Control Panel
 
-	Hardware and Sound
-		Power Options
-			High Performance
-				Turn off the display:		Never
-				Put the computer to sleep:	Never
+    Hardware and Sound
+        Power Options
+            High Performance
+                Turn off the display:		Never
+                Put the computer to sleep:	Never
 
 System Tray
 
-	Allowed Elements
-		- 1Password
-		- Volt Driver Control Panel
-		- PowerToys
-		- NVIDIA Settings
-		- Windows Security
+    Allowed Elements
+        - 1Password
+        - Volt Driver Control Panel
+        - PowerToys
+        - NVIDIA Settings
+        - Windows Security
 
 WinaeroTweaker
 
-	Desktop and Taskbar
-		Wallpaper Quality: Max
+    Desktop and Taskbar
+        Wallpaper Quality: Max
 
 PowerShell
 
-	$ Set-ExecutionPolicy Unrestricted
+    $ Set-ExecutionPolicy Unrestricted
 
 --------------------------------------------------------------------------------
 --                         Application Configuration
@@ -111,121 +111,121 @@ PowerShell
 
 Discord
 
-	Settings
-		Windows Settings
-			Open Discord:		Disabled
-			Minimize to Tray:	Disabled
+    Settings
+        Windows Settings
+            Open Discord:		Disabled
+            Minimize to Tray:	Disabled
 
 1Password
 
-	Settings
-		General
-			Keyboard Shortcuts:	Disable All
-		Security
-			Lock after the system is idle for:		Never
-			Lock 1Password when computer sleeps:	No
+    Settings
+        General
+            Keyboard Shortcuts:	Disable All
+        Security
+            Lock after the system is idle for:		Never
+            Lock 1Password when computer sleeps:	No
 
 Steam
 
-	Steam Settings
-		Interface
-			Run Steam when my computer starts:	Disabled
-		Downloads
-			Allow downloads during gameplay:	Enabled
-			Enable Shader Pre-Cache:			Disabled
+    Steam Settings
+        Interface
+            Run Steam when my computer starts:	Disabled
+        Downloads
+            Allow downloads during gameplay:	Enabled
+            Enable Shader Pre-Cache:			Disabled
 
 Spotify
-	Start-up and window behaviour
-		Open Spotify automatically after you log in to the computer:	No
-		Close button should minimize the Spotify window:				No
+    Start-up and window behaviour
+        Open Spotify automatically after you log in to the computer:	No
+        Close button should minimize the Spotify window:				No
 
 Brave
 
-	New Tab
-		Customize
-			Background Image
-				Show background images:		Disabled
+    New Tab
+        Customize
+            Background Image
+                Show background images:		Disabled
 
-	Settings
-		Appearance
-			Toolbar
-				Show Brave News button:		Disabled
-				Show Brave Rewards button:	Disabled
-				Show Brave Wallet button:	Disabled
-				Show sidebar button:		Disabled
-				Show VPN Button:			Disabled
+    Settings
+        Appearance
+            Toolbar
+                Show Brave News button:		Disabled
+                Show Brave Rewards button:	Disabled
+                Show Brave Wallet button:	Disabled
+                Show sidebar button:		Disabled
+                Show VPN Button:			Disabled
 
-				Use wide address bar:		Enabled
+                Use wide address bar:		Enabled
 
-			Sidebar
-				Show Sidebar:	Never
+            Sidebar
+                Show Sidebar:	Never
 
-		Search Engine:	DuckDuckGo
+        Search Engine:	DuckDuckGo
 
-	Extensions
+    Extensions
 
-		1Password - Password Manager		https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
-		I still don't care about cookies	https://chromewebstore.google.com/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm
-		Cookie AutoDelete					https://chromewebstore.google.com/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
-			Whitelist
-				*.youtube.com
-				*.github.com
-				*.google.com
-		SponsorBlock for YouTube			https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone
-		Enhancer for YouTube				https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle
-		Hide Youtube Shortcuts				https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
-		Return YouTube Dislike				https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi
-		Hide YouTube Thumbnail				https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef
-		DeArrow								https://chromewebstore.google.com/detail/dearrow-better-titles-and/enamippconapkdmgfgjchkhakpfinmaj
-			Replace Thumbnails:	Disabled
-			Title Format:		Disabled
-			Remove Emojis:		Disabled
+        1Password - Password Manager		https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
+        I still don't care about cookies	https://chromewebstore.google.com/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm
+        Cookie AutoDelete					https://chromewebstore.google.com/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
+            Whitelist
+                *.youtube.com
+                *.github.com
+                *.google.com
+        SponsorBlock for YouTube			https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone
+        Enhancer for YouTube				https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle
+        Hide Youtube Shortcuts				https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
+        Return YouTube Dislike				https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi
+        Hide YouTube Thumbnail				https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef
+        DeArrow								https://chromewebstore.google.com/detail/dearrow-better-titles-and/enamippconapkdmgfgjchkhakpfinmaj
+            Replace Thumbnails:	Disabled
+            Title Format:		Disabled
+            Remove Emojis:		Disabled
 
 
-		Enable "Allow in Private" for all
+        Enable "Allow in Private" for all
 
 PowerToys
 
-	Disabled Applications
-		Awake
+    Disabled Applications
+        Awake
 
-	General
-		Administrator mode
-			- Always run as administrator
+    General
+        Administrator mode
+            - Always run as administrator
 
-	FancyZones
-		Launch Layout Editor
-			6x2 Grid - 200 px selection
-		Zones
-			Zone Behavior
-				- Hold Shift key to activate zones while dragging a window
-				- Use a non-primary mouse button to toggle zone activation
-				- Use middle-click mouse button to toggle multiple zones spanning
-		Windows
-			Window Behavior
-				- Keep windows in their zones when the screen resolution or work area changes
-				- Disable round corners when window is snapped
+    FancyZones
+        Launch Layout Editor
+            6x2 Grid - 200 px selection
+        Zones
+            Zone Behavior
+                - Hold Shift key to activate zones while dragging a window
+                - Use a non-primary mouse button to toggle zone activation
+                - Use middle-click mouse button to toggle multiple zones spanning
+        Windows
+            Window Behavior
+                - Keep windows in their zones when the screen resolution or work area changes
+                - Disable round corners when window is snapped
 
-	PowerToys Run
-		Activation shortcut:	Ctrl-Shift-Space
+    PowerToys Run
+        Activation shortcut:	Ctrl-Shift-Space
 
 VS Code
 
-	Extensions
-		- C/C++
-		- Slang
+    Extensions
+        - C/C++
+        - Slang
 
 Raw Accel
 
-	Settings
-		Sens Multiplier:	0.5
-		Type:				Linear
-		Gain:				Disable
-		Acceleration:		0.075
-		Cap: Output:		0
-		Input Offset:		2
+    Settings
+        Sens Multiplier:	0.5
+        Type:				Linear
+        Gain:				Disable
+        Acceleration:		0.075
+        Cap: Output:		0
+        Input Offset:		2
 
-	Startup:
-		Create Shortcut in:	C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-			Target:			C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
-			Start in:		C:\Programs\RawAccel
+    Startup:
+        Create Shortcut in:	C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+            Target:			C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
+            Start in:		C:\Programs\RawAccel
