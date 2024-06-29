@@ -27,6 +27,14 @@ Development
 
     Git                 https://git-scm.com/downloads
     Visual Studio 2022  https://visualstudio.microsoft.com/downloads/
+    Windows SDK         https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
+    Windows Driver Kit  https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
+
+    Vulkan Beta Drivers     https://developer.nvidia.com/vulkan-driver
+    VulkanCapsViewer        https://vulkan.gpuinfo.org/download.php
+        Unpack .\release to C:\Programs\VulkanCapsViewer
+    DB Browser for SQlite   https://sqlitebrowser.org/dl/
+        Unpack to C:\SqliteBrowser
 
 Drivers
 
@@ -35,12 +43,6 @@ Drivers
         Uninstall UA Connect afterwards
     RawAccel                https://github.com/a1xd/rawaccel/releases
         Unpack to C:\Programs\RawAccel
-
-Development
-
-    Vulkan Beta Drivers     https://developer.nvidia.com/vulkan-driver
-    VulkanCapsViewer        https://vulkan.gpuinfo.org/download.php
-        Unpack .\release to C:\Programs\VulkanCapsViewer
 
 --------------------------------------------------------------------------------
 --                             Windows Configuration
@@ -58,6 +60,10 @@ Environment Variables
         C:\Bin
 
 Settings
+
+    System
+        Display
+            Ease cursor movement between displays:  Disabled
 
     Bluetooth & devices
         Additional mouse settings -> (Mouse Properties)
@@ -91,6 +97,11 @@ Settings
         Sign-in options
             Additional Settings
                 If you've been away, when should Windows require you to sign in again?: Never
+
+    Time & Language
+        Administrative language settings
+            Change system locale
+                "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
 
     Privacy & Security
         Searching Windows
@@ -208,6 +219,7 @@ Brave
                 *.youtube.com
                 *.github.com
                 *.google.com
+                *.live.com
         SponsorBlock for YouTube            https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone
         Enhancer for YouTube                https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle
         Hide Youtube Shortcuts              https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
@@ -222,12 +234,16 @@ Brave
 
 PowerToys
 
-    Disabled Applications
-        Awake
-
     General
         Administrator mode
             - Always run as administrator
+
+    Awake
+        Enable Awake:   Off
+
+    Mouse Utilities
+        Enable Find My Mouse:       Off
+        Enable Mouse Highlighter:   Off
 
     FancyZones
         Launch Layout Editor
@@ -265,3 +281,6 @@ Raw Accel
         Create Shortcut in: C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
             Target:         C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
             Start in:       C:\Programs\RawAccel
+
+Git
+    $ git config --global safe.directory '*'
