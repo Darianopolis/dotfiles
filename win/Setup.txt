@@ -15,6 +15,7 @@ Applications
 
     Link Shell Extensions   https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
     7-zip                   https://7-zip.org/
+    AutoHotkey 2.0          https://www.autohotkey.com/
 
     WinaeroTweaker  https://winaerotweaker.com/
 
@@ -262,6 +263,7 @@ PowerToys
         Windows
             Window Behavior
                 - Keep windows in their zones when the screen resolution or work area changes
+                - Move newly created windows to their last known zone
                 - Disable round corners when window is snapped
 
     PowerToys Run
@@ -270,7 +272,10 @@ PowerToys
 VS Code
 
     Extensions
-        - C/C++
+        - AutoHotkey Plus Plus
+        - C/C++ Extension Pack
+        - PowerShell
+        - Shader languages support for VS Code
         - Slang
 
 Raw Accel
@@ -290,3 +295,6 @@ Raw Accel
 
 Git
     $ git config --global safe.directory '*'
+
+AutoHotKey
+    Create link to .\ahk\ahk-setup.ps1 in C:\Bin
