@@ -63,7 +63,13 @@ Settings
 
     System
         Display
-            Ease cursor movement between displays:  Disabled
+            Multiple displays
+                Ease cursor movement between displays:  Disabled
+
+            Graphics
+                Change default graphics settings -> (Default graphics settings)
+                    Hardware-accelerated GPU scheduling:    On
+                    Optimisations for windowed games:       On
 
     Bluetooth & devices
         Additional mouse settings -> (Mouse Properties)
