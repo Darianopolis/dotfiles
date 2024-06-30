@@ -32,6 +32,7 @@ Development
     Windows Driver Kit  https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
 
     Vulkan Beta Drivers     https://developer.nvidia.com/vulkan-driver
+    RenderDoc               https://renderdoc.org/
     VulkanCapsViewer        https://vulkan.gpuinfo.org/download.php
         Unpack .\release to C:\Programs\VulkanCapsViewer
     DB Browser for SQlite   https://sqlitebrowser.org/dl/
