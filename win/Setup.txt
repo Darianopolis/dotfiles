@@ -17,6 +17,13 @@ Applications
     7-zip                   https://7-zip.org/
     AutoHotkey 2.0          https://www.autohotkey.com/
 
+    WizTree         https://diskanalyzer.com/download
+        Portable -> C:\Programs\WizTree
+    SpaceSniffer    https://sourceforge.net/projects/spacesniffer/files/latest/download
+        Portable -> C:\Programs\SpaceSniffer
+    Everything      https://www.voidtools.com/en-au/downloads/
+        Portable -> C:\Programs\Everything
+
     WinaeroTweaker  https://winaerotweaker.com/
 
 Games
@@ -133,6 +140,12 @@ Control Panel
             High Performance
                 Turn off the display:       Never
                 Put the computer to sleep:  Never
+
+            Sidebar: Change What the power buttons do -> (System Settings)
+                Turn on fast start-up:  Disabled
+                Sleep:                  Enabled
+                Hibernate:              Enabled
+                Lock:                   Enabled
 
 System Tray
 
@@ -274,7 +287,6 @@ PowerToys
         Windows
             Window Behavior
                 - Keep windows in their zones when the screen resolution or work area changes
-                - Move newly created windows to their last known zone
                 - Disable round corners when window is snapped
 
     PowerToys Run
