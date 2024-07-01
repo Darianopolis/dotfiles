@@ -78,6 +78,14 @@ Settings
             Pointer Options
                 Enhance pointer precision:  Disabled
 
+    Network & internet
+        Advanced network settings
+            Network adapters - (For each used network adapter)
+                    More Adapters Options - Edit
+                        Configure
+                            Power Management
+                                Allow this device to wake the computer: Disable
+
     Personalisation
         Background
             Picture:    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
@@ -145,6 +153,7 @@ PowerShell
     $ Set-ExecutionPolicy Unrestricted
 
 File Explorer
+
     View
         Show
             - File eame extensions
@@ -180,6 +189,7 @@ Steam
             Enable Shader Pre-Cache:            Disabled
 
 Spotify
+
     Start-up and window behaviour
         Open Spotify automatically after you log in to the computer:    No
         Close button should minimize the Spotify window:                No
@@ -295,7 +305,9 @@ Raw Accel
             Start in:       C:\Programs\RawAccel
 
 Git
+
     $ git config --global safe.directory '*'
 
 AutoHotKey
+
     Create link to .\ahk\ahk-setup.ps1 in C:\Bin
