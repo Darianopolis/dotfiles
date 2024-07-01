@@ -521,3 +521,7 @@ Set up AppImage manager
   - AM - https://github.com/ivan-hc/AM
   - AppMan - https://github.com/ivan-hc/AppMan
   - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
+
+Try MangoHUD FPS overlays
+
+Try Bottles instead of Lutris
