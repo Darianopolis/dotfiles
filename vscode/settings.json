@@ -6,6 +6,7 @@
         "--function-arg-placeholders=0"
     ],
     "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
     "files.associations": {
         ".slang": "slang"
     },
