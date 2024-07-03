@@ -514,14 +514,41 @@ $ sudo ninja -C build/ install
 Impproved bash prompt setup?
   https://www.youtube.com/watch?v=0phdCAFFicY&list=PLhJQdULc4pyWR-u84ATOcNdG72ynrzls3&index=8
 
-KDE Tweaks
-  Always open krunner and window switcher on primary display?
-
 Set up AppImage manager
   - AM - https://github.com/ivan-hc/AM
   - AppMan - https://github.com/ivan-hc/AppMan
   - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
 
+Distro independent package managers
+  - homebrew  (https://christitus.com/best-package-manager/)
+  - Nix
+
+Experiment with Wayfire?
+  - xdg-desktop-portal
+  - xwaylandvideobridge
+
+CoreSuite + PaperDE?
+  https://cubocore.gitlab.io/index.html
+
+Find program/daemons for
+  - launching
+    - tofi
+  - printing
+  - quick sketches
+    - https://wiki.archlinux.org/title/List_of_applications/Multimedia#Raster_graphics_editors
+      - aur:corepaint
+      - aur:milton-git
+  - file selectors
+    - dolphin
+    - xdg-desktop-portal-termfilechooser-git + ranger
+  - screenshot
+
 Try MangoHUD FPS overlays
+  - https://github.com/flightlessmango/MangoHud
 
 Try Bottles instead of Lutris
+  - https://flathub.org/apps/com.usebottles.bottles
+
+Try libratbag + piper for mouse configuration
+  - https://github.com/libratbag/libratbag
+  - https://github.com/libratbag/piper

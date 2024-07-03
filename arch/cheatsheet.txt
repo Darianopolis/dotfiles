@@ -66,6 +66,10 @@ Packages
         -Qm                     Show unoffical (AUR) installed packages
         -Rns                    Remove packages (R), Remove configuration (n), Remove unnused dependencies (s)
 
+Terminal
+
+    $ APP_NAME > /dev/null &    Run APP_NAME, ignore output and start in background
+
 Process management
 
     ps -A | grep process_name   List processes matching name
