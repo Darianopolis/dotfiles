@@ -42,7 +42,7 @@ $ systemctl
 $ sudo nano /mnt/etc/systemd/network/20-wired.network
 ```
 [Match]
-Name=$NAME_FOUND_ABOVE$
+Name=%NAME_FOUND_ABOVE%
 
 [Network]
 DHCP=yes
@@ -109,8 +109,8 @@ SystemMaxUse=100M
 $ passwd
   ...
 
-$ useradd -m -g users -G wheel -s /bin/bash darian
-$ passwd darian
+$ useradd -m -g users -G wheel -s /bin/bash USERNAME
+$ passwd USERNAME
   ...
 
 $ visudo
@@ -125,7 +125,7 @@ $ visudo
 --                               Networking 2
 --------------------------------------------------------------------------------
 
-$ echo "arch" > /etc/hostname
+$ echo "HOSTNAME" > /etc/hostname
 $ systemctl enable systemd-networkd.service
 $ systemctl enable systemd-resolved.service
 $ sudo ln -fs /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
@@ -226,36 +226,73 @@ $ curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/down
 $ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
 $ rm gcm-linux_amd64.2.5.0.tar.gz
 
-git-credential-manager configure
-git config --global credential.credentialStore gpg
-git config --global core.editor "vim"
-git config --global user.name "Darianopolis"
-git config --global user.email "darianopolis@gmail.com
+$ git-credential-manager configure
+$ git config --global credential.credentialStore gpg
+$ git config --global core.editor "vim"
+$ git config --global user.name "NAME"
+$ git config --global user.email "EMAIL"
 
 --------------------------------------------------------------------------------
---                               Applications
+--                               Packages
 --------------------------------------------------------------------------------
 
--- USB Devices: evtest, joyutils, (AUR)game-devices-udev
--- Kitty:       kitty blesh fastfetch starship otf-firamono-nerd
--- VS Code:     (AUR)visual-studio-code-bin wmctrl xprop
--- Firefox:     firefox
--- Steam:       steam
--- 1Password:   (AUR)1password
--- ExpressVPN:  (AUR)expressvpn
--- Discord:     (flathub)com.discordapp.Discord
--- OBS:         (flathub)com.obsproject.Studio
--- Spotify:     (flathub)com.spotify.Client
--- Dolphin:     dolphin
--- KDE Plasma:  plasma-meta xorg-init kwalletmanager     (kwalletmanager just to disable KWallet system)
--- KeePassXC:   keepassxc
+[Preferences]
 
--- Lutris:      (flathub)new.lutris.Lutris
--- PolyMC:      (flathub)org.polymc.PolyMC
+  1 - Flathub verified (if GUI application)
+  2 - Arch package
+  3 - Flathub unverified / AUR package
 
-$ sudo pacman -S evtest joyutils kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop firefox steam dolphin plasma-meta xorg-init kwalletmanager keepassxc
-$ yay -S game-devices-udev visual-studio-code-bin 1password expressvpn
-$ flatpak install flathub com.discordapp.Discord com.obsproject.Studio com.spotify.Client new.lutris.Lutris org.polymc.PolyMC
+[Devices]
+
+  USB:   evtest joyutils (AUR)game-devices-udev                       USB Testing Utilties
+  Piper: piper libratbag                                              Gaming Mouse Control
+
+[Desktop Environment]
+
+  KDE Plasma: plasma-desktop kscreen xorg-init kwalletmanager         Desktop Environment
+  KeePassXC:  (flathub)org.keepassxc.KeePassXC                        Secret storage
+  Flameshot:  (flathub)org.flameshot.Flameshot                        Screenshot tool
+  Fonts:      otf-firamono-nerd                                       Fonts
+
+[Applications]
+
+  Terminal:       kitty blesh fastfetch starship                      Terminal
+  VS Code:        (AUR)visual-studio-code-bin wmctrl xprop            VS Code (aur package for `code` command and executable permissions)
+
+  1Password:      (AUR)1password                                      1Password GUI
+  ExpressVPN:     (AUR)expressvpn                                     ExpressVPN CLI
+
+  Mission Center: (flathub:verified)io.missioncenter.MissionCenter    Resource monitor
+  Dolphin:        (flathub:verified)org.kde.dolphin                   File Manager
+  Text Editor:    (flathub:verified)org.gnome.TextEditor              Text Editor
+  Calculator:     (flathub:verified)org.gnome.Calculator              Calculator
+  Flatseal:       (flathub:verified)com.github.tchx84.Flatseal        Flatpak permission management
+  Brave:          (flathub:verified)com.brave.Browser                 Browser
+  Discord:        (flathub:verified)com.discordapp.Discord            Discord
+  OBS:            (flathub:verified)com.obsproject.Studio             Recording + Streaming
+  qBittorrent     (flathub:verified)org.qbittorrent.qBittorrent       Torrent GUI
+  Krita:          (flathub:verified)org.kde.krita                     Paint (heavy duty)
+  Pinta:          (flathub:verified)com.github.PintaProject.Pinta     Paint (lightweight)
+  GIMP:           (flathub:verified)org.gimp.GIMP                     Photo editing
+  VLC:            vlc                                                 Multimedia player
+
+[Games - Generic]
+
+  Steam:           steam                                              Steam
+  MangoHUD:        mangohud                                           Vulkan Performance overlay
+  Lutris:          (flathub:verified)new.lutris.Lutris                Wine/Proton application manager
+  Bottles:         (flathub:verified)com.usebottles.bottles           Wine/Proton application manager
+
+[Games - Specific]
+
+  Prism Launcher:  (flathub:verified)org.prismlauncher.PrismLauncher  Minecraft Launcher
+  OSU:             (flathub)sh.ppy.osu                                OSU
+
+[Install commands]
+
+  $ sudo pacman -S evtest joyutils piper libratbag kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop steam mangohud plasma-desktop kscreen xorg-init kwalletmanager vlc
+  $ yay -S game-devices-udev visual-studio-code-bin 1password expressvpn
+  $ flatpak install flathub com.github.PintaProject.Pinta org.keepassxc.KeePassXC org.flameshot.Flameshot com.usebottles.bottles org.kde.dolphin org.gnome.TextEditor org.gnome.Calculator com.github.tchx84.Flatseal io.missioncenter.MissionCenter org.kde.krita org.qbittorrent.qBittorrent com.brave.Browser com.discordapp.Discord com.obsproject.Studio new.lutris.Lutris org.prismlauncher.PrismLauncher sh.ppy.osu
 
 --------------------------------------------------------------------------------
 --                               Development
@@ -298,7 +335,7 @@ X-AppImage-Version=wayland
 $ cd /var/tmp
 $ curl -OL https://www.maccel.org/install.sh
 $ sudo MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
-$ sudo usermod -aG maccel darian
+$ sudo usermod -aG maccel USERNAME
 
 $ sudo maccel set sens-mult 0.5
 $ sudo maccel set accel 0.075
@@ -518,6 +555,7 @@ Set up AppImage manager
   - AM - https://github.com/ivan-hc/AM
   - AppMan - https://github.com/ivan-hc/AppMan
   - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
+  - Gear Lever - https://flathub.org/apps/it.mijorus.gearlever
 
 Distro independent package managers
   - homebrew  (https://christitus.com/best-package-manager/)
@@ -526,29 +564,29 @@ Distro independent package managers
 Experiment with Wayfire?
   - xdg-desktop-portal
   - xwaylandvideobridge
+  - https://github.com/WayfireWM/wayfire/wiki/Tutorial
 
 CoreSuite + PaperDE?
   https://cubocore.gitlab.io/index.html
 
 Find program/daemons for
   - launching
-    - tofi
+    - Tofi
   - printing
   - quick sketches
     - https://wiki.archlinux.org/title/List_of_applications/Multimedia#Raster_graphics_editors
       - aur:corepaint
       - aur:milton-git
   - file selectors
-    - dolphin
-    - xdg-desktop-portal-termfilechooser-git + ranger
+    - Ranger (via xdg-desktop-portal-termfilechooser-git)
   - screenshot
+  - media playback
 
-Try MangoHUD FPS overlays
-  - https://github.com/flightlessmango/MangoHud
+Add scripts for switching between DE/WMs
+  https://www.youtube.com/watch?v=6O6WBtchg_c
+  repair-portals
+    $ killall xdk-desktop-portal
+    $ systemctl --user restart pipewire
 
-Try Bottles instead of Lutris
-  - https://flathub.org/apps/com.usebottles.bottles
-
-Try libratbag + piper for mouse configuration
-  - https://github.com/libratbag/libratbag
-  - https://github.com/libratbag/piper
+Try out Whisper for software mic monitoring via pipewire
+  - https://flathub.org/apps/it.mijorus.whisper
