@@ -180,6 +180,9 @@ $ sudo pacman -S egl-wayland
 
 -- TODO: What about `nvidia_drm.fbdev=1`? Causes black screen when launching KDE Plasma in Wayland
 
+-- GRUB_GFXMODE=1920x1080x32
+-- GRUB_GFXPAYLOAD_LINUX=keep
+
 > /etc/mkinitcpio.conf
 -- add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to MODULES
   MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
@@ -250,7 +253,7 @@ $ git config --global user.email "EMAIL"
 [Desktop Environment]
 
   KDE Plasma: plasma-desktop kscreen xorg-init kwalletmanager         Desktop Environment
-  KeePassXC:  (flathub)org.keepassxc.KeePassXC                        Secret storage
+  KeePassXC:  (flathub:verified)org.keepassxc.KeePassXC               Secret storage
   Flameshot:  (flathub)org.flameshot.Flameshot                        Screenshot tool
   Fonts:      otf-firamono-nerd                                       Fonts
 
@@ -266,15 +269,25 @@ $ git config --global user.email "EMAIL"
   Dolphin:        (flathub:verified)org.kde.dolphin                   File Manager
   Text Editor:    (flathub:verified)org.gnome.TextEditor              Text Editor
   Calculator:     (flathub:verified)org.gnome.Calculator              Calculator
+
   Flatseal:       (flathub:verified)com.github.tchx84.Flatseal        Flatpak permission management
+  Gear Lever:     (flathub:verified)it.mijorus.gearlever              AppImage manager
+    TODO: Move to a manager with comand line controls
+
   Brave:          (flathub:verified)com.brave.Browser                 Browser
   Discord:        (flathub:verified)com.discordapp.Discord            Discord
-  OBS:            (flathub:verified)com.obsproject.Studio             Recording + Streaming
+
   qBittorrent     (flathub:verified)org.qbittorrent.qBittorrent       Torrent GUI
+
+  OBS:            (flathub:verified)com.obsproject.Studio             Recording + Streaming
   Krita:          (flathub:verified)org.kde.krita                     Paint (heavy duty)
   Pinta:          (flathub:verified)com.github.PintaProject.Pinta     Paint (lightweight)
   GIMP:           (flathub:verified)org.gimp.GIMP                     Photo editing
+  Inkscape:       inkscape                                            2D Vector Design
+  Blender:        blender                                             3D Modelling
+
   VLC:            vlc                                                 Multimedia player
+  NewsFlash:      (flathub:verified)io.gitlab.news_flash.NewsFlash    RSS Client
 
 [Games - Generic]
 
@@ -290,9 +303,9 @@ $ git config --global user.email "EMAIL"
 
 [Install commands]
 
-  $ sudo pacman -S evtest joyutils piper libratbag kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop steam mangohud plasma-desktop kscreen xorg-init kwalletmanager vlc
+  $ sudo pacman -S inkscape blender evtest joyutils piper libratbag kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop steam mangohud plasma-desktop kscreen xorg-init kwalletmanager vlc
   $ yay -S game-devices-udev visual-studio-code-bin 1password expressvpn
-  $ flatpak install flathub com.github.PintaProject.Pinta org.keepassxc.KeePassXC org.flameshot.Flameshot com.usebottles.bottles org.kde.dolphin org.gnome.TextEditor org.gnome.Calculator com.github.tchx84.Flatseal io.missioncenter.MissionCenter org.kde.krita org.qbittorrent.qBittorrent com.brave.Browser com.discordapp.Discord com.obsproject.Studio new.lutris.Lutris org.prismlauncher.PrismLauncher sh.ppy.osu
+  $ flatpak install flathub it.mijorus.gearlever io.gitlab.news_flash.NewsFlash com.github.PintaProject.Pinta org.keepassxc.KeePassXC org.flameshot.Flameshot com.usebottles.bottles org.kde.dolphin org.gnome.TextEditor org.gnome.Calculator com.github.tchx84.Flatseal io.missioncenter.MissionCenter org.kde.krita org.qbittorrent.qBittorrent com.brave.Browser com.discordapp.Discord com.obsproject.Studio new.lutris.Lutris org.prismlauncher.PrismLauncher sh.ppy.osu
 
 --------------------------------------------------------------------------------
 --                               Development
