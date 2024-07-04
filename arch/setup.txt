@@ -30,14 +30,14 @@ $ mkfs.ext4 /dev/nvme0n1p2
 
 $ mount /dev/nvme0n1p2 /mnt
 $ mount --mkdir /dev/nvme0n1p1 /mnt/boot
-$ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware amd-ucode
+$ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware amd-ucode nano
 $ genfstab -U /mnt >> /mnt/etc/fstab
 
 --------------------------------------------------------------------------------
 --                               Networking 1
 --------------------------------------------------------------------------------
 
-$ systemctl
+$ networkctl
 ! Find network adapter name in use (E.g. `eno1`)
 $ sudo nano /mnt/etc/systemd/network/20-wired.network
 ```
@@ -129,6 +129,7 @@ $ echo "HOSTNAME" > /etc/hostname
 $ systemctl enable systemd-networkd.service
 $ systemctl enable systemd-resolved.service
 $ sudo ln -fs /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+  !! This needs to be run after rebooting!
 
 --------------------------------------------------------------------------------
 --                          SysRq shortcut Enable
@@ -157,7 +158,7 @@ $ sudo nano /etc/pacman.conf
 $ pacman -Syu
 
 --------------------------------------------------------------------------------
---                            NVIDIA beta drivers
+--                               NVIDIA drivers
 --------------------------------------------------------------------------------
 
 -- Remove old drivers if necessary
@@ -181,7 +182,7 @@ $ sudo pacman -S egl-wayland
 -- TODO: What about `nvidia_drm.fbdev=1`? Causes black screen when launching KDE Plasma in Wayland
 
 -- GRUB_GFXMODE=1920x1080x32
--- GRUB_GFXPAYLOAD_LINUX=keep
+-- GRUB_GFXPAYLOAD_LINUX=3840x2160x32
 
 > /etc/mkinitcpio.conf
 -- add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to MODULES
@@ -259,8 +260,8 @@ $ git config --global user.email "EMAIL"
 
 [Applications]
 
-  Terminal:       kitty blesh fastfetch starship                      Terminal
-  VS Code:        (AUR)visual-studio-code-bin wmctrl xprop            VS Code (aur package for `code` command and executable permissions)
+  Terminal:       kitty (AUR)blesh fastfetch starship                 Terminal
+  VS Code:        (AUR)visual-studio-code-bin wmctrl xorg-xprop       VS Code (aur package for `code` command and executable permissions)
 
   1Password:      (AUR)1password                                      1Password GUI
   ExpressVPN:     (AUR)expressvpn                                     ExpressVPN CLI
@@ -293,19 +294,13 @@ $ git config --global user.email "EMAIL"
 
   Steam:           steam                                              Steam
   MangoHUD:        mangohud                                           Vulkan Performance overlay
-  Lutris:          (flathub:verified)new.lutris.Lutris                Wine/Proton application manager
+  Lutris:          (flathub:verified)net.lutris.Lutris                Wine/Proton application manager
   Bottles:         (flathub:verified)com.usebottles.bottles           Wine/Proton application manager
 
 [Games - Specific]
 
   Prism Launcher:  (flathub:verified)org.prismlauncher.PrismLauncher  Minecraft Launcher
   OSU:             (flathub)sh.ppy.osu                                OSU
-
-[Install commands]
-
-  $ sudo pacman -S inkscape blender evtest joyutils piper libratbag kitty blesh fastfetch starship otf-firamono-nerd wmctrl xprop steam mangohud plasma-desktop kscreen xorg-init kwalletmanager vlc
-  $ yay -S game-devices-udev visual-studio-code-bin 1password expressvpn
-  $ flatpak install flathub it.mijorus.gearlever io.gitlab.news_flash.NewsFlash com.github.PintaProject.Pinta org.keepassxc.KeePassXC org.flameshot.Flameshot com.usebottles.bottles org.kde.dolphin org.gnome.TextEditor org.gnome.Calculator com.github.tchx84.Flatseal io.missioncenter.MissionCenter org.kde.krita org.qbittorrent.qBittorrent com.brave.Browser com.discordapp.Discord com.obsproject.Studio new.lutris.Lutris org.prismlauncher.PrismLauncher sh.ppy.osu
 
 --------------------------------------------------------------------------------
 --                               Development
