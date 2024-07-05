@@ -258,7 +258,7 @@ $ sudo pacman -S xdg-desktop-portal-kde xdg-desktop-portal-gtk plasma-meta xorg-
 
 [Applications]
 
-  Terminal:       kitty (AUR)blesh fastfetch starship                 Terminal
+  Terminal:       kitty fastfetch starship                            Terminal
   VS Code:        (AUR)visual-studio-code-bin wmctrl xorg-xprop       VS Code (aur package for `code` command and executable permissions)
 
   1Password:      (AUR)1password                                      1Password GUI
@@ -534,6 +534,7 @@ $ sudo ninja -C build/ install
 
 Impproved bash prompt setup?
   https://www.youtube.com/watch?v=0phdCAFFicY&list=PLhJQdULc4pyWR-u84ATOcNdG72ynrzls3&index=8
+  Find better alternative to blesh for bash auto suggestions
 
 Set up AppImage manager
   - AM - https://github.com/ivan-hc/AM
