@@ -1,100 +1,100 @@
 File structure layout
 
-    Temporary / Variable files
+  Temporary / Variable files
 
-        /tmp            In-memory tmpfs location for smaller temporary files that don't need to survive a boot
+    /tmp            In-memory tmpfs location for smaller temporary files that don't need to survive a boot
 
-        /var            Temporary/variable runtime resources (E.g. logs, process ID pointer files, spool directories, and other resources for running serivces)
-        /var/tmp        On-disk temporary file storage for larger temporary files and files with a longer expected lifetime
-        /var/log        Log files
+    /var            Temporary/variable runtime resources (E.g. logs, process ID pointer files, spool directories, and other resources for running serivces)
+    /var/tmp        On-disk temporary file storage for larger temporary files and files with a longer expected lifetime
+    /var/log        Log files
 
-    Filesystem Hierarchy Standard: https://www.pathname.com/fhs/pub/fhs-2.3.html#USRLOCALLOCALHIERARCHY
-    XDG basedir spec:              https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+  Filesystem Hierarchy Standard: https://www.pathname.com/fhs/pub/fhs-2.3.html#USRLOCALLOCALHIERARCHY
+  XDG basedir spec:              https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
-    Hierarchy locations
+  Hierarchy locations
 
-        /               Core system resources (traditionally on a smaller partition during earlier boot, nowadays hier subfolders usually just linked to /usr)
-        /usr            Distribution managed resources
-        /usr/local      Unmanaged resources
-        ~/.local        Unmanaged user-specific resources
+    /               Core system resources (traditionally on a smaller partition during earlier boot, nowadays hier subfolders usually just linked to /usr)
+    /usr            Distribution managed resources
+    /usr/local      Unmanaged resources
+    ~/.local        Unmanaged user-specific resources
 
-    Hierarchy sub-directories
+  Hierarchy sub-directories
 
-        */etc               Configuration files (sometimes vendored sub-folders, sometimes single files)
-        */bin               Binaries
-        */sbin              System-managemend binaries
-        */share/%VENDOR%    Shared data
-        */src               Source code files
-        */include           Header files
-        */lib               Libraries
-        */lib64             Old 64-bit library location (lib is just used now)
+    */etc               Configuration files (sometimes vendored sub-folders, sometimes single files)
+    */bin               Binaries
+    */sbin              System-managemend binaries
+    */share/%VENDOR%    Shared data
+    */src               Source code files
+    */include           Header files
+    */lib               Libraries
+    */lib64             Old 64-bit library location (lib is just used now)
 
-    Freestanding applications
+  Freestanding applications
 
-        /opt/%VENDOR%           Unmanaged vendored application resources
-        /opt/%VENDOR%/bin       Conventional (but not required) sub-directory for vendored application binaries
+    /opt/%VENDOR%           Unmanaged vendored application resources
+    /opt/%VENDOR%/bin       Conventional (but not required) sub-directory for vendored application binaries
 
-    Configuration
+  Configuration
 
-        ~/.config           user-local application configuration (sometimes vendored sub-folders, sometimes single files)
-                            (Used instead of ./local/etc, default value for $XDG_CONFIG_HOME)
-        ~/.cache            Application cache data
+    ~/.config           user-local application configuration (sometimes vendored sub-folders, sometimes single files)
+              (Used instead of ./local/etc, default value for $XDG_CONFIG_HOME)
+    ~/.cache            Application cache data
 
-    Notable locations
+  Notable locations
 
-        ~/.local/share/applications     xdg standard location for .desktop files
+    ~/.local/share/applications     xdg standard location for .desktop files
 
 Arch Maintenance - https://wiki.archlinux.org/title/System_maintenance
 
-    $ systemctl --failed        Check for failed systemd services
-    $ journalctl -b             Check for errors in systemd journal
-    ! Also check in /var/logs
-    BEFORE UPDATING: Check https://archlinux.org/ for any posts about manual intervention required on update
+  $ systemctl --failed        Check for failed systemd services
+  $ journalctl -b             Check for errors in systemd journal
+  ! Also check in /var/logs
+  BEFORE UPDATING: Check https://archlinux.org/ for any posts about manual intervention required on update
 
-    Clean up systemd logs
+  Clean up systemd logs
 
-        journalctl --rotate                 Rotates out current log file to free it up for vacuuming
-        journalctl -m --vacuum-time=1s      Merges journals and then cleans them up based on time (changed 1s for time desired)
+    journalctl --rotate                 Rotates out current log file to free it up for vacuuming
+    journalctl -m --vacuum-time=1s      Merges journals and then cleans them up based on time (changed 1s for time desired)
 
 Packages
 
-    pacman
+  pacman
 
-        -Syu                    System Upgrade
-        -Qe                     Show explicitly installed packages
-        -Qm                     Show unoffical (AUR) installed packages
-        -Rns                    Remove packages (R), Remove configuration (n), Remove unnused dependencies (s)
+    -Syu                    System Upgrade
+    -Qe                     Show explicitly installed packages
+    -Qm                     Show unoffical (AUR) installed packages
+    -Rns                    Remove packages (R), Remove configuration (n), Remove unnused dependencies (s)
 
 Terminal
 
-    $ APP_NAME > /dev/null &    Run APP_NAME, ignore output and start in background
+  $ APP_NAME > /dev/null &    Run APP_NAME, ignore output and start in background
 
 Process management
 
-    ps -A | grep process_name   List processes matching name
-    pkill -ef process_name      Kill processes matching name and print output
+  ps -A | grep process_name   List processes matching name
+  pkill -ef process_name      Kill processes matching name and print output
 
 Input debugging
 
-    $ showkeys              Shows keycodes for all key entries
-    $ wev                   Show Wayland keycode events
-    $ xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
-                            Show X keycode events
-    $ evtest                Show raw input event information for devices
+  $ showkeys              Shows keycodes for all key entries
+  $ wev                   Show Wayland keycode events
+  $ xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+              Show X keycode events
+  $ evtest                Show raw input event information for devices
 
 X debugging
 
-    $ xinit /usr/bin/xterm -- :N        Start a fresh X.org session running xterm on VTY N
+  $ xinit /usr/bin/xterm -- :N        Start a fresh X.org session running xterm on VTY N
 
 AppImageLauncher
 
-    ail-cli
+  ail-cli
 
 Kitty
 
-    $ kitty +list-fonts --ps-names        Show available fonts
+  $ kitty +list-fonts --ps-names        Show available fonts
 
 Steam
 
-    ~/.local/share/Steam/steamapps/compatdata/APP_ID
-        where APP_ID is the number from: Game Properties -> Updates -> App ID
+  ~/.local/share/Steam/steamapps/compatdata/APP_ID
+    where APP_ID is the number from: Game Properties -> Updates -> App ID

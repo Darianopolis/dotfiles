@@ -4,54 +4,54 @@
 
 Applications
 
-    Brave       https://brave.com/
-    PowerToys   https://learn.microsoft.com/en-us/windows/powertoys/install
-    Discord     https://discord.com
-    1Password   https://1password.com/downloads/windows/
-    VS Code     https://code.visualstudio.com/
-    Spotify     https://www.spotify.com/uk/download/windows/
-    SumatraPDF  https://www.sumatrapdfreader.org/downloadafter
-        Portable - Unpack to C:\Programs\SumatraPDF
+  Brave       https://brave.com/
+  PowerToys   https://learn.microsoft.com/en-us/windows/powertoys/install
+  Discord     https://discord.com
+  1Password   https://1password.com/downloads/windows/
+  VS Code     https://code.visualstudio.com/
+  Spotify     https://www.spotify.com/uk/download/windows/
+  SumatraPDF  https://www.sumatrapdfreader.org/downloadafter
+    Portable - Unpack to C:\Programs\SumatraPDF
 
-    Link Shell Extensions   https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
-    7-zip                   https://7-zip.org/
-    AutoHotkey 2.0          https://www.autohotkey.com/
+  Link Shell Extensions   https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
+  7-zip                   https://7-zip.org/
+  AutoHotkey 2.0          https://www.autohotkey.com/
 
-    WizTree         https://diskanalyzer.com/download
-        Portable -> C:\Programs\WizTree
-    SpaceSniffer    https://sourceforge.net/projects/spacesniffer/files/latest/download
-        Portable -> C:\Programs\SpaceSniffer
-    Everything      https://www.voidtools.com/en-au/downloads/
-        Portable -> C:\Programs\Everything
+  WizTree         https://diskanalyzer.com/download
+    Portable -> C:\Programs\WizTree
+  SpaceSniffer    https://sourceforge.net/projects/spacesniffer/files/latest/download
+    Portable -> C:\Programs\SpaceSniffer
+  Everything      https://www.voidtools.com/en-au/downloads/
+    Portable -> C:\Programs\Everything
 
-    WinaeroTweaker  https://winaerotweaker.com/
+  WinaeroTweaker  https://winaerotweaker.com/
 
 Games
 
-    Steam       https://store.steampowered.com/about/
-    Battle.net  https://download.battle.net/en-gb/?product=bnetdesk
+  Steam       https://store.steampowered.com/about/
+  Battle.net  https://download.battle.net/en-gb/?product=bnetdesk
 
 Development
 
-    Git                 https://git-scm.com/downloads
-    Visual Studio 2022  https://visualstudio.microsoft.com/downloads/
-    Windows SDK         https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
-    Windows Driver Kit  https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
+  Git                 https://git-scm.com/downloads
+  Visual Studio 2022  https://visualstudio.microsoft.com/downloads/
+  Windows SDK         https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
+  Windows Driver Kit  https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
 
-    Vulkan Beta Drivers     https://developer.nvidia.com/vulkan-driver
-    RenderDoc               https://renderdoc.org/
-    VulkanCapsViewer        https://vulkan.gpuinfo.org/download.php
-        Unpack .\release to C:\Programs\VulkanCapsViewer
-    DB Browser for SQlite   https://sqlitebrowser.org/dl/
-        Unpack to C:\SqliteBrowser
+  Vulkan Beta Drivers     https://developer.nvidia.com/vulkan-driver
+  RenderDoc               https://renderdoc.org/
+  VulkanCapsViewer        https://vulkan.gpuinfo.org/download.php
+    Unpack .\release to C:\Programs\VulkanCapsViewer
+  DB Browser for SQlite   https://sqlitebrowser.org/dl/
+    Unpack to C:\SqliteBrowser
 
 Drivers
 
-    Volt 2 Audio Interface  https://www.uaudio.com/volt/start
-        Install Volt 2 drivers
-        Uninstall UA Connect afterwards
-    RawAccel                https://github.com/a1xd/rawaccel/releases
-        Unpack to C:\Programs\RawAccel
+  Volt 2 Audio Interface  https://www.uaudio.com/volt/start
+    Install Volt 2 drivers
+    Uninstall UA Connect afterwards
+  RawAccel                https://github.com/a1xd/rawaccel/releases
+    Unpack to C:\Programs\RawAccel
 
 --------------------------------------------------------------------------------
 --                             Windows Configuration
@@ -59,121 +59,121 @@ Drivers
 
 Desktop
 
-    Right Click Desktop
-        View
-            Show Desktop Icons: False
+  Right Click Desktop
+    View
+      Show Desktop Icons: False
 
 Environment Variables
 
-    Path Extras
-        C:\Bin
+  Path Extras
+    C:\Bin
 
 Settings
 
-    System
-        Display
-            Multiple displays
-                Ease cursor movement between displays:  Disabled
+  System
+    Display
+      Multiple displays
+        Ease cursor movement between displays:  Disabled
 
-            Graphics
-                Change default graphics settings -> (Default graphics settings)
-                    Hardware-accelerated GPU scheduling:    On
-                    Optimisations for windowed games:       On
+      Graphics
+        Change default graphics settings -> (Default graphics settings)
+          Hardware-accelerated GPU scheduling:    On
+          Optimisations for windowed games:       On
 
-        For Developers
-            Developer Mode: On
+    For Developers
+      Developer Mode: On
 
-    Bluetooth & devices
-        Additional mouse settings -> (Mouse Properties)
-            Pointer Options
-                Enhance pointer precision:  Disabled
+  Bluetooth & devices
+    Additional mouse settings -> (Mouse Properties)
+      Pointer Options
+        Enhance pointer precision:  Disabled
 
-    Network & internet
-        Advanced network settings
-            Network adapters - (For each used network adapter)
-                    More Adapters Options - Edit
-                        Configure
-                            Power Management
-                                Allow this device to wake the computer: Disable
+  Network & internet
+    Advanced network settings
+      Network adapters - (For each used network adapter)
+          More Adapters Options - Edit
+            Configure
+              Power Management
+                Allow this device to wake the computer: Disable
 
-    Personalisation
-        Background
-            Picture:    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
+  Personalisation
+    Background
+      Picture:    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
 
-        Themes
-            Current Theme:  Windows (dark)
+    Themes
+      Current Theme:  Windows (dark)
 
-        Lock screen
-            Picture:                                                    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
-            Get fun facts, tips, tricks, and more on your lock screen:  No
-            Lock Screen status:                                         None
+    Lock screen
+      Picture:                                                    https://cdn.kde.org/promo/Announcements/Plasma/6.1/Reef.png
+      Get fun facts, tips, tricks, and more on your lock screen:  No
+      Lock Screen status:                                         None
 
-        Taskbar
-            Search:     Hide
-            Copilot:    Disable
-            Task view:  Disable
-            Widgets:    Disable
+    Taskbar
+      Search:     Hide
+      Copilot:    Disable
+      Task view:  Disable
+      Widgets:    Disable
 
-    Apps
-        Startup
-            On:
-                - 1Password
+  Apps
+    Startup
+      On:
+        - 1Password
 
-    Accounts
-        Sign-in options
-            Additional Settings
-                If you've been away, when should Windows require you to sign in again?: Never
+  Accounts
+    Sign-in options
+      Additional Settings
+        If you've been away, when should Windows require you to sign in again?: Never
 
-    Time & Language
-        Administrative language settings
-            Change system locale
-                "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
+  Time & Language
+    Administrative language settings
+      Change system locale
+        "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
 
-    Privacy & Security
-        Searching Windows
-            Find my files
-                Click "Customize search locations"
-                    Add "C:\Programs" to Indexed Locations
-                Select "Enhanced"
+  Privacy & Security
+    Searching Windows
+      Find my files
+        Click "Customize search locations"
+          Add "C:\Programs" to Indexed Locations
+        Select "Enhanced"
 
 Control Panel
 
-    Hardware and Sound
-        Power Options
-            High Performance
-                Turn off the display:       Never
-                Put the computer to sleep:  Never
+  Hardware and Sound
+    Power Options
+      High Performance
+        Turn off the display:       Never
+        Put the computer to sleep:  Never
 
-            Sidebar: Change What the power buttons do -> (System Settings)
-                Turn on fast start-up:  Disabled
-                Sleep:                  Enabled
-                Hibernate:              Enabled
-                Lock:                   Enabled
+      Sidebar: Change What the power buttons do -> (System Settings)
+        Turn on fast start-up:  Disabled
+        Sleep:                  Enabled
+        Hibernate:              Enabled
+        Lock:                   Enabled
 
 System Tray
 
-    Allowed Elements
-        - 1Password
-        - Volt Driver Control Panel
-        - PowerToys
-        - NVIDIA Settings
-        - Windows Security
+  Allowed Elements
+    - 1Password
+    - Volt Driver Control Panel
+    - PowerToys
+    - NVIDIA Settings
+    - Windows Security
 
 WinaeroTweaker
 
-    Desktop and Taskbar
-        Wallpaper Quality: Max
+  Desktop and Taskbar
+    Wallpaper Quality: Max
 
 PowerShell
 
-    $ Set-ExecutionPolicy Unrestricted
+  $ Set-ExecutionPolicy Unrestricted
 
 File Explorer
 
-    View
-        Show
-            - File eame extensions
-            - Hidden names
+  View
+    Show
+      - File eame extensions
+      - Hidden names
 
 --------------------------------------------------------------------------------
 --                         Application Configuration
@@ -181,83 +181,83 @@ File Explorer
 
 Discord
 
-    Settings
-        Windows Settings
-            Open Discord:       Disabled
-            Minimize to Tray:   Disabled
+  Settings
+    Windows Settings
+      Open Discord:       Disabled
+      Minimize to Tray:   Disabled
 
 1Password
 
-    Settings
-        General
-            Keyboard Shortcuts: Disable All
-        Security
-            Lock after the system is idle for:      Never
-            Lock 1Password when computer sleeps:    No
+  Settings
+    General
+      Keyboard Shortcuts: Disable All
+    Security
+      Lock after the system is idle for:      Never
+      Lock 1Password when computer sleeps:    No
 
 Steam
 
-    Steam Settings
-        Interface
-            Run Steam when my computer starts:  Disabled
-        Downloads
-            Allow downloads during gameplay:    Enabled
-            Enable Shader Pre-Cache:            Disabled
+  Steam Settings
+    Interface
+      Run Steam when my computer starts:  Disabled
+    Downloads
+      Allow downloads during gameplay:    Enabled
+      Enable Shader Pre-Cache:            Disabled
 
 Spotify
 
-    Start-up and window behaviour
-        Open Spotify automatically after you log in to the computer:    No
-        Close button should minimize the Spotify window:                No
+  Start-up and window behaviour
+    Open Spotify automatically after you log in to the computer:    No
+    Close button should minimize the Spotify window:                No
 
 PowerToys
 
-    General
-        Administrator mode
-            - Always run as administrator
+  General
+    Administrator mode
+      - Always run as administrator
 
-    Awake
-        Enable Awake:   Off
+  Awake
+    Enable Awake:   Off
 
-    Mouse Utilities
-        Enable Find My Mouse:       Off
-        Enable Mouse Highlighter:   Off
+  Mouse Utilities
+    Enable Find My Mouse:       Off
+    Enable Mouse Highlighter:   Off
 
-    FancyZones
-        Launch Layout Editor
-            6x2 Grid - 200 px selection
-        Zones
-            Zone Behavior
-                - Hold Shift key to activate zones while dragging a window
-                - Use a non-primary mouse button to toggle zone activation
-                - Use middle-click mouse button to toggle multiple zones spanning
-        Windows
-            Window Behavior
-                - Keep windows in their zones when the screen resolution or work area changes
-                - Disable round corners when window is snapped
+  FancyZones
+    Launch Layout Editor
+      6x2 Grid - 200 px selection
+    Zones
+      Zone Behavior
+        - Hold Shift key to activate zones while dragging a window
+        - Use a non-primary mouse button to toggle zone activation
+        - Use middle-click mouse button to toggle multiple zones spanning
+    Windows
+      Window Behavior
+        - Keep windows in their zones when the screen resolution or work area changes
+        - Disable round corners when window is snapped
 
-    PowerToys Run
-        Activation shortcut:    Ctrl-Shift-Space
+  PowerToys Run
+    Activation shortcut:    Ctrl-Shift-Space
 
 Raw Accel
 
-    Settings
-        Sens Multiplier:    0.5
-        Type:               Linear
-        Gain:               Disable
-        Acceleration:       0.075
-        Cap: Output:        0
-        Input Offset:       2
+  Settings
+    Sens Multiplier:    0.5
+    Type:               Linear
+    Gain:               Disable
+    Acceleration:       0.075
+    Cap: Output:        0
+    Input Offset:       2
 
-    Startup:
-        Create Shortcut in: C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-            Target:         C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
-            Start in:       C:\Programs\RawAccel
+  Startup:
+    Create Shortcut in: C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+      Target:         C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
+      Start in:       C:\Programs\RawAccel
 
 Git
 
-    $ git config --global safe.directory '*'
+  $ git config --global safe.directory '*'
 
 AutoHotKey
 
-    Create link to .\ahk\ahk-setup.ps1 in C:\Bin
+  Create link to .\ahk\ahk-setup.ps1 in C:\Bin
