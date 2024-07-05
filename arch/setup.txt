@@ -237,6 +237,12 @@ $ git config --global user.name "NAME"
 $ git config --global user.email "EMAIL"
 
 --------------------------------------------------------------------------------
+--                               XDG Desktop
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S xdg-desktop-portal-kde xdg-desktop-portal-gtk plasma-meta xorg-xinit kwalletmanager
+
+--------------------------------------------------------------------------------
 --                               Packages
 --------------------------------------------------------------------------------
 
@@ -253,10 +259,10 @@ $ git config --global user.email "EMAIL"
 
 [Desktop Environment]
 
-  KDE Plasma: plasma-desktop kscreen xorg-init kwalletmanager         Desktop Environment
-  KeePassXC:  (flathub:verified)org.keepassxc.KeePassXC               Secret storage
-  Flameshot:  (flathub)org.flameshot.Flameshot                        Screenshot tool
-  Fonts:      otf-firamono-nerd                                       Fonts
+  KDE Plasma: plasma-meta xdg-desktop-portal-gtk xorg-xinit kwalletmanager  Desktop environment
+  KeePassXC:  (flathub:verified)org.keepassxc.KeePassXC                     Secret storage
+  Flameshot:  (flathub)org.flameshot.Flameshot                              Screenshot tool
+  Fonts:      otf-firamono-nerd                                             Fonts
 
 [Applications]
 
@@ -402,49 +408,75 @@ $ chmod +x ~/xplasma
 --                            KDE Plasma GUI Tweaks
 --------------------------------------------------------------------------------
 
--- Keyboard settings
-! System Settings > Keyboard > Layouts > Configure Layout: Enable > Add Layout: English (UK) (map = gb)
-
--- KeePassXC
-$ sudo pacman -S keepassxc
-! System Settings -> KDE Wallet -> Disable the KDE wallet subsystem
-! KeePassXC -> Tools -> Settings -> Secret Service Integration -> Enable KeepassXC Freedesktop.org Secret Service integration
-
 $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ echo RELOADAGENT | gpg-connect-agent
-! see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
+-- see also <https://d.sb/2016/11/gpg-inappropriate-ioctl-for-device-errors>
 
--- Styling
-! System Settings > Colours & Themes > Global Theme: Breeze Dark
-! System Settings > Window Management > Desktop Effects > Blur > Blur strength:  6th notch
-!                                                              > Noise strength: 6th notch
-
--- KRunner
-! System Settings > Plasma Search > Configure KRunner > Position on screen: Centre
-! System Settings > Keyboard > Shortcuts > KRunner > KRunner > Add Custom Shortcut: Ctrl+Shift+Space
-
--- KZones: <https://github.com/SinanAkkoyun/kde-kzone>
-! KWin Script > Get New > KZones
-! KZones properties:
-  ! Untick: `Remember and restore window geometries`
-  ! Set layout to contents of <kzones.layout.json>
-
--- Disable automatic sleep / display lock -==
-! System Settings > Power Management > After a period of inactivity: Do Nothing
-!                                          > Dim automatically: Never
-!                                          > Turn off screen: Never
-! System Settings > Screen Locking > Lock screen automatically: Never
-!                                  > Lock after waking from sleep: Disabled
-
--- Mouse settings
-! System Settings > Mouse & Touchpad > Screen Edges > Screen Top-Left: No Action
-!                                                   > Maximize (Windows dragged to top edge): Disabled
-!                                                   > Tile (Windows dragged to left or right edge): Disabled
-!                                                   > Corner barrier: Disabled
-!                                                   > Edge Barrier: None
-!                                    > Mouse > Pointer Speed:        0.20
-!                                            > Pointer Acceleration: None
-!                 > Accessibility > Shake Cursor: Disable
+KDE System Settings
+  Input & Output
+    Mouse & Touchpad
+      Mouse
+        Device
+          Wooting Two HE (ARM) Consumer Control
+            Device Enabled:       True -- IMPORTANT: If you disable this, media keys don't work
+          Wooting Two HE (ARM) Mouse
+            Device Enabled:       False
+          MOUSE DEVICE
+            Device Enabled:       True
+            Pointer speed:        0.2
+            Pointer acceleration: None
+      Screen Edges
+        Screen TopLeft:                       None
+        Tile Windows dragged to left or edge: No
+        Edge barrier:                         0 px
+    Keyboard
+      Keyboard
+        Layouts
+          Configure Layouts:  Yes
+          + Add:              English (UK)
+      Shortcuts
+        KRunner:  Ctrl+Alt+Space
+        Kitty:    Meta+X
+    Accessibility
+      Shake Cursor: Disable
+  Appearance & Style
+    Colours & Themes
+      Global Theme: Breeze Dark
+  Apps & Windows
+    Window Management
+      Window Behaviour
+        Desktop Effects
+          Blur
+            Blur Strength:  12th notch
+            Noise Strength:  6th notch
+      KWin Scrips
+        KZones
+          Layouts
+            Copy contents of ./kde/kzones.layout.json
+          General
+            Enable Zone Selector: Disabled
+            Snapping Behaviour
+              Remember and restore window geometries: Disable
+  Workspace
+    General Behaviour
+      Animation Speed:  Instant
+    Search
+      Plasma Search
+        Configure KRunner
+          Position on screen: Centre
+  Security & Privacy
+    Screen Locking
+      Lock screen automatically:    Never
+      Lock after waking from sleep: Disable
+    KDE Wallet
+      Enable the KDE wallet subsystem:  Disable
+  System
+    Power Management
+      Suspend Session
+        After a period of inactivity: Do Nothing
+      Display and Brightness
+        Dim automatically:            Never
+        Turn of screen:               Never
 
 -- TODO: Migrate all this to stored .config files
 --       See <https://www.youtube.com/watch?v=toGaph9SVbg> for relevant `.config` files
@@ -456,6 +488,7 @@ $ echo RELOADAGENT | gpg-connect-agent
 Extensions:
   vscode-blur-linux
   clangd
+  Git Extension Pack
 
 --------------------------------------------------------------------------------
 --                                Firefox Tweaks
@@ -570,6 +603,7 @@ Distro independent package managers
   - Nix
 
 Experiment with Wayfire?
+  - wlr-randr
   - xdg-desktop-portal
   - xwaylandvideobridge
   - https://github.com/WayfireWM/wayfire/wiki/Tutorial
@@ -598,3 +632,8 @@ Add scripts for switching between DE/WMs
 
 Try out Whisper for software mic monitoring via pipewire
   - https://flathub.org/apps/it.mijorus.whisper
+
+Bottles/Lutris get DX12 showing in games
+  https://www.reddit.com/r/linux_gaming/comments/1dsasq8/world_of_warcraft_nvidia_no_dx12ray_tracing/
+  https://forum.garudalinux.org/t/ray-tracing-in-wow/25874/5
+  https://forum.garudalinux.org/t/dx12-is-not-supported-bottles-lutris-heroic-visual-c-runtime-required-steam-launcher-proton-ge/36806/49?page=3

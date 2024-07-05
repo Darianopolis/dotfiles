@@ -1,4 +1,6 @@
 New Tab
+    Brave Talk:     Hide
+    Brave Rewards:  Hide
     Customize
         Background Image
             Show background images:     Disabled
@@ -18,6 +20,7 @@ Settings
             Show Sidebar:   Never
 
     Privacy & Security
+        Allow privacy-preserving product analytics:     Disabled
         Automatically send daily usage ping to Brave:   Disabled
 
     Leo
@@ -30,28 +33,34 @@ Settings
     System
         Continue running background apps when Brave is closed:  Disabled
 
+brave://flags
+
+    Preferred Ozone platform:   Wayland
+
 Extensions
 
     1Password - Password Manager        https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
     I still don't care about cookies    https://chromewebstore.google.com/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm
     Cookie AutoDelete                   https://chromewebstore.google.com/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
-        Whitelist
-            *.youtube.com
-            *.github.com
-            *.google.com
-            *.live.com
+        List Of Expressions
+            Import Expression from ./cookieautodelete.json
     SponsorBlock for YouTube            https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone
     Enhancer for YouTube                https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle
-        Playback quality
-            Automatically select a playback quality:    2160p 4K
-        Autoplay
-            Pause videos playing in background tabs when a video starts playing in the foreground tab:  Disabled
+        Video Player
+            Playback quality
+                Automatically select a playback quality:    2160p 4K
+            Autoplay
+                Pause videos playing in background tabs when a video starts playing in the foreground tab:  Disabled
     Hide Youtube Shortcuts              https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
     Return YouTube Dislike              https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi
     Hide YouTube Thumbnail              https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef
+        Disable extension on
+            - Search results page
+            - Channel's page
+            - Playlist page
     DeArrow                             https://chromewebstore.google.com/detail/dearrow-better-titles-and/enamippconapkdmgfgjchkhakpfinmaj
         Replace Thumbnails: Disabled
         Title Format:       Disabled
         Remove Emojis:      Disabled
 
-    Enable "Allow in Private" for all
+    ! Enable "Allow in Private" for all
