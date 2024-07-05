@@ -21,6 +21,7 @@ fi
 alias ls='ls --color=auto --all'
 alias ll='ls -lh --color=auto'
 alias grep='grep --color=auto'
+alias cls="printf '\033[2J\033[3J\033[1;1H'"
 PS1='[\u@\h \W]\$ '
 
 # Bash history

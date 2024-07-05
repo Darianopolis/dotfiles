@@ -12,5 +12,6 @@
     },
     "window.titleBarStyle": "custom",
     "vscode-blur-linux.opacity": 90,
-    "editor.fontFamily": "FiraMono Nerd Font, 'monospace', monospace"
+    "editor.fontFamily": "FiraMono Nerd Font, 'monospace', monospace",
+    "cmake.showOptionsMovedNotification": false
 }

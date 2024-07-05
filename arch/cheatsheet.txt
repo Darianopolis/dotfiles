@@ -94,7 +94,12 @@ Kitty
 
   $ kitty +list-fonts --ps-names        Show available fonts
 
+Bash
+
+  hash -r           Clear command path cache
+  hash -d command   Clear specific command path cache entry
+
 Steam
 
-  ~/.local/share/Steam/steamapps/compatdata/APP_ID
+  ~/.local/share/Steam/steamapps/compatdata/APP_ID      Proton Compatibility Data
     where APP_ID is the number from: Game Properties -> Updates -> App ID

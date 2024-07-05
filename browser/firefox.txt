@@ -24,6 +24,13 @@ Settings
       Allow Firefox to send technical and interaction data to Mozilla:  Disable
       Allow Firefox to install and run studies:                         Disable
 
+[Linux VA-API translation layer for video decode acceleration]
+  Based on https://github.com/elFarto/nvidia-vaapi-driver/?tab=readme-ov-file#installation
+  about:config
+    media.ffmpeg.vaapi.enabled=true
+    media.rdd-ffmpeg.enabled=true
+    gfx.x11-egl.force-enabled=true
+
 Addons
   Plasma Integration  Utility
 
