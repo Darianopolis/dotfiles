@@ -1,0 +1,64 @@
+Settings
+  General
+    Startup
+      Open previous windows and tabs: Enabled
+    Language and Appearance
+      Website appearance: Dark
+    Files and Applications
+      Always ask you where to save files: True
+  Home
+    Firefox Home Content
+      Shortcuts
+        Sponsored shortcuts:      Disabled
+        Recent activity:          Enabled
+          Pages saved to pockets: Disabled
+  Search
+    Default Search Engine:  DuckDuckGo
+  Privacy & Security
+    Passwords
+      Ask to save passwords:    Disable
+    Autofill
+      Save and fill addresses:        Disable
+      Save and fill payment methods:  Disable
+    Firefox Data Collection and Use
+      Allow Firefox to send technical and interaction data to Mozilla:  Disable
+      Allow Firefox to install and run studies:                         Disable
+
+Addons
+  Plasma Integration  Utility
+
+  1Password - Password Manager                    Password Manager
+
+  Privacy Badger                                  Privacy
+  AdBlocker Ultimate                              Privacy
+  uBlock Origin                                   Privacy
+  DuckDuckGo Privacy essentials                   Privacy
+  ClearURLs                                       Privacy
+  I don't care about cookies                      Privacy
+  Cookie AutoDelete                               Privacy
+    CAD Settings
+      Extension Options
+        Show Notifications After Automatic Cleanup: Disabled
+    List of Expressions
+      Import Expression from ./cookieautodelete.json
+
+  Copy PlainText                                  Utility
+  Search by Image                                 Utility
+  Tree Style Tab                                  Utility
+  Video Flipper                                   Utility
+
+  DeArrow                                         YouTube
+    Replace Thumbnails: Disabled
+    Title Format:       Disabled
+    Remove Emojis:      Disabled
+  Hide shorts for YouTube                         YouTube
+  Return YouTube Dislike                          YouTube
+  SponsorBlock for YouTube - Skip Sponsorships    YouTube
+  Enhancer for YouTube                            YouTube
+  Hide YouTube Thumbnails                         YouTube
+    Disable extension on
+      - Search results page
+      - Channel's page
+      - Playlist page
+
+  ! Enable "Allow in Private" for all

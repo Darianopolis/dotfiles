@@ -1,0 +1,11 @@
+Extensions
+  Git Extension Pack                    (both)
+
+  Shader languages support for VS Code  (both)
+  Slang                                 (both)
+  AutoHotkey Plus Plus                  (both)
+  clangd                                (both)
+  CMake                                 (both)
+  CMake Tools                           (both)
+
+  vscode-blur-linux                     (linux only)

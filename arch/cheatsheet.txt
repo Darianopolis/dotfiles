@@ -43,7 +43,6 @@ File structure layout
     Notable locations
 
         ~/.local/share/applications     xdg standard location for .desktop files
-        ~/.local/share/Steam/steamapps  Steam application data
 
 Arch Maintenance - https://wiki.archlinux.org/title/System_maintenance
 
@@ -94,3 +93,8 @@ AppImageLauncher
 Kitty
 
     $ kitty +list-fonts --ps-names        Show available fonts
+
+Steam
+
+    ~/.local/share/Steam/steamapps/compatdata/APP_ID
+        where APP_ID is the number from: Game Properties -> Updates -> App ID

@@ -239,15 +239,6 @@ PowerToys
     PowerToys Run
         Activation shortcut:    Ctrl-Shift-Space
 
-VS Code
-
-    Extensions
-        - AutoHotkey Plus Plus
-        - C/C++ Extension Pack
-        - PowerShell
-        - Shader languages support for VS Code
-        - Slang
-
 Raw Accel
 
     Settings
