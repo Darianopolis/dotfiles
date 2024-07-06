@@ -232,7 +232,8 @@ $ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
 $ rm gcm-linux_amd64.2.5.0.tar.gz
 
 $ git-credential-manager configure
-$ git config --global credential.credentialStore gpg
+$ git config --global credential.credentialStore cache
+$ git config --global credential.cacheOptions "--timeout 86400"
 $ git config --global core.editor "vim"
 $ git config --global user.name "NAME"
 $ git config --global user.email "EMAIL"
@@ -461,11 +462,6 @@ KDE System Settings
       Global Theme: Breeze Dark
   Apps & Windows
     Window Management
-      Window Behaviour
-        Desktop Effects
-          Blur
-            Blur Strength:  12th notch
-            Noise Strength:  6th notch
       KWin Scrips
         KZones
           Layouts
