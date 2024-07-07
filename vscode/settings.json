@@ -6,12 +6,15 @@
         "--function-arg-placeholders=0"
     ],
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
+    "files.insertFinalNewline": false,
     "files.associations": {
-        ".slang": "slang"
+        ".slang": "slang",
+        "*.slang": "slang"
     },
     "window.titleBarStyle": "custom",
     "vscode-blur-linux.opacity": 90,
-    "editor.fontFamily": "FiraMono Nerd Font, 'monospace', monospace",
-    "cmake.showOptionsMovedNotification": false
+    "editor.fontFamily": "Consolas, 'monospace', monospace",
+    "cmake.showOptionsMovedNotification": false,
+    "slang.format.clangFormatLocation": "",
+    "slang.format.clangFormatStyle": ""
 }

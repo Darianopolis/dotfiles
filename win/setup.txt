@@ -25,6 +25,7 @@ Applications
     Portable -> C:\Programs\Everything
 
   WinaeroTweaker  https://winaerotweaker.com/
+  NVidia App      https://www.nvidia.com/en-us/software/nvidia-app/
 
 Games
 
@@ -33,7 +34,9 @@ Games
 
 Development
 
-  Git                 https://git-scm.com/downloads
+  Git                 $ WinGet install Git.Git
+  Sloc, Cloc & Code   https://github.com/boyter/scc
+    Unpack .\scc.exe to C:\Bin
   Visual Studio 2022  https://visualstudio.microsoft.com/downloads/
   Windows SDK         https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
   Windows Driver Kit  https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
@@ -49,7 +52,9 @@ Drivers
 
   Volt 2 Audio Interface  https://www.uaudio.com/volt/start
     Install Volt 2 drivers
-    Uninstall UA Connect afterwards
+    Uninstall "UA Connect" and "PACE License Support Win64" afterwards
+    Remove [Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\electron.app.UA.Connect] registry entry
+
   RawAccel                https://github.com/a1xd/rawaccel/releases
     Unpack to C:\Programs\RawAccel
 
@@ -80,8 +85,21 @@ Settings
           Hardware-accelerated GPU scheduling:    On
           Optimisations for windowed games:       On
 
+    Power
+      Power mode: Best Performance
+      Screen, sleep & hibernate time-outs
+        Turn my screen off after:       Never
+        Make my device sleep after:     Never
+        Make my device hibernate after: Never
+      Energy saver: Off
+
     For Developers
       Developer Mode: On
+      Terminal:       Windows Terminal
+      PowerShell
+        "Change execution policy to allow local PowerShell scripts to run without signing. Require signing for remote scripts.":  On
+      Enable sudo:                            On
+        Configure how sudo runs applications: Inline
 
   Bluetooth & devices
     Additional mouse settings -> (Mouse Properties)
@@ -116,8 +134,8 @@ Settings
 
   Apps
     Startup
-      On:
-        - 1Password
+      - 1Password
+      - Windows Security notification icon
 
   Accounts
     Sign-in options
@@ -130,25 +148,33 @@ Settings
         "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
 
   Privacy & Security
+    Find my device:   Off
+    General
+      Let apps show me personalized ads by using my advertising ID:           Off
+      Let Windows improve Start and search results by tracking app launches:  Off
+      Show me suggested content in the Settings app:                          Off
+      Show me notifications in the Settings app:                              Off
+    Speech
+      Online speech recognition:  Off
+    Inking & typing personlisation
+      Customised inking and typing dictionary:  Off
+    Diagnostic & feedback
+      Diagnostic data
+        Send optional diagnostic data:  On  (Required for Insider Program)
+      Improve inking and typing:        Off
+      Tailored experience:              Off
+      View diagnostic data:             Off
+    Search permissions
+      Cloud content search
+        "Allow Windows Search to provide results from the apps and services that you are signed in to with your Microsoft account.":      Off
+        "Allow WIndows Search to provide results from the apps and services that you are signed in to with your work or school account.": Off
+      History
+        "To improve your search suggestions, let Windows Search store your search history locally on this device.": Off
+      More settings
+        See content suggestions in the search box and in search terms:  Off
     Searching Windows
       Find my files
-        Click "Customize search locations"
-          Add "C:\Programs" to Indexed Locations
-        Select "Enhanced"
-
-Control Panel
-
-  Hardware and Sound
-    Power Options
-      High Performance
-        Turn off the display:       Never
-        Put the computer to sleep:  Never
-
-      Sidebar: Change What the power buttons do -> (System Settings)
-        Turn on fast start-up:  Disabled
-        Sleep:                  Enabled
-        Hibernate:              Enabled
-        Lock:                   Enabled
+        - Enhanced
 
 System Tray
 
@@ -159,21 +185,21 @@ System Tray
     - NVIDIA Settings
     - Windows Security
 
-WinaeroTweaker
-
-  Desktop and Taskbar
-    Wallpaper Quality: Max
-
-PowerShell
-
-  $ Set-ExecutionPolicy Unrestricted
-
 File Explorer
 
   View
     Show
       - File eame extensions
       - Hidden names
+
+NVidia App
+  Settings
+    Features
+      NVIDIA Overlay:               On
+      Game filters and Photo Mode:  Off
+    Notifications
+      Driver updates:     On
+      Available Rewards:  Off
 
 --------------------------------------------------------------------------------
 --                         Application Configuration

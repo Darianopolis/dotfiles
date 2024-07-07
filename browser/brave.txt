@@ -39,11 +39,18 @@ brave://flags
 
 Extensions
 
+  uBlock Origin                       https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
   1Password - Password Manager        https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
   I still don't care about cookies    https://chromewebstore.google.com/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm
   Cookie AutoDelete                   https://chromewebstore.google.com/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
+    CAD Settings
+      Automatic Cleaning Options
+        Enable Automatic Cleaning: On
+      Extension Options
+        Show Notification After Automatic Cleanup:  Off
     List Of Expressions
       Import Expression from ./cookieautodelete.json
+    Show Notification After Automatic Cleanup:  False
   SponsorBlock for YouTube            https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone
   Enhancer for YouTube                https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle
     Video Player
@@ -51,7 +58,7 @@ Extensions
         Automatically select a playback quality:    2160p 4K
       Autoplay
         Pause videos playing in background tabs when a video starts playing in the foreground tab:  Disabled
-  Hide Youtube Shortcuts              https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
+  Hide Youtube Shorts                 https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
   Return YouTube Dislike              https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi
   Hide YouTube Thumbnail              https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef
     Disable extension on
