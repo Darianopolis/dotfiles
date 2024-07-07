@@ -25,7 +25,9 @@ Applications
     Portable -> C:\Programs\Everything
 
   WinaeroTweaker  https://winaerotweaker.com/
+    Install as portable to C:\Programs\WinaeroTweaker
   NVidia App      https://www.nvidia.com/en-us/software/nvidia-app/
+  CrystalDiskInfo https://crystalmark.info/en/software/crystaldiskinfo/
 
 Games
 
@@ -70,8 +72,7 @@ Desktop
 
 Environment Variables
 
-  Path Extras
-    C:\Bin
+  PATH += C:\Bin
 
 Settings
 
@@ -200,6 +201,9 @@ NVidia App
     Notifications
       Driver updates:     On
       Available Rewards:  Off
+
+WinaeroTweaker
+  Import tweaks from .\winaerotweaker.ini
 
 --------------------------------------------------------------------------------
 --                         Application Configuration
