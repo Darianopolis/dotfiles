@@ -36,6 +36,7 @@ $ chmod +x ~/xplasma
 # pacman -S
     konsole                       - Terminal Emulator
     kate                          - Text Editor
+    kalk                          - Calculator
     dolphin                       - File Browser
     ark                           - Archive Manager
     okular                        - Document Viewer
@@ -44,6 +45,7 @@ $ chmod +x ~/xplasma
 $ flatpak install flathub
     com.brave.Browser             - Web Browser
     com.github.tchx84.Flatseal    - Flatpak sandbox control
+    it.mijorus.gearlever          - AppImage manager
 $ yay -S visual-studio-code-bin   - Code Editor
 
 --------------------------------------------------------------------------------
@@ -82,14 +84,14 @@ $ yay -S epson-inkjet-printer-escpr2                - needed for Epson ET-8550
 
 $ cd /tmp
 $ curl -OL https://www.maccel.org/install.sh
-$ sudo MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
-$ sudo usermod -aG maccel USERNAME
+# MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
+# usermod -aG maccel USERNAME
 
-$ sudo maccel set sens-mult 0.5
-$ sudo maccel set accel 0.075
-$ sudo maccel set offset 2
+# maccel set sens-mult 0.5
+# maccel set accel 0.075
+# maccel set offset 2
 
-$ sudo maccel bindall
+# maccel bindall
 
 -- IMPORTANT: *reinstall* before booting into updated kernel or you will break mouse input
 -- Uninstall with: $ sh /opt/maccel/uninstall.sh

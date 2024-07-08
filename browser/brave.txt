@@ -41,6 +41,8 @@ Extensions
 
   uBlock Origin                       https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
   1Password - Password Manager        https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
+    Security
+      Automatically lock 1Password: Disable
   I still don't care about cookies    https://chromewebstore.google.com/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm
   Cookie AutoDelete                   https://chromewebstore.google.com/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
     CAD Settings
