@@ -3,7 +3,6 @@
 --------------------------------------------------------------------------------
 
 {drives.arch}                   E.g. /dev/nvme1n1   (identify via `$ lsblk`)
-{drives.windows.efi-partition}  E.g. /dev/nvme0n1p1 (identify via `$ lsblk`)
 {username}                      E.g. darian
 {hostname}                      E.g. arch
 {keymap}                        E.g. uk
@@ -66,8 +65,11 @@ $ timedatectl
 --------------------------------------------------------------------------------
 
 > /etc/pacman.conf
-  ! Uncomment `ParallelDownloads` and set to 16
-  ! Uncomment [multilib] lines
+  ParallelDownloads = 16
+
+  [multilib]
+  Include = "/etc/pacman.d/mirrorlist
+
 # pacman -Syu
 
 --------------------------------------------------------------------------------
@@ -115,15 +117,6 @@ $ timedatectl
   /swapfile none swap defaults 0 0
 
 --------------------------------------------------------------------------------
---        GRUB Bootloader
---------------------------------------------------------------------------------
-
-# grub-install --target=x86_64-efi --efi-directory=/boot bootloader-id=GRUB
-
-> /etc/default/grub
-  GRUB_DISABLE_OS_PROBER=false
-
---------------------------------------------------------------------------------
 --        Accounts
 --------------------------------------------------------------------------------
 
@@ -145,6 +138,17 @@ $ visudo
 # pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack
 
 --------------------------------------------------------------------------------
+--        GRUB Bootloader
+--------------------------------------------------------------------------------
+
+# grub-install --target=x86_64-efi --efi-directory=/boot bootloader-id=GRUB
+
+> /etc/default/grub
+  GRUB_GFXMODE=1920x1080x32
+  GRUB_GFXPAYLOAD_LINUX=3840x2160x32
+  GRUB_DISABLE_OS_PROBER=false
+
+--------------------------------------------------------------------------------
 --        NVIDIA
 --------------------------------------------------------------------------------
 
@@ -156,9 +160,6 @@ $ visudo
     nvidia.NVreg_PreserveVideoMemoryAllocations=1
     nvidia.NVreg_TemporaryFilePath=/tmp
     nvidia.NVreg_UsePageAttributeTable=1
-
-  GRUB_GFXMODE=1920x1080x32
-  GRUB_GFXPAYLOAD_LINUX=3840x2160x32
 
 > /etc/mkinitcpio.conf
   MODULES += nvidia_modset nvidia_uvm nvidia_drm
