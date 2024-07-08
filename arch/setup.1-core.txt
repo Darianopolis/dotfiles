@@ -180,7 +180,5 @@ $ visudo
 --      (re)build GRUB + initramfs
 --------------------------------------------------------------------------------
 
-# mount {drives.windows.efi-partition} /windows-efi
 # grub-mkconfig -o /boot/grub/grub.cfg
 # mkinitcpio -P
-# umount /windows-efi

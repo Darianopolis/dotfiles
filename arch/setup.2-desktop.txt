@@ -76,25 +76,26 @@ $ yay -S epson-inkjet-printer-escpr2                - needed for Epson ET-8550
 # systemctl enable --now cups.service
 
 --------------------------------------------------------------------------------
---        Mouse Acceleration
+--        Mouse Acceleration        (https://github.com/Gnarus-G/maccel)
 --------------------------------------------------------------------------------
 
--- https://github.com/Gnarus-G/maccel
--- Verify install.sh to make sure it hasn't been tampered with!
-
-$ cd /tmp
 $ curl -OL https://www.maccel.org/install.sh
+! Verify install script
 # MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
+
 # usermod -aG maccel USERNAME
 
-# maccel set sens-mult 0.5
-# maccel set accel 0.075
-# maccel set offset 2
+$ maccel set sens-mult 0.5
+$ maccel set accel 0.075
+$ maccel set offset 2
 
 # maccel bindall
 
--- IMPORTANT: *reinstall* before booting into updated kernel or you will break mouse input
--- Uninstall with: $ sh /opt/maccel/uninstall.sh
+IMPORTANT - ON KERNEL UPDATE
+  # maccel unbindall
+  # sh /opt/maccel/uninstall.sh
+  ! Reboot into updated kernel
+  ! Follow previous steps to reinstall
 
 --------------------------------------------------------------------------------
 --        Plasma settings
