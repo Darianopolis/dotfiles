@@ -1,0 +1,22 @@
+--------------------------------------------------------------------------------
+--                       LLVM - clang, clangd, lldb, scc
+--------------------------------------------------------------------------------
+
+$ cd ~/dev/cloned
+$ git clone https://github.com/llvm/llvm-project.git --recursive && cd llvm-project
+$ mkdir build && cd build
+$ cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lldb;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ../llvm
+$ ninja
+$ sudo ninja install
+
+--------------------------------------------------------------------------------
+--                                 wlroots
+--------------------------------------------------------------------------------
+
+$ git clone https://gitlab.freedesktop.org/wlroots/wlroots.git &&
+$ cd wlroots
+! play package whackamole until everything is buildable
+$ sudo pacman -S wayland-protocols seatd libliftoff xcb-util-errors
+$ meson setup --reconfigure build/
+$ ninja -C build
+$ sudo ninja -C build/ install

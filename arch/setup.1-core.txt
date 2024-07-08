@@ -1,0 +1,186 @@
+--------------------------------------------------------------------------------
+--        Variables
+--------------------------------------------------------------------------------
+
+{drives.arch}                   E.g. /dev/nvme1n1   (identify via `$ lsblk`)
+{drives.windows.efi-partition}  E.g. /dev/nvme0n1p1 (identify via `$ lsblk`)
+{username}                      E.g. darian
+{hostname}                      E.g. arch
+{keymap}                        E.g. uk
+{timezone}                      E.g. Europe/London
+${locales.all}                  E.g. en_US.UTF-8 UTF-8
+                                     en_GB.UTF-8 UTF-8
+${locales.primary}              E.g. en_GB.UTF-8
+
+--------------------------------------------------------------------------------
+--        Initial environment setup
+--------------------------------------------------------------------------------
+
+$ loadkeys {keymap}
+$ timedatectl
+
+--------------------------------------------------------------------------------
+--        Drive setup
+--------------------------------------------------------------------------------
+
+$ fdisk {drives.arch}
+  g             - New GPT partition table
+  n             - New partition (for /boot)
+  Enter *2
+  +1G           - 1 GB partitio size
+  t             - Change partition type
+  1             - EFI
+  n             - New partition (for /)
+  Enter *3      - Take rest of disk
+  w             - Write out changes
+
+$ mkfs.fat -F32 {drives.arch}p1
+$ mkfs.ext4 {drives.arch}p2
+
+--------------------------------------------------------------------------------
+--        pacstrap
+--------------------------------------------------------------------------------
+
+$ mount {drives.arch}p2 /mnt
+$ mount --mkdir {drives.arch}p1 /mnt/boot
+
+$ pacstrap -K /mnt 
+    base base-devel                                   - Core packages 
+    linux linux-headers linux-firmware amd-ucode      - Linux kernel & firmware
+    networkmanager                                    - Networking
+    efibootmgr os-prober                              - Bootmanager
+    vim sudo git                                      - Utilities
+
+$ genfstab -U /mnt >> /mnt/etc/fstab
+$ arch-chroot /mnt
+
+--------------------------------------------------------------------------------
+--        Networking
+--------------------------------------------------------------------------------
+
+$ systemctl enable NetworkManager.service
+$ systemctl enable systemd-resolved.service
+
+--------------------------------------------------------------------------------
+--        pacman
+--------------------------------------------------------------------------------
+
+> /etc/pacman.conf
+  ! Uncomment `ParallelDownloads` and set to 16
+  ! Uncomment [multilib] lines
+$ pacman -Syu
+
+--------------------------------------------------------------------------------
+--        Time
+--------------------------------------------------------------------------------
+
+$ ln -fs /usr/share/zoneinfo/{timezone} /etc/localtime
+$ systemctl enable systemd-timesyncd.service
+$ hwclock --systohc
+
+--------------------------------------------------------------------------------
+--        Locale
+--------------------------------------------------------------------------------
+
+$ echo "${locales.all}" > /etc/locale.gen
+$ locale-gen
+$ echo "LANG=${locales.primary}" > /etc/locale.conf
+
+--------------------------------------------------------------------------------
+--        Keymap
+--------------------------------------------------------------------------------
+
+$ echo "KEYMAP=${keymap}" > /etc/vconsole.conf
+
+--------------------------------------------------------------------------------
+--        SysRq key
+--------------------------------------------------------------------------------
+
+$ echo "kernel.sysrq=1" > /etc/sysctl.d/99-sysctl.conf
+
+--------------------------------------------------------------------------------
+--        journald
+--------------------------------------------------------------------------------
+
+> /etc/systemd/journald.conf.d/20-maxsize.conf
+  [Journal]
+  SystemMaxUse=100M
+
+--------------------------------------------------------------------------------
+--        Swap
+--------------------------------------------------------------------------------
+
+$ mkswap -U clear --size 16G --file /swapfile
+> /etc/fstab
+  /swapfile none swap defaults 0 0
+
+--------------------------------------------------------------------------------
+--        GRUB Bootloader
+--------------------------------------------------------------------------------
+
+$ grub-install --target=x86_64-efi --efi-directory=/boot bootloader-id=GRUB
+
+> /etc/default/grub
+  GRUB_DISABLE_OS_PROBER=false
+
+--------------------------------------------------------------------------------
+--        Accounts
+--------------------------------------------------------------------------------
+
+$ passwd
+
+$ useradd -m -g users -G wheel -s /bin/bash {username}
+$ passwd ${username}
+
+$ visudo
+  %wheel ALL=(ALL:ALL): ALL
+
+> /etc/security/faillock.conf
+  unlock_time = 5
+
+--------------------------------------------------------------------------------
+--        Audio
+--------------------------------------------------------------------------------
+
+$ pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack
+
+--------------------------------------------------------------------------------
+--        NVIDIA
+--------------------------------------------------------------------------------
+
+$ pacman -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils egl-wayland
+
+> /etc/default/grub
+  GRUB_CMDLINE_LINUX_DEFAULT +=
+    nvidia_drm.modeset=1
+    nvidia.NVreg_PreserveVideoMemoryAllocations=1
+    nvidia.NVreg_TemporaryFilePath=/tmp
+    nvidia.NVreg_UsePageAttributeTable=1
+
+  GRUB_GFXMODE=1920x1080x32
+  GRUB_GFXPAYLOAD_LINUX=3840x2160x32
+
+> /etc/mkinitcpio.conf
+  MODULES += nvidia_modset nvidia_uvm nvidia_drm
+  HOOKS   -= kms
+
+$ systemctl enable nvidia-suspend.service
+$ systemctl enable nvidia-resume.service
+
+-- VAAPI -> NVDEC video encode/decode translation layer
+-- https://wiki.archlinux.org/title/Hardware_video_acceleration
+--  +-> https://github.com/elFarto/nvidia-vaapi-driver/?tab=readme-ov-file#installation
+
+$ pacman -S libva-nvidia-driver
+> /etc/environment
+  MOZ_DISABLE_RDD_SANDBOX=1
+  LIBVA_DRIVER_NAME=nvidia
+
+--------------------------------------------------------------------------------
+--      (re)build GRUB + initramfs
+--------------------------------------------------------------------------------
+
+$ mount {drives.windows.efi-partition} /windows-efi
+$ grub-mkconfig -o /boot/grub/grub.cfg
+$ mkinitcpio -P
+$ umount /windows-efi

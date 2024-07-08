@@ -1,0 +1,11 @@
+Check for errors / corruption
+    Event Viewer
+    # chkdisk C:
+    # sfc /scannow
+Manage startup applications
+    StartUp folder
+    Autorun
+    etc..
+Manage services
+Group policy
+Updates

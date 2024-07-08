@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------------
+--                                Printing
+--------------------------------------------------------------------------------
+
+# pacman -S system-config-printer cups cups-pdf
+$ yay -S epson-inkjet-printer-escpr2                  (needed for Epson ET-8550)
+
+$ systemctl enable --now cups.service
+
+--------------------------------------------------------------------------------
+--                            Mouse Accel Drivers
+--------------------------------------------------------------------------------
+
+-- https://github.com/Gnarus-G/maccel
+-- Verify install.sh to make sure it hasn't been tampered with!
+
+$ cd /var/tmp
+$ curl -OL https://www.maccel.org/install.sh
+$ sudo MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
+$ sudo usermod -aG maccel USERNAME
+
+$ sudo maccel set sens-mult 0.5
+$ sudo maccel set accel 0.075
+$ sudo maccel set offset 2
+
+$ sudo maccel bindall
+
+IMPORTANT: *reinstall* before booting into updated kernel or you will break mouse input
+
+-- Uninstall with: $ sh /opt/maccel/uninstall.sh
+
+--------------------------------------------------------------------------------
+--                           Wooting Keyboard Setup
+--------------------------------------------------------------------------------
+
+-- https://help.wooting.io/article/147-configuring-device-access-for-wootility-under-linux-udev-rules
+
+$ cp ./wooting/70-wooting.rules /etc/udev/rules.d
+# udevadm control --reload-rules
+# udevadm trigger

@@ -1,0 +1,97 @@
+--------------------------------------------------------------------------------
+--        Plasma
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S plasma-meta xorg-xinit kwalletmanager xdg-desktop-portal-gtk keepassxc
+
+> ~/plasma
+  #!/bin/bash
+  /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
+$ chmod +x ~/plasma
+
+> ~/xplasma
+  #!/bin/bash
+  startx /usr/bin/startplasma-x11
+$ chmod +x ~/xplasma
+
+--------------------------------------------------------------------------------
+--        Keyring
+--------------------------------------------------------------------------------
+
+$ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
+$ echo RELOADAGENT | gpg-connect-agent
+
+KDE System Settings
+  Security & Privacy
+    KDE Wallet
+      Enable the KDE wallet subsystem:  Disable
+
+! Restart Plasma
+
+$ keepassxc
+  ! Enable secret service integration
+
+--------------------------------------------------------------------------------
+--        Plasma settings
+--------------------------------------------------------------------------------
+
+KDE System Settings
+  Input & Output
+    Mouse & Touchpad
+      Mouse
+        Device
+          Wooting Two HE (ARM) Consumer Control
+            Device Enabled:       True -- IMPORTANT: If you disable this, media keys don't work
+          Wooting Two HE (ARM) Mouse
+            Device Enabled:       False
+          MOUSE DEVICE
+            Device Enabled:       True
+            Pointer speed:        0.2
+            Pointer acceleration: None
+      Screen Edges
+        Screen TopLeft:                       None
+        Tile Windows dragged to left or edge: No
+        Edge barrier:                         0 px
+    Keyboard
+      Keyboard
+        Layouts
+          Configure Layouts:  Yes
+          + Add:              English (UK)
+      Shortcuts
+        KRunner:  Ctrl+Alt+Space
+        Kitty:    Meta+X
+    Accessibility
+      Shake Cursor: Disable
+  Appearance & Style
+    Colours & Themes
+      Global Theme: Breeze Dark
+  Apps & Windows
+    Window Management
+      KWin Scrips
+        KZones
+          Layouts
+            Copy contents of ./plasma/kzones.layout.json
+          General
+            Enable Zone Selector: Disabled
+            Snapping Behaviour
+              Remember and restore window geometries: Disable
+  Workspace
+    General Behaviour
+      Animation Speed:  Instant
+    Search
+      Plasma Search
+        Configure KRunner
+          Position on screen: Centre
+  Security & Privacy
+    Screen Locking
+      Lock screen automatically:    Never
+      Lock after waking from sleep: Disable
+    KDE Wallet
+      Enable the KDE wallet subsystem:  Disable
+  System
+    Power Management
+      Suspend Session
+        After a period of inactivity: Do Nothing
+      Display and Brightness
+        Dim automatically:  Never
+        Turn of screen:     Never
