@@ -1,8 +1,26 @@
 --------------------------------------------------------------------------------
+--        yay AUR helper
+--------------------------------------------------------------------------------
+
+$ git clone https://aur.archlinux.org/yay.git && cd yay
+$ makepkg -si
+$ cd .. && rm -rf yay
+
+--------------------------------------------------------------------------------
+--        Flatpak
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S flatpak
+$ flatpak install flathub com.github.tchx84.Flatseal 
+
+--------------------------------------------------------------------------------
 --        Plasma
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S plasma-meta xorg-xinit kwalletmanager xdg-desktop-portal-gtk keepassxc
+$ sudo pacman -S
+    plasma-meta                         - Core plasma meta package 
+    xorg-xinit xdg-desktop-portal-gtk   - Integration packages
+    keepassxc kwalletmanager            - To replace KDE Wallet subsystem
 
 > ~/plasma
   #!/bin/bash
@@ -13,6 +31,13 @@ $ chmod +x ~/plasma
   #!/bin/bash
   startx /usr/bin/startplasma-x11
 $ chmod +x ~/xplasma
+
+--------------------------------------------------------------------------------
+--        Core Applications
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S konsole kate dolphin
+$ flatpak install flathub com.visualstudio.code com.brave.Browser 
 
 --------------------------------------------------------------------------------
 --        Keyring
@@ -30,6 +55,15 @@ KDE System Settings
 
 $ keepassxc
   ! Enable secret service integration
+
+--------------------------------------------------------------------------------
+--        Printing
+--------------------------------------------------------------------------------
+
+# pacman -S system-config-printer cups cups-pdf
+$ yay -S epson-inkjet-printer-escpr2                  (needed for Epson ET-8550)
+
+$ systemctl enable --now cups.service
 
 --------------------------------------------------------------------------------
 --        Plasma settings
@@ -59,7 +93,7 @@ KDE System Settings
           + Add:              English (UK)
       Shortcuts
         KRunner:  Ctrl+Alt+Space
-        Kitty:    Meta+X
+        Konsole:  Meta+X
     Accessibility
       Shake Cursor: Disable
   Appearance & Style
