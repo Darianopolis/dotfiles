@@ -1,4 +1,15 @@
 --------------------------------------------------------------------------------
+--        GPG Keychain and pinentry setup
+--------------------------------------------------------------------------------
+
+$ gpg --gen-key
+! {gpg-id} :: long string of characters from the key as shown by `gpg --list-keys`
+$ pass init {gpg-id}
+
+$ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
+$ gpg-connect-agent reloadagent /bye
+
+--------------------------------------------------------------------------------
 --        Git Credential Manager
 --------------------------------------------------------------------------------
 
@@ -6,7 +17,7 @@
 ! Unpack to /usr/local/bin
 
 $ git-credential-manager configure
-$ git config --global credential.credentialStore secretservice
+$ git config --global credential.credentialStore gpg
 $ git config --global core.editor "vim"
 $ git config --global user.name "NAME"
 $ git config --global user.email "EMAIL"
