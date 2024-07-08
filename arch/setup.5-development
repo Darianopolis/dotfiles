@@ -1,4 +1,19 @@
 --------------------------------------------------------------------------------
+--                            Git Credential Manager
+--------------------------------------------------------------------------------
+
+-- Replace 2.5.0 with current latest version
+$ curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.5.0/gcm-linux_amd64.2.5.0.tar.gz
+$ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
+$ rm gcm-linux_amd64.2.5.0.tar.gz
+
+$ git-credential-manager configure
+$ git config --global credential.credentialStore secretservice
+$ git config --global core.editor "vim"
+$ git config --global user.name "NAME"
+$ git config --global user.email "EMAIL"
+
+--------------------------------------------------------------------------------
 --                       LLVM - clang, clangd, lldb, scc
 --------------------------------------------------------------------------------
 

@@ -36,12 +36,18 @@ $ chmod +x ~/xplasma
 --        Core Applications
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S konsole kate dolphin
+$ sudo pacman -S konsole kate dolphin ark
 $ flatpak install flathub com.visualstudio.code com.brave.Browser 
 
 --------------------------------------------------------------------------------
 --        Keyring
 --------------------------------------------------------------------------------
+
+$ sudo pacman -S pass
+$ gpg --gen-key
+$ gpg --export-secret-keys | gpg2 --import
+$ pass init <gpg-id>
+! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
 
 $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ echo RELOADAGENT | gpg-connect-agent
