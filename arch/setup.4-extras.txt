@@ -18,7 +18,7 @@
 [Desktop Environment]
 
   KDE Plasma:     plasma-meta xdg-desktop-portal-gtk xorg-xinit       Desktop environment
-                  kwalletmanager 
+                  kwalletmanager
   KeePassXC:      (flathub:verified)org.keepassxc.KeePassXC           Secret storage
   Flameshot:      (flathub)org.flameshot.Flameshot                    Screenshot tool
   Fonts:          otf-firamono-nerd                                   Fonts
@@ -70,37 +70,6 @@
 
   Prism Launcher:  (flathub:verified)org.prismlauncher.PrismLauncher  Minecraft Launcher
   OSU:             (flathub)sh.ppy.osu                                OSU
-
---------------------------------------------------------------------------------
---                               Development
---------------------------------------------------------------------------------
-
-$ sudo pacman -S cmake ninja meson go
-$ go install github.com/boyter/scc@master
-
---------------------------------------------------------------------------------
---                            Vulkan Development
---------------------------------------------------------------------------------
-
-$ sudo pacman -S vulkan-devel renderdoc
-
--- Vulkan Caps Viewer
-$ curl -L -o vulkanCapsViewer.AppImage https://vulkan.gpuinfo.org/downloads/vulkancapsviewer_3.40_linux64_wayland.AppImage
-$ chmod +x vulkanCapsViewer.AppImage
-$ sudo mv vulkanCapsViewer.AppImage /usr/local/bin/vulkanCapsViewer.AppImage
-> /usr/share/applications/vulkancapsviewer.desktop
-```
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=Vulkan Caps Viewer
-Comment=Vulkan Hardware Capability Viewer
-Exec=/usr/local/bin/vulkanCapsViewer.AppImage
-Terminal=false
-StartupNotify=false
-Categories=Application;Graphics;Development;
-X-AppImage-Version=wayland
-```
 
 --------------------------------------------------------------------------------
 --                             Steam + Proton GE

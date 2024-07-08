@@ -44,8 +44,8 @@ $ mkfs.ext4 {drives.arch}p2
 $ mount {drives.arch}p2 /mnt
 $ mount --mkdir {drives.arch}p1 /mnt/boot
 
-$ pacstrap -K /mnt 
-    base base-devel                                   - Core packages 
+$ pacstrap -K /mnt
+    base base-devel                                   - Core packages
     linux linux-headers linux-firmware amd-ucode      - Linux kernel & firmware
     networkmanager                                    - Networking
     efibootmgr os-prober                              - Bootmanager

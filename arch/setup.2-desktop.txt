@@ -7,20 +7,13 @@ $ makepkg -si
 $ cd .. && rm -rf yay
 
 --------------------------------------------------------------------------------
---        Flatpak
---------------------------------------------------------------------------------
-
-$ sudo pacman -S flatpak
-$ flatpak install flathub com.github.tchx84.Flatseal 
-
---------------------------------------------------------------------------------
 --        Plasma
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S
-    plasma-meta                         - Core plasma meta package 
-    xorg-xinit xdg-desktop-portal-gtk   - Integration packages
-    keepassxc kwalletmanager            - To replace KDE Wallet subsystem
+# pacman -S
+    plasma-meta                                   - Core plasma meta package
+    xorg-xinit xdg-desktop-portal-gtk             - Integration packages
+    keepassxc                                     - Secret Service
 
 > ~/plasma
   #!/bin/bash
@@ -32,44 +25,74 @@ $ chmod +x ~/plasma
   startx /usr/bin/startplasma-x11
 $ chmod +x ~/xplasma
 
+> ~/.config/kwalletrc
+  [Wallet]
+  Enabled=false
+
 --------------------------------------------------------------------------------
 --        Core Applications
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S konsole kate dolphin ark
-$ flatpak install flathub com.visualstudio.code com.brave.Browser 
+# pacman -S
+    konsole                       - Terminal Emulator
+    kate                          - Text Editor
+    dolphin                       - File Browser
+    ark                           - Archive Manager
+    okular                        - Document Viewer
+    spectacle                     - Screenshot tool
+    flatpak                       - Application Store
+$ flatpak install flathub
+    com.brave.Browser             - Web Browser
+    com.github.tchx84.Flatseal    - Flatpak sandbox control
+$ yay -S visual-studio-code-bin   - Code Editor
 
 --------------------------------------------------------------------------------
---        Keyring
+--        Secret Service
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S pass
-$ gpg --gen-key
-$ gpg --export-secret-keys | gpg2 --import
-$ pass init <gpg-id>
-! <gpg-id> is the long string of characters from the key as shown by `gpg --list-keys`
-
-$ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
-$ echo RELOADAGENT | gpg-connect-agent
-
-KDE System Settings
-  Security & Privacy
-    KDE Wallet
-      Enable the KDE wallet subsystem:  Disable
-
-! Restart Plasma
-
-$ keepassxc
-  ! Enable secret service integration
+KeepassXC
+  Tools
+    Settings
+      General
+        Basic Settings
+          Startup
+            Minimise window after unlocking database: True
+          User Interface
+            Minimise instead of app exit: Enabled
+            Show a system tray icon
+              Tray icon type:                             Monochrome (light)
+              Hide window to system tray when minimised:  True
+      Secret Service Integration
+        Enable KeepassXC Freedesktop.org Secret Service integration
 
 --------------------------------------------------------------------------------
---        Printing
+--        Printing Service
 --------------------------------------------------------------------------------
 
 # pacman -S system-config-printer cups cups-pdf
-$ yay -S epson-inkjet-printer-escpr2                  (needed for Epson ET-8550)
+$ yay -S epson-inkjet-printer-escpr2                - needed for Epson ET-8550
+# systemctl enable --now cups.service
 
-$ systemctl enable --now cups.service
+--------------------------------------------------------------------------------
+--        Mouse Acceleration
+--------------------------------------------------------------------------------
+
+-- https://github.com/Gnarus-G/maccel
+-- Verify install.sh to make sure it hasn't been tampered with!
+
+$ cd /tmp
+$ curl -OL https://www.maccel.org/install.sh
+$ sudo MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
+$ sudo usermod -aG maccel USERNAME
+
+$ sudo maccel set sens-mult 0.5
+$ sudo maccel set accel 0.075
+$ sudo maccel set offset 2
+
+$ sudo maccel bindall
+
+-- IMPORTANT: *reinstall* before booting into updated kernel or you will break mouse input
+-- Uninstall with: $ sh /opt/maccel/uninstall.sh
 
 --------------------------------------------------------------------------------
 --        Plasma settings
@@ -80,13 +103,7 @@ KDE System Settings
     Mouse & Touchpad
       Mouse
         Device
-          Wooting Two HE (ARM) Consumer Control
-            Device Enabled:       True -- IMPORTANT: If you disable this, media keys don't work
-          Wooting Two HE (ARM) Mouse
-            Device Enabled:       False
-          MOUSE DEVICE
-            Device Enabled:       True
-            Pointer speed:        0.2
+          {mouse.device.name}
             Pointer acceleration: None
       Screen Edges
         Screen TopLeft:                       None
@@ -126,8 +143,6 @@ KDE System Settings
     Screen Locking
       Lock screen automatically:    Never
       Lock after waking from sleep: Disable
-    KDE Wallet
-      Enable the KDE wallet subsystem:  Disable
   System
     Power Management
       Suspend Session

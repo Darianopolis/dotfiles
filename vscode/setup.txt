@@ -1,9 +1,8 @@
 Extensions
-  Git Extension Pack                    (both)
+  Git Extension Pack
 
-  Shader languages support for VS Code  (both)
-  Slang                                 (both)
-  AutoHotkey Plus Plus                  (both)
-  clangd                                (both)
-  CMake                                 (both)
-  CMake Tools                           (both)
+  C/C++ Extension Pack
+  Shader languages support for VS Code
+  Slang
+  AutoHotkey Plus Plus
+  clangd

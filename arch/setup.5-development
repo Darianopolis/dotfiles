@@ -1,11 +1,9 @@
 --------------------------------------------------------------------------------
---                            Git Credential Manager
+--        Git Credential Manager
 --------------------------------------------------------------------------------
 
--- Replace 2.5.0 with current latest version
-$ curl -OL https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.5.0/gcm-linux_amd64.2.5.0.tar.gz
-$ sudo tar -xvf gcm-linux_amd64.2.5.0.tar.gz -C /usr/local/bin
-$ rm gcm-linux_amd64.2.5.0.tar.gz
+! Download latest from <https://github.com/git-ecosystem/git-credential-manager/releases>
+! Unpack to /usr/local/bin
 
 $ git-credential-manager configure
 $ git config --global credential.credentialStore secretservice
@@ -14,7 +12,14 @@ $ git config --global user.name "NAME"
 $ git config --global user.email "EMAIL"
 
 --------------------------------------------------------------------------------
---                       LLVM - clang, clangd, lldb, scc
+--        Development - Core
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S cmake ninja meson go
+$ go install github.com/boyter/scc@master
+
+--------------------------------------------------------------------------------
+--        LLVM Toolchain - clang, clangd, lldb
 --------------------------------------------------------------------------------
 
 $ cd ~/dev/cloned
@@ -22,16 +27,24 @@ $ git clone https://github.com/llvm/llvm-project.git --recursive && cd llvm-proj
 $ mkdir build && cd build
 $ cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lldb;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ../llvm
 $ ninja
-$ sudo ninja install
+# ninja install
 
 --------------------------------------------------------------------------------
---                                 wlroots
+--        Vulkan Development
+--------------------------------------------------------------------------------
+
+$ sudo pacman -S vulkan-devel renderdoc
+
+! Download latest `vulkanCapsViewer.AppImage` from <https://vulkan.gpuinfo.org/download.php>
+$ chmod +x vulkanCapsViewer.AppImage
+
+--------------------------------------------------------------------------------
+--        wlroots
 --------------------------------------------------------------------------------
 
 $ git clone https://gitlab.freedesktop.org/wlroots/wlroots.git &&
 $ cd wlroots
-! play package whackamole until everything is buildable
-$ sudo pacman -S wayland-protocols seatd libliftoff xcb-util-errors
+# pacman -S wayland-protocols seatd libliftoff xcb-util-errors
 $ meson setup --reconfigure build/
 $ ninja -C build
-$ sudo ninja -C build/ install
+# ninja -C build/ install

@@ -35,9 +35,3 @@ export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch"
 export PATH="~/.local/bin:$PATH:$HOME/go/bin"
 export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
-
-# Starship prompt and fastfetch splash
-
-eval "$(starship init bash)"
-echo ""
-fastfetch
