@@ -103,3 +103,7 @@ Steam
 
   ~/.local/share/Steam/steamapps/compatdata/APP_ID      Proton Compatibility Data
     where APP_ID is the number from: Game Properties -> Updates -> App ID
+
+Windows NTFS drives
+
+  $ chkdsk /f /r      Run in Windows if Linux fails to mount NTFS drive
