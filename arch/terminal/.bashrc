@@ -16,6 +16,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Shell launch
+
+alias  plasma='/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland'
+alias xplasma='startx /usr/bin/startplasma-x11'
+
 # Aliases
 
 alias ls='ls --color=auto --all'

@@ -15,16 +15,6 @@ $ cd .. && rm -rf yay
     xorg-xinit xdg-desktop-portal-gtk             - Integration packages
     keepassxc pass                                - Keychains & Secret Service
 
-> ~/plasma
-  #!/bin/bash
-  /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
-$ chmod +x ~/plasma
-
-> ~/xplasma
-  #!/bin/bash
-  startx /usr/bin/startplasma-x11
-$ chmod +x ~/xplasma
-
 --------------------------------------------------------------------------------
 --        Core Applications
 --------------------------------------------------------------------------------
