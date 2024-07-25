@@ -1,10 +1,20 @@
 --------------------------------------------------------------------------------
---                                 Install
+--        Variables
+--------------------------------------------------------------------------------
+
+startup.folder = C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+
+--------------------------------------------------------------------------------
+--        Install
 --------------------------------------------------------------------------------
 
 Applications
 
   Brave       https://brave.com/
+  TwitchNoSub       https://github.com/besuper/TwitchNoSub
+    Unpack latest release to C:\Programs\TwitchNoSub
+    Enable browser developer mode and "Load unpacked extension"
+
   PowerToys   https://learn.microsoft.com/en-us/windows/powertoys/install
   Discord     https://discord.com
   1Password   https://1password.com/downloads/windows/
@@ -29,14 +39,23 @@ Applications
   NVidia App      https://www.nvidia.com/en-us/software/nvidia-app/
   CrystalDiskInfo https://crystalmark.info/en/software/crystaldiskinfo/
 
+  VLC Media Player  https://www.videolan.org/vlc/
+
 Games
 
-  Steam       https://store.steampowered.com/about/
-  Battle.net  https://download.battle.net/en-gb/?product=bnetdesk
+  Steam                 https://store.steampowered.com/about/
+  Epic Games Launcher   https://store.epicgames.com/en-US/download
+  Battle.net            https://download.battle.net/en-gb/?product=bnetdesk
+  Curseforge            https://www.curseforge.com/download/app
 
 Development
 
   Git                 $ WinGet install Git.Git
+    https://dev.to/bdbch/setting-up-ssh-and-git-on-windows-10-2khk
+  CMake               https://cmake.org/download/
+  Python              https://www.python.org/downloads/
+  names               https://www.nasm.us/pub/nasm/releasebuilds/?C=M;O=D
+    Run installer as Administrator
   Sloc, Cloc & Code   https://github.com/boyter/scc
     Unpack .\scc.exe to C:\Bin
   Visual Studio 2022  https://visualstudio.microsoft.com/downloads/
@@ -61,7 +80,7 @@ Drivers
     Unpack to C:\Programs\RawAccel
 
 --------------------------------------------------------------------------------
---                             Windows Configuration
+--        System Configuration
 --------------------------------------------------------------------------------
 
 Desktop
@@ -194,6 +213,7 @@ File Explorer
       - Hidden names
 
 NVidia App
+
   Settings
     Features
       NVIDIA Overlay:               On
@@ -203,10 +223,11 @@ NVidia App
       Available Rewards:  Off
 
 WinaeroTweaker
+
   Import tweaks from .\winaerotweaker.ini
 
 --------------------------------------------------------------------------------
---                         Application Configuration
+--        Application Configuration
 --------------------------------------------------------------------------------
 
 Discord
@@ -280,7 +301,7 @@ Raw Accel
     Input Offset:       2
 
   Startup:
-    Create Shortcut in: C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+    Create Shortcut in: {startup.folder}
       Target:         C:\Programs\RawAccel\writer.exe "C:\Programs\RawAccel\settings.json"
       Start in:       C:\Programs\RawAccel
 
@@ -290,4 +311,5 @@ Git
 
 AutoHotKey
 
-  Create link to .\ahk\ahk-setup.ps1 in C:\Bin
+  Create Shortcut in {startup.folder}
+    Target:   .\ahk\ahk-modifiers.ahk
