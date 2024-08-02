@@ -20,23 +20,24 @@ $ tar -xf GE-Proton{version}.tar.gz -C ~/.steam/root/compatibilitytools.d/
 ! Restart Steam to udpate Proton versions
 
 --------------------------------------------------------------------------------
---          ETS2
---------------------------------------------------------------------------------
-
-> ~/.local/share/Steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro\ Truck\ Simulator\ 2/config.cfg
-  uset i_virtual_cursor_speed "0"
-
---------------------------------------------------------------------------------
 --          Performance Overlay
 --------------------------------------------------------------------------------
 
 # pacman -S mangohud
+! flatpak install flathub org.freedesktop.Platform.VulkanLayer.MangoHud
 
 --------------------------------------------------------------------------------
 --          WINE
 --------------------------------------------------------------------------------
 
 $ flatpak install flathub net.lutris.Lutris com.usebottles.bottles
+
+--------------------------------------------------------------------------------
+--          ETS2
+--------------------------------------------------------------------------------
+
+> ~/.local/share/Steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro\ Truck\ Simulator\ 2/config.cfg
+  uset i_virtual_cursor_speed "0"
 
 --------------------------------------------------------------------------------
 --          Minecraft
@@ -49,3 +50,27 @@ $ flatpak install flathub org.prismlauncher.PrismLauncher
 --------------------------------------------------------------------------------
 
 $ flatpak install flathub sh.ppy.osu
+
+--------------------------------------------------------------------------------
+--          Test Drive Unlimited
+--------------------------------------------------------------------------------
+
+! Create Bottle
+    Settings
+      Environment Variables
+        DXVK_FRAME_RATE=60
+
+! Download [Test_Drive_Unlimited_Win_Files_EN.7z] from <https://oldgamesdownload.com/test-drive-unlimited/>
+! Unpack into Bottle C:\Program\TDU
+! Add Shortcut [C:\Programs\TDU\Game Files\TestDriveUnlimited.exe]
+
+Test Drive Unlimited
+  Options
+    Game Settings
+      Seat Positions
+        Position: -1 from center
+        Height:    0 from right
+    Control
+      Options
+        Enable Wheel: Yes
+        Linearity:    +3 from left
