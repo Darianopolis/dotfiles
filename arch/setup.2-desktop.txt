@@ -7,7 +7,7 @@ $ makepkg -si
 $ cd .. && rm -rf yay
 
 --------------------------------------------------------------------------------
---        Plasma
+--        KDE Plasma
 --------------------------------------------------------------------------------
 
 # pacman -S
@@ -99,7 +99,7 @@ IMPORTANT - ON KERNEL UPDATE
   ! Follow previous steps to reinstall
 
 --------------------------------------------------------------------------------
---        Plasma settings
+--        KDE Plasma settings
 --------------------------------------------------------------------------------
 
 KDE System Settings
@@ -108,6 +108,7 @@ KDE System Settings
       Mouse
         Device
           {mouse.device.name}
+            Pointer Speed:        -0.4
             Pointer acceleration: None
       Screen Edges
         Screen TopLeft:                       None

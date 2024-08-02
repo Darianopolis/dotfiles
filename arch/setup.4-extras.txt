@@ -69,4 +69,16 @@ $ flatpak install flathub
 
 # pacman -S evtest joyutils
 $ yay -S game-devices-udev
+
+--------------------------------------------------------------------------------
+--        AntiMicroX (Joystick remapper)
+--------------------------------------------------------------------------------
+
 $ flatpak install flathub io.github.antimicrox.antimicrox
+$ cd /usr/lib/udev/rules.d/
+$ sudo wget https://raw.githubusercontent.com/AntiMicroX/antimicrox/master/other/60-antimicrox-uinput.rules
+! reinstall
+AntiMicroX
+  Settings
+    General
+      Profile Directory: /home/{username}/.dotfles/antimicrox
