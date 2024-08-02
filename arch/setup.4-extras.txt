@@ -62,3 +62,4 @@ $ flatpak install flathub
 
 # pacman -S evtest joyutils
 $ yay -S game-devices-udev
+$ flatpak install flathub io.github.antimicrox.antimicrox

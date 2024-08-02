@@ -1,12 +1,10 @@
+Use native Wayland backend for Electron apps
+  https://wiki.archlinux.org/title/Wayland#Electron
+  --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,VaapiVideoDecodeLinuxGL,Vulkan,WebRTCPipeWireCapturer --ozone-platform=wayland %U
+
 Improved bash prompt setup?
   https://www.youtube.com/watch?v=0phdCAFFicY&list=PLhJQdULc4pyWR-u84ATOcNdG72ynrzls3&index=8
   Find better alternative to blesh for bash auto suggestions
-
-Set up AppImage manager
-  - AM - https://github.com/ivan-hc/AM
-  - AppMan - https://github.com/ivan-hc/AppMan
-  - AppImageLauncher - https://github.com/TheAssassin/AppImageLauncher
-  - Gear Lever - https://flathub.org/apps/it.mijorus.gearlever
 
 Distro independent package managers
   - homebrew  (https://christitus.com/best-package-manager/)
@@ -24,7 +22,6 @@ CoreSuite + PaperDE?
 Find program/daemons for
   - launching
     - Tofi
-  - printing
   - quick sketches
     - https://wiki.archlinux.org/title/List_of_applications/Multimedia#Raster_graphics_editors
       - aur:corepaint

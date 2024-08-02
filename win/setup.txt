@@ -8,6 +8,8 @@ startup.folder = C:\Users\Darian\AppData\Roaming\Microsoft\Windows\Start Menu\Pr
 --        Install
 --------------------------------------------------------------------------------
 
+Utilities
+
 Applications
 
   Brave       https://brave.com/
@@ -15,7 +17,6 @@ Applications
     Unpack latest release to C:\Programs\TwitchNoSub
     Enable browser developer mode and "Load unpacked extension"
 
-  PowerToys   https://learn.microsoft.com/en-us/windows/powertoys/install
   Discord     https://discord.com
   1Password   https://1password.com/downloads/windows/
   VS Code     https://code.visualstudio.com/
@@ -23,9 +24,9 @@ Applications
   SumatraPDF  https://www.sumatrapdfreader.org/downloadafter
     Portable - Unpack to C:\Programs\SumatraPDF
 
+  PowerToys               https://learn.microsoft.com/en-us/windows/powertoys/install
   Link Shell Extensions   https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
   7-zip                   https://7-zip.org/
-  AutoHotkey 2.0          https://www.autohotkey.com/
 
   WizTree         https://diskanalyzer.com/download
     Portable -> C:\Programs\WizTree
@@ -78,6 +79,11 @@ Drivers
 
   RawAccel                https://github.com/a1xd/rawaccel/releases
     Unpack to C:\Programs\RawAccel
+
+Input
+
+  AntiMicroX        https://github.com/AntiMicroX/antimicrox
+  AutoHotkey 2.0    https://www.autohotkey.com/
 
 --------------------------------------------------------------------------------
 --        System Configuration

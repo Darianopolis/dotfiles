@@ -19,7 +19,7 @@
     "slang.format.clangFormatStyle": "",
     "Lua.diagnostics.globals": [
         // bldr
-        "Project", "Compile", "Include", "Import", "Link", "Artifact", "Embed"
+        "Project", "Compile", "Include", "Import", "Link", "Artifact", "Embed", "Define"
     ],
     "Lua.workspace.library": [
         "c:\\Users\\Darian\\.vscode\\extensions\\ketho.wow-api-0.14.2\\EmmyLua\\API",

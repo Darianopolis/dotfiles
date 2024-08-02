@@ -1,0 +1,4 @@
+- vim setup with COC.vim or ALE.vim for LSP support
+
+Use AntiMicroX to replace JoyToKey on Windows and Linux
+  https://github.com/AntiMicroX/antimicrox
