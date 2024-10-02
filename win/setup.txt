@@ -119,6 +119,9 @@ Settings
         Make my device hibernate after: Never
       Energy saver: Off
 
+    Multi-tasking
+      Snap windows: Off
+
     For Developers
       Developer Mode: On
       Terminal:       Windows Terminal
@@ -130,6 +133,7 @@ Settings
   Bluetooth & devices
     Additional mouse settings -> (Mouse Properties)
       Pointer Options
+        Select a Pointer Speed: 2 clicks left from center
         Enhance pointer precision:  Disabled
 
   Network & internet
@@ -169,11 +173,24 @@ Settings
         If you've been away, when should Windows require you to sign in again?: Never
 
   Time & Language
-    Administrative language settings
-      Change system locale
-        "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
+    Language & region
+      Administrative language settings
+        Change system locale
+          "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
 
   Privacy & Security
+    Windows Security
+      Device security
+        Core isolation
+          Memory Integrity: Off
+
+          https://www.tomshardware.com/how-to/disable-vbs-windows-11
+          Check in `System Information` for `Virtualization-based security` = `Not Enabled`
+          If enabled still, open regedit:
+            HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard
+              Set `EnableVirtualizationBasedSecurity` (DWORD value) to 0
+
+          Also need to disable `Virtual Machine Platform` from `Windows Features` (search for "Turn Windows features on or off")
     Find my device:   Off
     General
       Let apps show me personalized ads by using my advertising ID:           Off
@@ -202,6 +219,16 @@ Settings
       Find my files
         - Enhanced
 
+Performance Options (search for "Adjust the appearance and performance of Windows")
+
+  Select: Adjust for best performance
+
+Control Panel
+
+  Hardware and Sound
+    Power Options
+      Plan: High Performance
+
 System Tray
 
   Allowed Elements
@@ -228,9 +255,49 @@ NVidia App
       Driver updates:     On
       Available Rewards:  Off
 
+NVIDIA Control Panel
+
+  3D Settings
+    Global Settings
+      Power management mode
+        Prefer maximum performance
+      Vulkan/OpenGL present method
+        Prefer layered on DXGI Swapchain
+
 WinaeroTweaker
 
   Import tweaks from .\winaerotweaker.ini
+
+Lower System Interrupt (increase timer resolution)
+
+  https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change/
+
+  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
+    `GlobalTimerResolutionRequests` (DWORD) = 1
+
+  https://github.com/valleyofdoom/TimerResolution
+    SetTimerResolution --resolution 5000 (--no-console)
+
+  TODO: Integrate this into desktop tweaks
+
+Disable XBOX Game Bar
+
+  Settings
+    Gaming
+      Game Bar
+        Allow your controller to open Game Bar: Off
+    Apps
+      Installed apps
+        Xbox
+          Advanced Options
+            Let this app run in background: Never
+    System
+      System components
+        Game Bar
+          Advanced Options
+            Let this app run in background: Never
+
+  -- Kill any previously running processes
 
 --------------------------------------------------------------------------------
 --        Application Configuration
@@ -319,3 +386,23 @@ AutoHotKey
 
   Create Shortcut in {startup.folder}
     Target:   .\ahk\ahk-modifiers.ahk
+
+ExpressVPN
+
+  Options
+    General
+      Automatically Download and Install update: Off
+
+  (Windows) Services
+    ExpressVPN App Servive:     Manual
+    ExpressVPN System Service:  Manual
+    ExpressVPN VPN Service:     Manual
+
+Everything
+
+  Tools
+    Options
+      General
+        Everything Service: Disabled
+        UI
+          Run in background: No

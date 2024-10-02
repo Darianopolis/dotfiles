@@ -138,7 +138,8 @@ KDE System Settings
               Remember and restore window geometries: Disable
   Workspace
     General Behaviour
-      Animation Speed:  Instant
+      Animation Speed:                    4 pts from right
+      Middle Click Pastes selected text:  Disable
     Search
       Plasma Search
         Configure KRunner

@@ -3,7 +3,9 @@
     "security.workspace.trust.untrustedFiles": "open",
     "git.openRepositoryInParentFolders": "always",
     "clangd.arguments": [
-        "--function-arg-placeholders=0"
+        "--function-arg-placeholders=0",
+        "--experimental-modules-support",
+        "--header-insertion=never"
     ],
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": false,
@@ -21,8 +23,23 @@
         // bldr
         "Project", "Compile", "Include", "Import", "Link", "Artifact", "Embed", "Define"
     ],
-    "Lua.workspace.library": [
-        "c:\\Users\\Darian\\.vscode\\extensions\\ketho.wow-api-0.14.2\\EmmyLua\\API",
-        "c:\\Users\\Darian\\.vscode\\extensions\\ketho.wow-api-0.14.2\\EmmyLua\\Optional"
-    ]
+    "Lua.runtime.version": "Lua 5.1",
+    "Lua.runtime.builtin": {
+        "basic": "disable",
+        "debug": "disable",
+        "io": "disable",
+        "math": "disable",
+        "os": "disable",
+        "package": "disable",
+        "string": "disable",
+        "table": "disable",
+        "utf8": "disable"
+    },
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "clangd.path": "D:\\Dev\\Cloned-Temp\\llvm-project\\build\\bin\\clangd.exe",
+    "haskell.manageHLS": "GHCup"
+    // "clangd.path": "c:\\Users\\Darian\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\18.1.3\\clangd_18.1.3\\bin\\clangd.exe"
 }

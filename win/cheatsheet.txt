@@ -5,3 +5,7 @@ Managing Startup Applications
 
   Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
     - List of current start entries
+
+Wallpaper Engine not working
+
+  Press [Win + Alt + B] twice to toggle through HDR Modes (this usually fixes the wallpaper)

@@ -6,38 +6,15 @@
     <uniqueID>03009175830400001057000000000000115522288</uniqueID>
     <sets>
         <set index="1">
-            <axis index="4">
-                <throttle>normal</throttle>
-            </axis>
-            <axis index="3">
-                <maxZone>22281</maxZone>
-                <throttle>normal</throttle>
-                <axisbutton index="1">
-                    <slots>
-                        <slot>
-                            <code>0x5a</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                    </slots>
-                </axisbutton>
-            </axis>
             <axis index="2">
-                <throttle>normal</throttle>
-            </axis>
-            <axis index="1">
-                <deadZone>9211</deadZone>
-                <maxZone>32737</maxZone>
-                <throttle>positive</throttle>
-            </axis>
-            <axis index="8">
-                <deadZone>0</deadZone>
-                <maxZone>30621</maxZone>
                 <throttle>normal</throttle>
             </axis>
             <axis index="7">
                 <throttle>normal</throttle>
             </axis>
-            <axis index="6">
+            <axis index="8">
+                <deadZone>0</deadZone>
+                <maxZone>30621</maxZone>
                 <throttle>normal</throttle>
             </axis>
             <axis index="5">
@@ -52,6 +29,37 @@
                         </slot>
                     </slots>
                 </axisbutton>
+            </axis>
+            <axis index="6">
+                <throttle>normal</throttle>
+            </axis>
+            <axis index="3">
+                <maxZone>22281</maxZone>
+                <throttle>normal</throttle>
+                <axisbutton index="1">
+                    <slots>
+                        <slot>
+                            <code>0x5a</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </axisbutton>
+                <axisbutton index="2">
+                    <slots>
+                        <slot>
+                            <code>0x1000004</code>
+                            <mode>keyboard</mode>
+                        </slot>
+                    </slots>
+                </axisbutton>
+            </axis>
+            <axis index="4">
+                <throttle>normal</throttle>
+            </axis>
+            <axis index="1">
+                <deadZone>9211</deadZone>
+                <maxZone>32737</maxZone>
+                <throttle>positive</throttle>
             </axis>
         </set>
     </sets>
