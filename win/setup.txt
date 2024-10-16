@@ -297,7 +297,20 @@ Disable XBOX Game Bar
           Advanced Options
             Let this app run in background: Never
 
-  -- Kill any previously running processes
+Disable Audio Enhancements (huge audio latency improvement)
+
+  System
+    Sound
+      (Select Audio Device)
+        Properties
+          Advanced Settings
+            Audio enhancements
+
+Disable NVIDIA HD audio (display audio output)
+
+  Device Manager
+    Sound, video and game controllers
+      NVIDIA High Definition Audio: Disable
 
 --------------------------------------------------------------------------------
 --        Application Configuration

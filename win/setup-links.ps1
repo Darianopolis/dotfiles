@@ -18,3 +18,4 @@ Set-Link "$HOME\AppData\Roaming\Code\User\settings.json" "$PSScriptRoot\..\vscod
 Set-Link "C:\Bin\ahk-cppdev.ahk" "$PSScriptRoot\ahk\ahk-cppdev.ahk"
 Set-Link "C:\Bin\ahk-modifiers.ahk" "$PSScriptRoot\ahk\ahk-modifiers.ahk"
 Set-Link "C:\Bin\ahk-setup.ps1" "$PSScriptRoot\ahk\ahk-setup.ps1"
+Set-Link "C:\Bin\vs.bat" "$PSScriptRoot\bin\vs.bat"
