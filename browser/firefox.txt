@@ -58,7 +58,6 @@ Addons
     Replace Thumbnails: Disabled
     Title Format:       Disabled
     Remove Emojis:      Disabled
-  Hide shorts for YouTube                         YouTube
   Return YouTube Dislike                          YouTube
   SponsorBlock for YouTube - Skip Sponsorships    YouTube
   Enhancer for YouTube                            YouTube

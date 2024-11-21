@@ -60,7 +60,6 @@ Extensions
         Automatically select a playback quality:    2160p 4K
       Autoplay
         Pause videos playing in background tabs when a video starts playing in the foreground tab:  Disabled
-  Hide Youtube Shorts                 https://chromewebstore.google.com/detail/hide-youtube-shorts/aljlkinhomaaahfdojalfmimeidofpih
   Return YouTube Dislike              https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi
   Hide YouTube Thumbnail              https://chromewebstore.google.com/detail/hide-youtube-thumbnails/phmcfcbljjdlomoipaffekhgfnpndbef
     Disable extension on
