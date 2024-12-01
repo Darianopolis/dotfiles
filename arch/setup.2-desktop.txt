@@ -30,6 +30,7 @@ $ cd .. && rm -rf yay
     flatpak                       - Application Store
 $ flatpak install flathub
     com.brave.Browser             - Web Browser
+    com.microsoft.Edge            - Web Browser
     com.github.tchx84.Flatseal    - Flatpak sandbox control
     it.mijorus.gearlever          - AppImage manager
 $ yay -S visual-studio-code-bin   - Code Editor
@@ -65,6 +66,7 @@ $ gpg --gen-key
 ! {gpg-id} :: long string of characters from the key as shown by `gpg --list-keys`
 $ pass init {gpg-id}
 
+# pacman -S kwayland5                               - Needed for pinentry-qt5
 $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
 $ gpg-connect-agent reloadagent /bye
 
@@ -152,7 +154,7 @@ KDE System Settings
   System
     Power Management
       Suspend Session
-        After a period of inactivity: Do Nothing
+        When inactive:  Do Nothing
       Display and Brightness
         Dim automatically:  Never
-        Turn of screen:     Never
+        Turn off screen:    Never

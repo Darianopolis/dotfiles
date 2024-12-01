@@ -47,7 +47,7 @@ $ timedatectl
     base base-devel                                   - Core packages
     linux linux-headers linux-firmware amd-ucode      - Linux kernel & firmware
     networkmanager                                    - Networking
-    efibootmgr os-prober                              - Bootmanager
+    grub efibootmgr os-prober                         - Bootmanager
     vim sudo git                                      - Utilities
 
 # genfstab -U /mnt >> /mnt/etc/fstab
@@ -173,7 +173,7 @@ $ yay -S nvidia-open-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
     nvidia.NVreg_UsePageAttributeTable=1
 
 > /etc/mkinitcpio.conf
-  MODULES += nvidia_modset nvidia_uvm nvidia_drm
+  MODULES += nvidia_modeset nvidia_uvm nvidia_drm
   HOOKS   -= kms
 
 # systemctl enable nvidia-suspend.service

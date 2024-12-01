@@ -2,8 +2,8 @@
 --        Git Credential Manager
 --------------------------------------------------------------------------------
 
-! Download latest from <https://github.com/git-ecosystem/git-credential-manager/releases>
-! Unpack to /usr/local/bin
+# pacman -S dotnet-runtime dotnet-sdk
+$ dotnet tool install -g git-credential-manager
 
 $ git-credential-manager configure
 $ git config --global credential.credentialStore gpg
