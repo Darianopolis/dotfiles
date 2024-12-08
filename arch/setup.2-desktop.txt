@@ -41,7 +41,16 @@ $ flatpak install flathub
     com.microsoft.Edge            - Web Browser
     com.github.tchx84.Flatseal    - Flatpak sandbox control
     it.mijorus.gearlever          - AppImage manager
-$ yay -S visual-studio-code-bin   - Code Editor
+
+--------------------------------------------------------------------------------
+--        VS Code
+--------------------------------------------------------------------------------
+
+$ yay -S visual-studio-code-bin
+
+> Command: Configure Runtime Arguments
+  Add
+    "password-store":"gnome-libsecret"
 
 --------------------------------------------------------------------------------
 --        Keychains & Secret Service
@@ -59,14 +68,20 @@ KeepassXC
       General
         Basic Settings
           Startup
-            Minimise window after unlocking database: True
+            Automatically launch KeePassXC at system startup: ON
+            Minimize window at application startup:           ON
+            Minimise window after unlocking database:         ON
           User Interface
             Minimise instead of app exit: Enabled
             Show a system tray icon
               Tray icon type:                             Monochrome (light)
-              Hide window to system tray when minimised:  True
+              Hide window to system tray when minimised:  ON
       Secret Service Integration
         Enable KeepassXC Freedesktop.org Secret Service integration
+        General
+          Show notifications when passwords are retrieved by clients: OFF
+          Confirm when passwords are retrieved by clients:            OFF
+          Confirm when clients request entry deletion:                OFF
 
 ! Create a KeepassXC database
 
@@ -166,3 +181,6 @@ KDE System Settings
       Display and Brightness
         Dim automatically:  Never
         Turn off screen:    Never
+    Session
+      Session Restore
+        Start with an empty session
