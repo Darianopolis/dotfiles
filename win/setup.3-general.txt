@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------
+--      Media
+--------------------------------------------------------------------------------
+
+Spotify
+
+  $ winget install Spotify.Spotify
+
+Discord
+
+  $ winget install Discord.Discord
+
+VLC
+
+  $ winget install VideoLAN.VLC
+
+--------------------------------------------------------------------------------
+--      Screen capture
+--------------------------------------------------------------------------------
+
+ShareX
+
+  $ winget install ShareX.ShareX
+
+OBS
+
+  $ winget install OBSProject.OBSStudio
+
+--------------------------------------------------------------------------------
+--      Utilities
+--------------------------------------------------------------------------------
+
+WinaeroTweaker
+
+  $ winget install winaero.tweaker
+  > Import tweaks from .\winaerotweaker.ini
+
+7zip
+
+  $ winget install 7zip.7zip
+
+wget
+
+  $ winget install JernejSimoncic.Wget
+
+Link Shell Extension
+
+  $ winget install HermannSchinagl.LinkShellExtension
+
+PowerToys
+
+  $ winget install Microsoft.PowerToys
+  - TODO: [Desired State Configuration](<https://learn.microsoft.com/en-us/windows/powertoys/dsc-configure>) through `winget configure`
+
+  General
+    Administrator mode
+      - Always run as administrator
+
+  Awake
+    Enable Awake:   Off
+
+  Mouse Utilities
+    Enable Find My Mouse:       Off
+    Enable Mouse Highlighter:   Off
+
+  FancyZones
+    Launch Layout Editor
+      6x2 Grid - 450 px selection
+    Zones
+      Zone Behavior
+        - Hold Shift key to activate zones while dragging a window
+        - Use a non-primary mouse button to toggle zone activation
+        - Use middle-click mouse button to toggle multiple zones spanning
+    Windows
+      Window Behavior
+        - Keep windows in their zones when the screen resolution or work area changes

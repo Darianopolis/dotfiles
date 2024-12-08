@@ -15,6 +15,9 @@ function Set-Link {
 
 Set-Link "$HOME\AppData\Roaming\Code\User\settings.json" "$PSScriptRoot\..\vscode\settings.json"
 
+# Bin links
+
+New-Item -Path "C:\Bin" -ItemType "directory"
 Set-Link "C:\Bin\ahk-cppdev.ahk" "$PSScriptRoot\ahk\ahk-cppdev.ahk"
 Set-Link "C:\Bin\ahk-modifiers.ahk" "$PSScriptRoot\ahk\ahk-modifiers.ahk"
 Set-Link "C:\Bin\ahk-setup.ps1" "$PSScriptRoot\ahk\ahk-setup.ps1"

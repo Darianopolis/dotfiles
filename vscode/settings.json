@@ -40,6 +40,5 @@
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
-    ],
-    "clangd.path": "D:\\Dev\\Cloned-Temp\\llvm-project\\build\\bin\\clangd.exe"
+    ]
 }

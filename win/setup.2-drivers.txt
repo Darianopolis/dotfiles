@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------------
+--      NVIDIA
+--------------------------------------------------------------------------------
+
+Vulkan Beta Drivers
+
+  https://developer.nvidia.com/vulkan-driver
+
+NVIDIA App
+
+  Settings
+    Features
+      NVIDIA Overlay:               On
+      Game filters and Photo Mode:  Off
+    Notifications
+      Driver updates:     On
+      Available Rewards:  Off
+
+NVIDIA Control Panel
+
+  3D Settings
+    Global Settings
+      Power management mode
+        Prefer maximum performance
+
+Disable NVIDIA HD audio (display audio output)
+
+  Device Manager
+    Sound, video and game controllers
+      NVIDIA High Definition Audio: Disable
+
+--------------------------------------------------------------------------------
+--      Volt 2
+--------------------------------------------------------------------------------
+
+> Download from https://www.uaudio.com/volt/start
+> Install Volt 2 drivers
+> Uninstall "UA Connect" and "PACE License Support Win64" afterwards
+> Remove [Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\UA Connect] registry entry
+> Settings > Apps > Startup > Remove "Volt Driver Control Panel"

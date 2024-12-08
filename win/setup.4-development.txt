@@ -1,0 +1,55 @@
+--------------------------------------------------------------------------------
+--      Tools
+--------------------------------------------------------------------------------
+
+Git
+
+  $ winget install Git.Git
+  $ git config --global --add safe.directory *
+
+LLVM
+
+  $ winget install LLVM.LLVM
+  > Add "C:\Program Files\LLVM\bin" to path
+
+Ninja
+
+  $ winget install Ninja-build.Ninja
+
+CMake
+
+  $ winget install Kitware.CMake
+
+Python
+
+  $ winget install Python.Python.3.13
+
+--------------------------------------------------------------------------------
+--      IDEs
+--------------------------------------------------------------------------------
+
+VS Code
+
+  $ winget install Microsoft.VisualStudioCode
+
+Sublime Text
+
+  $ winget install SublimeHQ.SublimeText.4
+
+Visual Studio
+
+  $ winget install Microsoft.VisualStudio.2022.Community
+  - Desktop development with C++
+    - C++ Modules for v143 build tools
+
+--------------------------------------------------------------------------------
+--      Graphics
+--------------------------------------------------------------------------------
+
+Vulkan SDK
+
+  $ winget install KhronosGroup.VulkanSDK
+
+RenderDoc
+
+  > https://renderdoc.org/

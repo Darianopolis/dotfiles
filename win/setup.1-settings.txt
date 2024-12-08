@@ -1,0 +1,189 @@
+--------------------------------------------------------------------------------
+--      Settings
+--------------------------------------------------------------------------------
+
+System
+  Display
+    Multiple displays
+      Ease cursor movement between displays:  Disabled
+
+    Graphics
+      Optimisations for windowed games:         On
+      Advanced Graphics Settings
+        Hardware-accelerated GPU scheduling:    On
+
+  Power
+    Power mode: Best Performance
+    Screen, sleep & hibernate time-outs
+      Turn my screen off after:       Never
+      Make my device sleep after:     Never
+      Make my device hibernate after: Never
+    Energy saver: Off
+
+  Multi-tasking
+    Snap windows: Off
+
+  For Developers
+    Developer Mode: On
+    Terminal:       Windows Terminal
+    PowerShell
+      "Change execution policy to allow local PowerShell scripts to run without signing. Require signing for remote scripts.":  On
+    Enable sudo:                            On
+      Configure how sudo runs applications: Inline
+
+  About
+    Advanced system settings -> (System Properties :: Advanced)
+      Performance
+        Settings
+          Visual Effects
+            Adjust for best performance
+            [+] Enable Peek
+            [+] Show thumbnails instead of Icons
+            [+] Show translucent selection rectangle
+            [+] Show window contents while dragging
+            [+] Smooth edges of screen fonts
+            [+] Smooth-scroll list boxes
+
+Bluetooth & devices
+  Mouse
+    Additional mouse settings -> (Mouse Properties)
+      Pointer Options
+        Select a Pointer Speed: 2 clicks left from center
+        Enhance pointer precision:  Disabled
+
+Network & internet
+  Advanced network settings
+    Network adapters - (For each used network adapter)
+        More Adapters Options - Edit
+          Configure
+            Power Management
+              Allow this device to wake the computer: Disable
+
+Personalisation
+  Themes
+    Current Theme:  Windows (dark)
+
+  Lock screen
+    Presonalize your lock screen:                               Picture
+    Get fun facts, tips, tricks, and more on your lock screen:  No
+    Lock Screen status:                                         None
+
+  Taskbar
+    Search:     Hide
+    Copilot:    Disable
+    Task view:  Disable
+    Widgets:    Disable
+
+Apps
+  Startup
+    - 1Password
+    - Windows Security notification icon
+
+Accounts
+  Sign-in options
+    Additional Settings
+      If you've been away, when should Windows require you to sign in again?: Never
+
+Time & Language
+  Language & region
+    Administrative language settings
+      Change system locale
+        "Beta: Use Unicode UTF-8 for worldwide language support":   Enabled
+
+Privacy & Security
+  Windows Security
+    Device security
+      Core isolation
+        Memory Integrity: Off
+
+        https://www.tomshardware.com/how-to/disable-vbs-windows-11
+        Check in `System Information` for `Virtualization-based security` = `Not Enabled`
+        If enabled still, open regedit:
+          HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard
+            Set `EnableVirtualizationBasedSecurity` (DWORD value) to 0
+
+        Also need to disable `Virtual Machine Platform` from `Windows Features` (search for "Turn Windows features on or off")
+  Find my device:   Off
+  General
+    Let apps show me personalized ads by using my advertising ID:           Off
+    Let Windows improve Start and search results by tracking app launches:  Off
+    Show me suggested content in the Settings app:                          Off
+    Show me notifications in the Settings app:                              Off
+  Speech
+    Online speech recognition:  Off
+  Inking & typing personlisation
+    Customised inking and typing dictionary:  Off
+  Diagnostic & feedback
+    Diagnostic data
+      Send optional diagnostic data:  On  (Required for Insider Program)
+    Improve inking and typing:        Off
+    Tailored experience:              Off
+    View diagnostic data:             Off
+  Search permissions
+    Cloud content search
+      Microsoft Account:      Off
+      Work or School Account: Off
+    History
+      Search history on this device:  Off
+    More settings
+      Show search highlights:         Off
+
+--------------------------------------------------------------------------------
+--      Control Panel
+--------------------------------------------------------------------------------
+
+Hardware and Sound
+  Power Options
+    Plan: High Performance
+
+Appearance and Personalisation
+  File Explorer Options
+    View
+      Hidden files and folders
+        [+] Show hidden files, folders and drivers
+      [-] Hide empty drives
+      [-] Hide extensions for known file types
+
+--------------------------------------------------------------------------------
+--      Terminal
+--------------------------------------------------------------------------------
+
+Terminal
+  Settings
+    Default Profile:  Command Prompt
+
+    Profiles
+      Defaults
+        Advanced
+          History size: 1000000
+
+--------------------------------------------------------------------------------
+--      Disable XBOX Game Bar
+--------------------------------------------------------------------------------
+
+Settings
+  Gaming
+    Game Bar
+      Allow your controller to open Game Bar: Off
+  Apps
+    Installed apps
+      Xbox
+        Advanced Options
+          Let this app run in background: Never
+  System
+    System components
+      Game Bar
+        Advanced Options
+          Let this app run in background: Never
+
+--------------------------------------------------------------------------------
+--      Disable Audio Enhancements (huge audio latency improvement)
+--------------------------------------------------------------------------------
+
+Settings
+  System
+    Sound
+      (Select Audio Device)
+        Properties
+          Advanced Settings
+            Audio enhancements

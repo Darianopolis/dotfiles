@@ -223,6 +223,14 @@ Performance Options (search for "Adjust the appearance and performance of Window
 
   Select: Adjust for best performance
 
+  Select:
+    - Enable Peek
+    - Show thumbnails instead of Icons
+    - Show translucent selection rectangle
+    - Show window contents while dragging
+    - Smooth edges of screen fonts
+    - Smooth-scroll list boxes
+
 Control Panel
 
   Hardware and Sound
