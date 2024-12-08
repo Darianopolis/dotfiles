@@ -1,0 +1,70 @@
+--------------------------------------------------------------------------------
+--        Password manager
+--------------------------------------------------------------------------------
+
+1Password
+
+--------------------------------------------------------------------------------
+--        Ad blocking
+--------------------------------------------------------------------------------
+
+uBlock Origin
+
+--------------------------------------------------------------------------------
+--        Privacy
+--------------------------------------------------------------------------------
+
+Cookie AutoDelete
+
+  Settings
+    Automatic Cleaning Options
+      Enable Automatic Cleaning:       On
+      Delay Before Automatic Cleaning: 5s
+    Extension Options
+      Show Notification After Automatic Cleanup: Off
+  Expressions (cookieautodelete.json)
+    - *.github.com
+    - *.google.com
+    - *.live.com
+    - *.msn.com
+    - *.youtube.com
+
+I still don't care about cookies
+
+--------------------------------------------------------------------------------
+--        YouTube
+--------------------------------------------------------------------------------
+
+Enhancer for YouTube
+
+  Options
+    Playback quality
+      Automatically select a playback quality = 2160p
+    Autoplay
+      Pause videos playing in background tabs when a video starts playing in the foreground Tab
+        = Off
+
+SponsorBlock for YouTube - Skip Sponsorships
+
+Unhook - Remove YouTube Recommended & Shorts
+
+  Enabled:
+  - Hide Live Char
+  - Hide Fundraiser
+  - Hide End Screen Feed
+  - Hide End Screen Cards
+  - Hide Shorts
+  - Hide Merch, Tickets, Offers
+  - Hide Notifications
+  - Hide Inapt Search Results
+  - Hide Explore, Trending
+  - Disable Autoplay
+
+DeArrow - Better Titles and Thumbnails
+
+  Replace Titles     - On
+  Replace Thumbnails - On
+  Title Format       - Disabled
+  Remove Emojis      - Off
+  When No Submitted Thumbanil Exists
+                     - Show the original thumbnail

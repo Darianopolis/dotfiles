@@ -21,10 +21,6 @@
     "cmake.showOptionsMovedNotification": false,
     "slang.format.clangFormatLocation": "",
     "slang.format.clangFormatStyle": "",
-    "Lua.diagnostics.globals": [
-        // bldr
-        "Project", "Compile", "Include", "Import", "Link", "Artifact", "Embed", "Define"
-    ],
     "Lua.runtime.version": "Lua 5.1",
     "Lua.runtime.builtin": {
         "basic": "disable",
