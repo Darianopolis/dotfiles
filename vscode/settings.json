@@ -36,5 +36,6 @@
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
-    ]
+    ],
+    "workbench.startupEditor": "none"
 }
