@@ -22,6 +22,7 @@ System
 
   Multi-tasking
     Snap windows: Off
+    Show tabs from apps when snapping or pressing Alt+Tab: Don't show tabs
 
   For Developers
     Developer Mode: On

@@ -14,6 +14,10 @@ VLC
 
   $ winget install VideoLAN.VLC
 
+SumatraPDF
+
+  $ winget install SumatraPDF.SumatraPDF
+
 --------------------------------------------------------------------------------
 --      Screen capture
 --------------------------------------------------------------------------------
@@ -65,7 +69,7 @@ PowerToys
 
   FancyZones
     Launch Layout Editor
-      6x2 Grid - 450 px selection
+      6x2 Grid - No space around zones - 450 px selection
     Zones
       Zone Behavior
         - Hold Shift key to activate zones while dragging a window

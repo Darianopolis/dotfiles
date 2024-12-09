@@ -63,8 +63,6 @@ Unhook - Remove YouTube Recommended & Shorts
 DeArrow - Better Titles and Thumbnails
 
   Replace Titles     - On
-  Replace Thumbnails - On
+  Replace Thumbnails - Off
   Title Format       - Disabled
   Remove Emojis      - Off
-  When No Submitted Thumbanil Exists
-                     - Show the original thumbnail
