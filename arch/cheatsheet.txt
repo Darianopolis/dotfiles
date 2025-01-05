@@ -65,6 +65,10 @@ Packages
     -Qm                     Show unoffical (AUR) installed packages
     -Rns                    Remove packages (R), Remove configuration (n), Remove unnused dependencies (s)
 
+    Update keyring before full upgrade (if out of date)
+      # pacman -Sy archlinux-keyring
+      # pacman -Su
+
 Terminal
 
   $ APP_NAME > /dev/null &    Run APP_NAME, ignore output and start in background

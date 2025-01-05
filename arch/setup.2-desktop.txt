@@ -1,6 +1,26 @@
 --------------------------------------------------------------------------------
+--        Chaotic AUR
+--------------------------------------------------------------------------------
+
+! Find key on https://aur.chaotic.cx/docs
+# sudo pacman-key --recv-key ${keyid} --keyserver keyserver.ubuntu.com
+# sudo pacman-key --lsign-key ${keyid}
+# sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+# sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+
+> /etc/pacman.conf
+  [chaotic-aur]
+  Include = /etc/pacman.d/chaotic-mirrorlist
+
+--------------------------------------------------------------------------------
 --        yay AUR helper
 --------------------------------------------------------------------------------
+
+  IF using chaotic-aur
+
+$ sudo pacman -S yay
+
+  ELSE
 
 $ git clone https://aur.archlinux.org/yay.git && cd yay
 $ makepkg -si
@@ -28,20 +48,22 @@ $ cd .. && rm -rf yay
 --------------------------------------------------------------------------------
 
 # pacman -S
-    konsole                       - Terminal Emulator
-    kate                          - Text Editor
-    kalk                          - Calculator
-    dolphin                       - File Browser
-    ark                           - Archive Manager
-    okular                        - Document Viewer
-    spectacle                     - Screenshot tool
-    flatpak                       - Application Store
-    firefox                       - Browser
+    konsole                        - Terminal Emulator
+    kate                           - Text Editor
+    kalk                           - Calculator
+    dolphin                        - File Browser
+    ark                            - Archive Manager
+    okular                         - Document Viewer
+    spectacle                      - Screenshot tool
+    flatpak                        - Application Store
+    firefox                        - Browser
+    thunderbird                    - Email Client
 $ flatpak install flathub
-    com.brave.Browser             - Web Browser
-    com.microsoft.Edge            - Web Browser
-    com.github.tchx84.Flatseal    - Flatpak sandbox control
-    it.mijorus.gearlever          - AppImage manager
+    com.brave.Browser              - Web Browser
+    com.microsoft.Edge             - Web Browser
+    com.github.tchx84.Flatseal     - Flatpak sandbox control
+    it.mijorus.gearlever           - AppImage manager
+    io.missioncenter.MissionCenter - System Resource Monitor
 
 --------------------------------------------------------------------------------
 --        VS Code

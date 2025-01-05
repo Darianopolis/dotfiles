@@ -1,5 +1,11 @@
-- vim setup with COC.vim or ALE.vim for LSP support
+- vim setup with COC.vim or ALE.vim for LSP support?
 - document configuring links
   - VS Code link does not generate correctly until code has been run at least once!
-- helper scripts
-- setup SDDM login screen?
+- helper install/setup scripts
+- missing system tray icon for antimicrox
+  - https://github.com/flathub/io.github.antimicrox.antimicrox/issues/10
+  - icon shows in main arch repo version, but windowing is borked for that
+- Firefox not being brought to front when links opened in it
+  - https://forum.manjaro.org/t/firefox-doesnt-raise-window-after-clicking-a-link-on-wayland/154842/38
+  - general Wayland protocol issue?
+    - https://wayland.app/protocols/xdg-activation-v1
