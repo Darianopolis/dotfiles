@@ -37,32 +37,16 @@ $ timedatectl
 # mkfs.ext4 {drives.arch}p2
 
 --------------------------------------------------------------------------------
---        pacstrap
+--        Bootstrap
 --------------------------------------------------------------------------------
 
 # mount {drives.arch}p2 /mnt
 # mount --mkdir {drives.arch}p1 /mnt/boot
 
-# pacstrap -K /mnt
-    base base-devel                                   - Core packages
-    linux linux-headers linux-firmware amd-ucode      - Linux kernel & firmware
-    networkmanager                                    - Networking
-    grub efibootmgr os-prober                         - Bootmanager
-    vim sudo git                                      - Utilities
+# pacstrap -K /mnt base linux linux-firmware amd-ucode vim
 
 # genfstab -U /mnt >> /mnt/etc/fstab
 # arch-chroot /mnt
-
---------------------------------------------------------------------------------
---        Networking
---------------------------------------------------------------------------------
-
-# systemctl enable NetworkManager.service
-# systemctl enable systemd-resolved.service
-
---------------------------------------------------------------------------------
---        pacman
---------------------------------------------------------------------------------
 
 > /etc/pacman.conf
   ParallelDownloads = 16
@@ -71,6 +55,21 @@ $ timedatectl
   Include = "/etc/pacman.d/mirrorlist
 
 # pacman -Syu
+
+# pacman -S
+    base-devel                  - Core packages
+    linux-headers               - Linux kernel & firmware
+    networkmanager              - Networking
+    grub efibootmgr [os-prober] - Bootmanager
+    sudo git wget               - Utilities
+    pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack - Audio
+
+--------------------------------------------------------------------------------
+--        Networking
+--------------------------------------------------------------------------------
+
+# systemctl enable NetworkManager.service
+# systemctl enable systemd-resolved.service
 
 --------------------------------------------------------------------------------
 --        Time
@@ -86,7 +85,7 @@ $ timedatectl
 
 # echo "${locales.all}" > /etc/locale.gen
 # locale-gen
-# echo "LANG=${locales.primary}" > /etc/locale.conf
+# localectl set-locale LANG=${locales.primary} LC_TIME=C
 
 --------------------------------------------------------------------------------
 --        Keymap
@@ -130,12 +129,6 @@ $ visudo
 
 > /etc/security/faillock.conf
   unlock_time = 5
-
---------------------------------------------------------------------------------
---        Audio
---------------------------------------------------------------------------------
-
-# pacman -S pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack
 
 --------------------------------------------------------------------------------
 --        GRUB Bootloader

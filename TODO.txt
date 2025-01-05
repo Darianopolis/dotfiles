@@ -1,4 +1,5 @@
 - vim setup with COC.vim or ALE.vim for LSP support
-
-Use AntiMicroX to replace JoyToKey on Windows and Linux
-  https://github.com/AntiMicroX/antimicrox
+- document configuring links
+  - VS Code link does not generate correctly until code has been run at least once!
+- helper scripts
+- setup SDDM login screen?

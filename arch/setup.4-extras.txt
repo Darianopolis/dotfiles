@@ -8,9 +8,8 @@
 --        Discord
 --------------------------------------------------------------------------------
 
-$ yay -S discord_arch_electron
-# flatpak install flathub com.discordapp.Discord
-# flatpak install flathub dev.vencord.Vesktop
+# pacman -S discord     - Standard package
+# yay -S discord-canary - Canary - latest features (has *mostly* functional screenshare on Wayland)
 
 --------------------------------------------------------------------------------
 --        VPN

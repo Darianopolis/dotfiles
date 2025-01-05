@@ -47,5 +47,5 @@ export PATH="$PATH:~/.dotnet/tools"
 
 # Clang
 
-export CC=clang
-export CXX=clang
+# export CC=clang
+# export CXX=clang

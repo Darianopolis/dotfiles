@@ -26,7 +26,6 @@ Cookie AutoDelete
     - *.github.com
     - *.google.com
     - *.live.com
-    - *.msn.com
     - *.youtube.com
 
 I still don't care about cookies

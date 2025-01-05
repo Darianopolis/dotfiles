@@ -13,7 +13,7 @@ $ cd .. && rm -rf yay
 # pacman -S
     plasma-meta                                   - Core plasma meta package
     xorg-xinit xdg-desktop-portal-gtk             - Integration packages
-    keepassxc pass                                - Keychains & Secret Service
+    keepassxc pass libsecret                      - Keychains & Secret Service
 
 --------------------------------------------------------------------------------
 --        Fonts
@@ -36,6 +36,7 @@ $ cd .. && rm -rf yay
     okular                        - Document Viewer
     spectacle                     - Screenshot tool
     flatpak                       - Application Store
+    firefox                       - Browser
 $ flatpak install flathub
     com.brave.Browser             - Web Browser
     com.microsoft.Edge            - Web Browser
@@ -164,7 +165,7 @@ KDE System Settings
               Remember and restore window geometries: Disable
   Workspace
     General Behaviour
-      Animation Speed:                    4 pts from right
+      Animation Speed:                    Instant
       Middle Click Pastes selected text:  Disable
     Search
       Plasma Search
@@ -184,3 +185,8 @@ KDE System Settings
     Session
       Session Restore
         Start with an empty session
+
+Right-click on desktop:
+  Desktop and Wallpaper:
+    Wallpaper:
+      Layout: Desktop
