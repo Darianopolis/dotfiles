@@ -31,6 +31,7 @@ Python
 VS Code
 
   $ winget install Microsoft.VisualStudioCode
+  # reg import .\reg\open-with-vscode.reg
 
 Sublime Text
 
@@ -42,9 +43,12 @@ Visual Studio
   - Desktop development with C++
     - C++ Modules for v143 build tools
 
-CLion
+JetBrains IDEs (CLion)
 
-  $ winget install JetBrains.CLion
+  $ winget install JetBrains.Toolbox
+  ! Install CLion
+  > PATH += %LOCALAPPDATA%\Programs\CLion\bin
+  # reg import .\reg\open-with-clion.reg
 
 --------------------------------------------------------------------------------
 --      Graphics
