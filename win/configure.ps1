@@ -17,8 +17,10 @@ Set-Link "$HOME\AppData\Roaming\Code\User\settings.json" "$PSScriptRoot\..\vscod
 
 # Bin links
 
-New-Item -Path "C:\Bin" -ItemType "directory"
-Set-Link "C:\Bin\ahk-cppdev.ahk" "$PSScriptRoot\ahk\ahk-cppdev.ahk"
-Set-Link "C:\Bin\ahk-modifiers.ahk" "$PSScriptRoot\ahk\ahk-modifiers.ahk"
-Set-Link "C:\Bin\ahk-setup.ps1" "$PSScriptRoot\ahk\ahk-setup.ps1"
-Set-Link "C:\Bin\vs.bat" "$PSScriptRoot\bin\vs.bat"
+if (!(Test-Path "C:\bin")) {
+    New-Item -Path "C:\bin" -ItemType "directory"
+}
+Set-Link "C:\bin\ahk-cppdev.ahk" "$PSScriptRoot\ahk\ahk-cppdev.ahk"
+Set-Link "C:\bin\ahk-modifiers.ahk" "$PSScriptRoot\ahk\ahk-modifiers.ahk"
+Set-Link "C:\bin\ahk-setup.ps1" "$PSScriptRoot\ahk\ahk-setup.ps1"
+Set-Link "C:\bin\vs.bat" "$PSScriptRoot\bin\vs.bat"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<joystick configversion="19" appversion="3.4.0">
+<joystick configversion="19" appversion="3.5.0">
     <!--The SDL name for a joystick is included for informational purposes only.-->
     <sdlname>FrSky Taranis Joystick</sdlname>
     <!--The Unique ID for a joystick is included for informational purposes only.-->
@@ -9,14 +9,6 @@
             <axis index="2">
                 <throttle>normal</throttle>
             </axis>
-            <axis index="7">
-                <throttle>normal</throttle>
-            </axis>
-            <axis index="8">
-                <deadZone>0</deadZone>
-                <maxZone>30621</maxZone>
-                <throttle>normal</throttle>
-            </axis>
             <axis index="5">
                 <deadZone>0</deadZone>
                 <maxZone>30621</maxZone>
@@ -24,13 +16,16 @@
                 <axisbutton index="2">
                     <slots>
                         <slot>
-                            <code>0x1000006</code>
+                            <code>0x45</code>
                             <mode>keyboard</mode>
                         </slot>
                     </slots>
                 </axisbutton>
             </axis>
-            <axis index="6">
+            <axis index="7">
+                <throttle>normal</throttle>
+            </axis>
+            <axis index="4">
                 <throttle>normal</throttle>
             </axis>
             <axis index="3">
@@ -53,7 +48,12 @@
                     </slots>
                 </axisbutton>
             </axis>
-            <axis index="4">
+            <axis index="6">
+                <throttle>normal</throttle>
+            </axis>
+            <axis index="8">
+                <deadZone>0</deadZone>
+                <maxZone>30621</maxZone>
                 <throttle>normal</throttle>
             </axis>
             <axis index="1">

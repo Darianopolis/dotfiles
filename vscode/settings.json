@@ -37,5 +37,7 @@
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "chat.commandCenter.enabled": false,
+    "extensions.ignoreRecommendations": true
 }

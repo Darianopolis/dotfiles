@@ -1,3 +1,5 @@
+Arch
+
 - vim setup with COC.vim or ALE.vim for LSP support?
 - document configuring links
   - VS Code link does not generate correctly until code has been run at least once!
@@ -9,3 +11,19 @@
   - https://forum.manjaro.org/t/firefox-doesnt-raise-window-after-clicking-a-link-on-wayland/154842/38
   - general Wayland protocol issue?
     - https://wayland.app/protocols/xdg-activation-v1
+- Add CLion to development setup
+
+Windows
+
+- Drop AHK scripts?
+- Improve setup-links script (python?)
+- ExpressVPN
+- CLion & VS Code
+  - Missing shell "Open with X" options
+  - Can be enabled after installation
+- Python Jinja install?
+  - pip install Jinja2
+
+Both
+
+- Add NSight to development setup

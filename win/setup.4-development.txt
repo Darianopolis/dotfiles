@@ -42,6 +42,10 @@ Visual Studio
   - Desktop development with C++
     - C++ Modules for v143 build tools
 
+CLion
+
+  $ winget install JetBrains.CLion
+
 --------------------------------------------------------------------------------
 --      Graphics
 --------------------------------------------------------------------------------
@@ -49,6 +53,15 @@ Visual Studio
 Vulkan SDK
 
   $ winget install KhronosGroup.VulkanSDK
+
+Vulkan Validation Layers
+
+  $ git clone https://github.com/KhronosGroup/Vulkan-ValidationLayers.git
+  $ cmake -B build -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    ! [-DUPDATE_DEPS=ON] to update depenedncies, but causes issues with shared file write
+  $ cmake --build build --config RelWithDebInfo
+  $ cmake --install build --config RelWithDebInfo --prefix install
+  ! Add environment VK_LAYER_PATH=?\install\bin
 
 RenderDoc
 

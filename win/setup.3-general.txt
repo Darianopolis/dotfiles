@@ -34,6 +34,19 @@ OBS
 --      Utilities
 --------------------------------------------------------------------------------
 
+ExpressVPN
+
+  $ winget install ExpressVPN.ExpressVPN
+
+  Options
+    General
+      Automatically Download and Install update: Off
+
+  (Windows) Services
+    ExpressVPN App Servive:     Manual
+    ExpressVPN System Service:  Manual
+    ExpressVPN VPN Service:     Manual
+
 WinaeroTweaker
 
   $ winget install winaero.tweaker
@@ -59,6 +72,10 @@ PowerToys
   General
     Administrator mode
       - Always run as administrator
+
+  Always On Top
+    Appearance & Behaviour
+      Thickness: 1px
 
   Awake
     Enable Awake:   Off

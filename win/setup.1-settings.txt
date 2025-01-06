@@ -156,7 +156,7 @@ Terminal
     Profiles
       Defaults
         Advanced
-          History size: 1000000
+          History size: 100000
 
 --------------------------------------------------------------------------------
 --      Disable XBOX Game Bar
@@ -187,4 +187,4 @@ Settings
       (Select Audio Device)
         Properties
           Advanced Settings
-            Audio enhancements
+            Audio enhancements: Off
