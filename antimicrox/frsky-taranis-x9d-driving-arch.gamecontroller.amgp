@@ -3,9 +3,9 @@
     <!--The SDL name for a joystick is included for informational purposes only.-->
     <sdlname>FrSky Taranis Joystick</sdlname>
     <!--The Unique ID for a joystick is included for informational purposes only.-->
-    <uniqueID>03009175830400001057000011010000115522288</uniqueID>
-    <stickAxisAssociation index="1" xAxis="1" yAxis="2"/>
+    <uniqueID>0300048f830400001057000011010000115522288</uniqueID>
     <stickAxisAssociation index="2" xAxis="3" yAxis="4"/>
+    <stickAxisAssociation index="1" xAxis="1" yAxis="2"/>
     <vdpadButtonAssociations index="1">
         <vdpadButtonAssociation axis="0" button="12" direction="1"/>
         <vdpadButtonAssociation axis="0" button="13" direction="4"/>
@@ -13,8 +13,8 @@
         <vdpadButtonAssociation axis="0" button="15" direction="2"/>
     </vdpadButtonAssociations>
     <names>
-        <controlstickname index="1">Stick 1</controlstickname>
         <controlstickname index="2">Stick 2</controlstickname>
+        <controlstickname index="1">Stick 1</controlstickname>
     </names>
     <sets>
         <set index="1">
@@ -35,15 +35,10 @@
                         </slot>
                     </slots>
                 </stickbutton>
-                <stickmodifierbutton index="1">
-                    <slots>
-                        <slot>
-                            <code>0x5a</code>
-                            <mode>keyboard</mode>
-                        </slot>
-                    </slots>
-                </stickmodifierbutton>
             </stick>
+            <trigger index="6">
+                <throttle>positivehalf</throttle>
+            </trigger>
             <trigger index="5">
                 <deadZone>2000</deadZone>
                 <throttle>normal</throttle>
@@ -55,9 +50,6 @@
                         </slot>
                     </slots>
                 </triggerbutton>
-            </trigger>
-            <trigger index="6">
-                <throttle>positivehalf</throttle>
             </trigger>
             <button index="10">
                 <slots>
