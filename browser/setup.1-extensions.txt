@@ -27,6 +27,7 @@ Cookie AutoDelete
     - *.google.com
     - *.live.com
     - *.youtube.com
+    - *.msn.com       (Required for Edge's default new tab)
 
 I still don't care about cookies
 

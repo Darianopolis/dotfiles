@@ -6,7 +6,7 @@
       "storeId": "default",
       "cleanSiteData": [],
       "cookieNames": [],
-      "id": "nBR_ROG7i"
+      "id": "ccRznu4m-"
     },
     {
       "expression": "*.google.com",
@@ -14,7 +14,7 @@
       "storeId": "default",
       "cleanSiteData": [],
       "cookieNames": [],
-      "id": "XVQIOfhPh"
+      "id": "6qDtJRZlKQ"
     },
     {
       "expression": "*.live.com",
@@ -22,7 +22,15 @@
       "storeId": "default",
       "cleanSiteData": [],
       "cookieNames": [],
-      "id": "PkoxqztXh"
+      "id": "d3tY_thVgR"
+    },
+    {
+      "expression": "*.msn.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "U0K7ZyRbc"
     },
     {
       "expression": "*.youtube.com",
@@ -30,7 +38,7 @@
       "storeId": "default",
       "cleanSiteData": [],
       "cookieNames": [],
-      "id": "ZZ32MS133"
+      "id": "o1drGmB01f"
     }
   ]
 }
