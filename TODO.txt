@@ -7,11 +7,17 @@ Arch
 - missing system tray icon for antimicrox
   - https://github.com/flathub/io.github.antimicrox.antimicrox/issues/10
   - icon shows in main arch repo version, but windowing is borked for that
-- Firefox not being brought to front when links opened in it
-  - https://forum.manjaro.org/t/firefox-doesnt-raise-window-after-clicking-a-link-on-wayland/154842/38
-  - general Wayland protocol issue?
-    - https://wayland.app/protocols/xdg-activation-v1
-- Add CLion to development setup
+- Replace AntiMicroX with InputPlumber
+  - Resolve Taranis showing up as gamepad in ETS2?
+
+- KDE Plasma Scripting
+
+  - https://develop.kde.org/docs/plasma/kwin/
+
+  kpackagetool6 --type=KWin/Script -r plasmazones
+  kpackagetool6 --type=KWin/Script -i .
+  kwriteconfig6 --file kwinrc --group Plugins --key plasmazonesEnabled true
+  qdbus6 org.kde.KWin /KWin reconfigure
 
 Windows
 
