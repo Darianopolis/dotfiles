@@ -22,7 +22,7 @@ $ go install github.com/boyter/scc@master
 --        IDEs
 --------------------------------------------------------------------------------
 
-$ yay jetbrains-toolbox
+$ yay -S jetbrains-toolbox
 
 --------------------------------------------------------------------------------
 --        LLVM Toolchain - clang, clangd, lldb
@@ -39,7 +39,8 @@ $ ninja
 --        Vulkan Development
 --------------------------------------------------------------------------------
 
-$ sudo pacman -S vulkan-devel renderdoc
+# pacman -S vulkan-extra-tools renderdoc
+$ yay -S vulkan-caps-viewer-wayland(-bin)
 
 ! Download latest `vulkanCapsViewer.AppImage` from <https://vulkan.gpuinfo.org/download.php>
 $ chmod +x vulkanCapsViewer.AppImage

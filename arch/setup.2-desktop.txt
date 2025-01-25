@@ -34,6 +34,7 @@ $ cd .. && rm -rf yay
     plasma-meta                                   - Core plasma meta package
     xorg-xinit xdg-desktop-portal-gtk             - Integration packages
     keepassxc pass libsecret                      - Keychains & Secret Service
+    plasma-browser-integration                    - Browser integration
 
 --------------------------------------------------------------------------------
 --        Fonts
@@ -59,7 +60,6 @@ $ cd .. && rm -rf yay
     firefox                        - Browser
     thunderbird                    - Email Client
 $ flatpak install flathub
-    com.brave.Browser              - Web Browser
     com.microsoft.Edge             - Web Browser
     com.github.tchx84.Flatseal     - Flatpak sandbox control
     it.mijorus.gearlever           - AppImage manager
