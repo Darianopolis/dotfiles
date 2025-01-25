@@ -61,7 +61,7 @@ $ timedatectl
     linux-headers               - Linux kernel & firmware
     networkmanager              - Networking
     grub efibootmgr [os-prober] - Bootmanager
-    sudo git wget               - Utilities
+    vi sudo git wget            - Utilities
     pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack - Audio
 
 --------------------------------------------------------------------------------
