@@ -2,7 +2,7 @@
 --        Git Credential Manager
 --------------------------------------------------------------------------------
 
-# pacman -S dotnet-runtime dotnet-sdk
+# pacman -S dotnet-runtime-8.0 dotnet-sdk-8.0
 $ dotnet tool install -g git-credential-manager
 
 $ git-credential-manager configure

@@ -39,6 +39,13 @@ $ flatpak install flathub net.lutris.Lutris com.usebottles.bottles
 > ~/.local/share/Steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro\ Truck\ Simulator\ 2/config.cfg
   uset i_virtual_cursor_speed "0"
 
+! Copy `mod` folder to `~/.local/share/Steam/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro\ Truck\ Simulator\ 2`
+
+> Right-Click game in steam
+    Properties
+      Controller
+        Override for Euro Truck Simulator 2: Disable Steaminput
+
 --------------------------------------------------------------------------------
 --          Minecraft
 --------------------------------------------------------------------------------

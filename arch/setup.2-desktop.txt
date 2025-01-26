@@ -40,7 +40,8 @@ $ cd .. && rm -rf yay
 --        Fonts
 --------------------------------------------------------------------------------
 
-# pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji
+# pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji  - Common system unicode font
+# pacman -S otf-firamono-nerd                           - Terminal nerd fonts
 
 ! See more at <https://wiki.archlinux.org/title/Fonts>
 
@@ -50,6 +51,7 @@ $ cd .. && rm -rf yay
 
 # pacman -S
     konsole                        - Terminal Emulator
+    kitty                          - Terminal Emulator
     kate                           - Text Editor
     kalk                           - Calculator
     dolphin                        - File Browser
@@ -64,6 +66,12 @@ $ flatpak install flathub
     com.github.tchx84.Flatseal     - Flatpak sandbox control
     it.mijorus.gearlever           - AppImage manager
     io.missioncenter.MissionCenter - System Resource Monitor
+
+--------------------------------------------------------------------------------
+--        Utilities
+--------------------------------------------------------------------------------
+
+# pacman -S wl-clipboard    - Wayland terminal clipboard sink/source (wl-copy|wl-paste)
 
 --------------------------------------------------------------------------------
 --        VS Code
@@ -180,7 +188,8 @@ KDE System Settings
       KWin Scrips
         KZones
           Layouts
-            Copy contents of ./plasma/kzones.layout.json
+            Paste contents from
+              $ arch/plasma/generate-zones.py | ws-copy
           General
             Enable Zone Selector: Disabled
             Snapping Behaviour
