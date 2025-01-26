@@ -10,6 +10,9 @@ Arch
 - Replace AntiMicroX with InputPlumber
   - Resolve Taranis showing up as gamepad in ETS2?
 
+- Prevent joystick from showing up as gamepad in games?
+  - https://cubiclenate.com/2024/02/27/disable-input-devices-in-wayland/
+
 - KDE Plasma Scripting
 
   - https://develop.kde.org/docs/plasma/kwin/
