@@ -39,5 +39,8 @@
     ],
     "workbench.startupEditor": "none",
     "chat.commandCenter.enabled": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "[markdown]": {
+        "diffEditor.ignoreTrimWhitespace": true
+    }
 }

@@ -34,12 +34,17 @@ PS1='[\u@\h \W]\$ '
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch"
+export HISTCONTROL=ignoredups
 
 # Add user package locations
 
 export PATH="~/.local/bin:$PATH:$HOME/go/bin"
 export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+
+# SDL use Wayland
+
+# export SDL_VIDEO_DRIVER="wayland"
 
 # .NET
 

@@ -12,6 +12,7 @@ Arch
 
 - Prevent joystick from showing up as gamepad in games?
   - https://cubiclenate.com/2024/02/27/disable-input-devices-in-wayland/
+  - SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES
 
 - KDE Plasma Scripting
 
@@ -21,6 +22,11 @@ Arch
   kpackagetool6 --type=KWin/Script -i .
   kwriteconfig6 --file kwinrc --group Plugins --key plasmazonesEnabled true
   qdbus6 org.kde.KWin /KWin reconfigure
+
+- DRM/KMS Example
+
+  - https://github.com/dvdhrm/docs/blob/815de035b291cfdf3c858d4420482ffa42c878a1/drm-howto/modeset.c
+  - https://github.com/ascent12/drm_doc/blob/master/01_intro/src/main.c
 
 Windows
 

@@ -110,11 +110,28 @@ for h in range(0, num_zones_horizontal - 1):
 for h in range(0, num_zones_horizontal - 2):
     new_zone(master_grid, h, 0, 3, 2)
 
-overlaps = new_group(groups, "2/3rd Overlaps")
+overlaps = new_group(groups, "Wide Overlaps")
+
+# (3 x 1) zones
+
+for h in range(0, num_zones_horizontal - 2):
+    for v in range(0, num_zones_vertical):
+        new_zone(overlaps, h, v, 3, 1)
+
+# (4 x 1) zones
+
+for h in range(0, num_zones_horizontal - 3):
+    for v in range(0, num_zones_vertical):
+        new_zone(overlaps, h, v, 4, 1)
 
 # (4 x 2) zones
 
 for h in range(0, num_zones_horizontal - 3):
     new_zone(overlaps, h, 0, 4, 2)
+
+# (5 x 2) zones
+
+for h in range(0, num_zones_horizontal - 4):
+    new_zone(overlaps, h, 0, 5, 2)
 
 print(json.dumps(groups, indent=4))
