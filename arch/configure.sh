@@ -10,3 +10,6 @@ cp $(pwd)/terminal/.bashrc ~/.bashrc
 # cp $(pwd)/terminal/kitty.conf ~/.config/kitty/kitty.conf
 
 cp $(pwd)/../vscode/settings.json $HOME/.config/Code/User/settings.json
+
+sudo cp $(pwd)/update.sh /usr/local/bin/update
+sudo chmod +x /usr/local/bin/update

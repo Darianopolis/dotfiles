@@ -19,7 +19,7 @@ SumatraPDF
   $ winget install SumatraPDF.SumatraPDF
 
 --------------------------------------------------------------------------------
---      Screen capture
+--      Screen capture / Video
 --------------------------------------------------------------------------------
 
 ShareX
@@ -29,6 +29,10 @@ ShareX
 OBS
 
   $ winget install OBSProject.OBSStudio
+
+Handbrake
+
+  $ winget install HandBrake.HandBrake
 
 --------------------------------------------------------------------------------
 --      Content Creation Tools

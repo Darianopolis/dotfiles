@@ -3,8 +3,8 @@ Write-Output "  User Home: $HOME"
 
 function Set-Link {
     param (
-        $Link,
-        $Target
+        $Target,
+        $Link
     )
 
     if (Test-Path "$Link") {
@@ -13,14 +13,14 @@ function Set-Link {
     cmd /c mklink "$Link" "$Target"
 }
 
-Set-Link "$HOME\AppData\Roaming\Code\User\settings.json" "$PSScriptRoot\..\vscode\settings.json"
+Copy-Item "$PSScriptRoot\..\vscode\settings.json" "$HOME\AppData\Roaming\Code\User\settings.json"
 
 # Bin links
 
 if (!(Test-Path "C:\bin")) {
-    New-Item -Path "C:\bin" -ItemType "directory"
+    New-Item -Path "C:\Bin" -ItemType "directory"
 }
-Set-Link "C:\bin\ahk-cppdev.ahk" "$PSScriptRoot\ahk\ahk-cppdev.ahk"
-Set-Link "C:\bin\ahk-modifiers.ahk" "$PSScriptRoot\ahk\ahk-modifiers.ahk"
-Set-Link "C:\bin\ahk-setup.ps1" "$PSScriptRoot\ahk\ahk-setup.ps1"
-Set-Link "C:\bin\vs.bat" "$PSScriptRoot\bin\vs.bat"
+# Copy-Item "$PSScriptRoot\ahk\ahk-cppdev.ahk" "C:\Bin\ahk-cppdev.ahk"
+# Copy-Item "$PSScriptRoot\ahk\ahk-modifiers.ahk" "C:\Bin\ahk-modifiers.ahk"
+# Copy-Item "$PSScriptRoot\ahk\ahk-setup.ps1" "C:\Bin\ahk-setup.ps1"
+Copy-Item "$PSScriptRoot\bin\vs.bat" "C:\Bin\vs.bat"
