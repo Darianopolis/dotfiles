@@ -1,0 +1,21 @@
+--------------------------------------------------------------------------------
+--        Variables
+--------------------------------------------------------------------------------
+
+{username}                      E.g. darian
+{drive.label}                   E.g. Home
+{drive.device}                  E.g. /dev/sda
+{drive.partition}               E.g. /dev/sda1
+{drive.mount}                   E.g. /run/media/{username}/{drive.label}
+
+--------------------------------------------------------------------------------
+--        Formatting new drive
+--------------------------------------------------------------------------------
+
+# fdisk {drive.device}
+  g         New GPT partition table
+  n         New partition
+  Enter *3  Take rest of disk
+  w         Write out changes
+# mkfs.btrfs --label "{drive.label}" {drive.partition}
+# chown -R {username}:users {drive.mount}
