@@ -48,17 +48,27 @@ SponsorBlock for YouTube - Skip Sponsorships
 
 Unhook - Remove YouTube Recommended & Shorts
 
-  Enabled:
-  - Hide Live Char
-  - Hide Fundraiser
+  - Show Home Feed
+  - Show Video Sidebar
+    - Show Recommended
+    - Hide Live Char
+    - Show Playlist
+    - Hide Fundraiser
   - Hide End Screen Feed
   - Hide End Screen Cards
   - Hide Shorts
+  - Show Comments
+  - Show Mixes
   - Hide Merch, Tickets, Offers
-  - Hide Notifications
+  - Show Video Info
+  - Show Top Header
+    - Hide Notifications
   - Hide Inapt Search Results
   - Hide Explore, Trending
+  - Hide More from YouTube
+  - Show Subscriptions
   - Disable Autoplay
+  - Show Annotations
 
 DeArrow - Better Titles and Thumbnails
 

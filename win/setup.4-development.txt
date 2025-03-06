@@ -7,6 +7,7 @@ Git
   $ winget install Git.Git
   $ git config --global --add safe.directory *
   $ git config --global core.filemode false         Ingore unix file permission changes
+  $ git config --global core.autocrlf false         Checkout LF, Convert CRLF to LF on commit
 
 LLVM
 

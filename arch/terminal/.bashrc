@@ -54,3 +54,7 @@ export PATH="$PATH:~/.dotnet/tools"
 
 # export CC=clang
 # export CXX=clang
+
+# List Interactive
+
+. li-bashrc

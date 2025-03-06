@@ -1,0 +1,14 @@
+about:config
+  privacy.resistFingerprinting = false
+
+Settings
+  General
+    Enable Container Tabs:  On
+    Website apperaance:     Dark
+  Privacy & Security
+    Delete cookies and site data when LibreWolf is closed:  Off
+     - We use CookieAutoDelete to selectively delete cookies
+
+ISSUE:
+
+  LibreWolf shows with default Wayland Icon in task switcher on Plasma

@@ -42,5 +42,6 @@
     "extensions.ignoreRecommendations": true,
     "[markdown]": {
         "diffEditor.ignoreTrimWhitespace": true
-    }
+    },
+    "files.eol": "\n"
 }
