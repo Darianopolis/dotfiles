@@ -28,6 +28,9 @@ Arch
   - https://github.com/dvdhrm/docs/blob/815de035b291cfdf3c858d4420482ffa42c878a1/drm-howto/modeset.c
   - https://github.com/ascent12/drm_doc/blob/master/01_intro/src/main.c
 
+- Remove auth fail delay on sudo
+  - https://unix.stackexchange.com/questions/658771/remove-delay-after-wrong-sudo-password-entry-on-arch-linux
+
 Windows
 
 - Drop AHK scripts?

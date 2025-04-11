@@ -10,6 +10,10 @@
 
 uBlock Origin
 
+  My filters
+    www.youtube.com###dismissable:has(:scope #title-container:has-text(Breaking news))
+    www.youtube.com##ytd-rich-shelf-renderer:has([href^="/playables"])
+
 --------------------------------------------------------------------------------
 --        Privacy
 --------------------------------------------------------------------------------

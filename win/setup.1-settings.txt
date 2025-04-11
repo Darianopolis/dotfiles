@@ -137,6 +137,10 @@ Hardware and Sound
   Power Options
     Plan: High Performance
 
+    Choose what the power button does
+      Shutdown settings
+        Turn on fast startup:   Off
+
 Appearance and Personalisation
   File Explorer Options
     View

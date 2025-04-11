@@ -53,6 +53,7 @@ $ cd .. && rm -rf yay
     konsole                        - Terminal Emulator
     kitty                          - Terminal Emulator
     kate                           - Text Editor
+    zed                            - Text Editor
     kalk                           - Calculator
     dolphin                        - File Browser
     ark                            - Archive Manager
@@ -155,6 +156,17 @@ IMPORTANT - ON KERNEL UPDATE
   # sh /opt/maccel/uninstall.sh
   ! Reboot into updated kernel
   ! Follow previous steps to reinstall
+
+--------------------------------------------------------------------------------
+--        Disable libinput mouse button debouncing
+--------------------------------------------------------------------------------
+
+> /etc/libinput/local-overrides.quirks
+  [Never Debounce]
+  MatchUdevType=mouse
+  ModelBouncingKeys=1
+
+! This requires a restart of any applicaiton that uses libinput (e.g. the compositor) to take affect
 
 --------------------------------------------------------------------------------
 --        KDE Plasma settings

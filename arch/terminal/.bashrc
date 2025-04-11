@@ -58,3 +58,7 @@ export PATH="$PATH:~/.dotnet/tools"
 # List Interactive
 
 . li-bashrc
+
+# Zed
+
+alias zed=zeditor

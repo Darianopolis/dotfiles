@@ -111,3 +111,12 @@ PowerToys
     Windows
       Window Behavior
         - Keep windows in their zones when the screen resolution or work area changes
+
+Notepad
+
+  Settings
+    Spelling
+      Spell Check:  Off
+      Autocorrect:  Off
+    AI Features
+      Copilot:  Off

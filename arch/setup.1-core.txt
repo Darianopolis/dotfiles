@@ -130,6 +130,7 @@ $ visudo
 
 > /etc/security/faillock.conf
   unlock_time = 5
+  nodelay
 
 --------------------------------------------------------------------------------
 --        GRUB Bootloader
