@@ -34,9 +34,14 @@ $ go install github.com/boyter/scc@master
 
 $ yay -S jetbrains-toolbox
 
+> Help > Edit Custom VM Options...
+  -Dawt.toolkit.name=WLToolkit
+
 --------------------------------------------------------------------------------
 --        LLVM Toolchain - clang, clangd, lldb
 --------------------------------------------------------------------------------
+
+$ sudo pacman -S llvm
 
 $ cd ~/dev/cloned
 $ git clone https://github.com/llvm/llvm-project.git --recursive && cd llvm-project
@@ -54,6 +59,13 @@ $ yay -S vulkan-caps-viewer-wayland(-bin)
 
 ! Download latest `vulkanCapsViewer.AppImage` from <https://vulkan.gpuinfo.org/download.php>
 $ chmod +x vulkanCapsViewer.AppImage
+
+---- Renderdoc
+
+$ git clone https://github.com/baldurk/renderdoc
+$ cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DENABLE_UNSUPPORTED_EXPERIMENTAL_POSSIBLY_BROKEN_WAYLAND=ON
+$ cmake --build build
+$ QT_QPA_PLATFORM=xcb build/bin/qrenderdoc
 
 --------------------------------------------------------------------------------
 --        Wayland

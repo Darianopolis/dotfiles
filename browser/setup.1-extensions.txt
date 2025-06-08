@@ -11,8 +11,13 @@
 uBlock Origin
 
   My filters
-    www.youtube.com###dismissable:has(:scope #title-container:has-text(Breaking news))
+
+    youtube.com##ytd-rich-section-renderer:has(:scope #dismissable):has(:scope #featured-badge):has(:scope #title:has-text(/^Breaking news$/i))
+    youtube.com##ytd-rich-section-renderer:has(:scope #dismissable)
     www.youtube.com##ytd-rich-shelf-renderer:has([href^="/playables"])
+    www.youtube.com##ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope
+
+
 
 --------------------------------------------------------------------------------
 --        Privacy
