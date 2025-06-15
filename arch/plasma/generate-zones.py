@@ -136,4 +136,10 @@ for h in range(0, num_zones_horizontal - 3):
 for h in range(0, num_zones_horizontal - 4):
     new_zone(overlaps, h, 0, 5, 2)
 
+fullscreen = new_group(groups, "Fullscreen")
+
+# (6 x 2) zones
+
+new_zone(fullscreen, 0, 0, 6, 2)
+
 print(json.dumps(groups, indent=4))

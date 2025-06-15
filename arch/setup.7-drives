@@ -42,3 +42,14 @@
   Trigger all mounts in fstab
 
 # sudo mount -a
+
+--------------------------------------------------------------------------------
+--        NTFS-3G UserMapping
+--------------------------------------------------------------------------------
+
+! Umount NTFS drive
+# ntfsusermap {drive.partition}
+! Provide uid/gid as necessary
+! Mount NTFS drive
+! Copy generated UserMapping file to {drive.mount}/.NTFS-3G/UserMapping
+! Unmount and remount (UserMapping file is used only if present during mount)
