@@ -62,11 +62,11 @@ $ cd .. && rm -rf yay
     flatpak                        - Application Store
     firefox                        - Browser
     thunderbird                    - Email Client
+    mission-center                 - System Resource Monitor
 $ flatpak install flathub
     com.microsoft.Edge             - Web Browser
     com.github.tchx84.Flatseal     - Flatpak sandbox control
     it.mijorus.gearlever           - AppImage manager
-    io.missioncenter.MissionCenter - System Resource Monitor
 $ yay -S
     1password                      - Password Manager
 
