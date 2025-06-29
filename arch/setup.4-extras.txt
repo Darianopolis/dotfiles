@@ -11,6 +11,9 @@
 # pacman -S discord     - Standard package
 # yay -S discord-canary - Canary - latest features (has *mostly* functional screenshare on Wayland)
 
+> ~/.config/discord/settings.json
+  + "SKIP_HOST_UPDATE": true
+
 --------------------------------------------------------------------------------
 --        VPN
 --------------------------------------------------------------------------------

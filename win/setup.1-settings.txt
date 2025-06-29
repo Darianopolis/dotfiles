@@ -192,3 +192,14 @@ Settings
         Properties
           Advanced Settings
             Audio enhancements: Off
+
+--------------------------------------------------------------------------------
+--      UTC Hardware clock
+--------------------------------------------------------------------------------
+
+# reg import .\reg\utc-hwclock.reg
+! restart system
+
+-- Can test with the following
+$ Write-Host "Local Time: $(Get-Date)"
+$ Write-Host "UTC Time:   $([System.DateTime]::UtcNow)"
