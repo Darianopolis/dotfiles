@@ -56,6 +56,11 @@ Arch Maintenance - https://wiki.archlinux.org/title/System_maintenance
     journalctl --rotate                 Rotates out current log file to free it up for vacuuming
     journalctl -m --vacuum-time=1s      Merges journals and then cleans them up based on time (changed 1s for time desired)
 
+System Parameters
+
+  > /etc/sysctl.d/{number}-{descriptive-name}.conf    To define new system parameters, higher numbers loaded later
+  # sysctl -p {path/to/file.conf}                     To reload parameters at runtime (will be automatically applied at bootup)
+
 Packages
 
   pacman

@@ -45,10 +45,8 @@ $ sudo pacman -S llvm
 
 $ cd ~/dev/cloned
 $ git clone https://github.com/llvm/llvm-project.git --recursive && cd llvm-project
-$ mkdir build && cd build
-$ cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lldb;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ../llvm
-$ ninja
-# ninja install
+$ cmake -G Ninja -B build -DLLVM_ENABLE_PROJECTS="clang;lldb;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=~/.local llvm
+$ cmake --build build --target install
 
 --------------------------------------------------------------------------------
 --        Vulkan Development

@@ -106,9 +106,14 @@ $ timedatectl
 --        Swap
 --------------------------------------------------------------------------------
 
-# mkswap -U clear --size 16G --file /swapfile
+# mkswap -U clear --size 64G --file /swapfile
 > /etc/fstab
   /swapfile none swap defaults 0 0
+
+-- Disable overcommit (optional)
+
+> /etc/sysctl.d/99-overcommit.conf
+  vm.overcommit_memory=2
 
 --------------------------------------------------------------------------------
 --        Accounts

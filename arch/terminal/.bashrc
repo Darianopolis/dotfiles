@@ -38,7 +38,7 @@ export HISTCONTROL=ignoredups
 
 # Add user package locations
 
-export PATH="~/.local/bin:$PATH:$HOME/go/bin"
+export PATH="$HOME/.local/bin:$PATH:$HOME/go/bin"
 export LD_LIBRARY_PATH="/usr/local/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
@@ -48,7 +48,7 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # .NET
 
-export PATH="$PATH:~/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Clang
 
@@ -62,3 +62,11 @@ export PATH="$PATH:~/.dotnet/tools"
 # Zed
 
 alias zed=zeditor
+
+# Python
+
+export PATH="$HOME/.mypython/bin:$PATH"
+
+# git-cache
+
+export GIT_CACHE_DIR="$HOME/.gitcache"
