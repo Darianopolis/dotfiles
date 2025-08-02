@@ -4,7 +4,7 @@
     "git.openRepositoryInParentFolders": "always",
     "clangd.arguments": [
         "--function-arg-placeholders=0",
-        "--experimental-modules-support",
+        // "--experimental-modules-support",
         "--header-insertion=never"
     ],
     "files.trimTrailingWhitespace": true,
@@ -17,7 +17,7 @@
     },
     "window.titleBarStyle": "custom",
     "vscode-blur-linux.opacity": 90,
-    "editor.fontFamily": "Consolas, 'monospace', monospace",
+    "editor.fontFamily": "Noto Sans Mono",
     "cmake.showOptionsMovedNotification": false,
     "slang.format.clangFormatLocation": "",
     "slang.format.clangFormatStyle": "",
@@ -43,5 +43,8 @@
     "[markdown]": {
         "diffEditor.ignoreTrimWhitespace": true
     },
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "zig.zls.enabled": "on",
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
