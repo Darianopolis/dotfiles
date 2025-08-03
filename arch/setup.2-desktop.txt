@@ -204,7 +204,7 @@ KDE System Settings
         KZones
           Layouts
             Paste contents from
-              $ arch/plasma/generate-zones.py | ws-copy
+              $ arch/plasma/generate-zones.py | wl-copy
           General
             Enable Zone Selector: Disabled
             Snapping Behaviour

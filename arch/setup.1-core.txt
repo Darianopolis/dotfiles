@@ -12,11 +12,16 @@ ${locales.all}                  E.g. en_US.UTF-8 UTF-8
 ${locales.primary}              E.g. en_GB.UTF-8
 
 --------------------------------------------------------------------------------
---        Initial environment setup
+--        Initial installation environment setup
 --------------------------------------------------------------------------------
 
 $ loadkeys {keymap}
 $ timedatectl
+
+$ iwctl
+  device list           - To find adapter {name}
+  station {name} scan   - To find network {SSID}
+  station {name} connect {SSID}
 
 --------------------------------------------------------------------------------
 --        Drive setup
@@ -211,3 +216,10 @@ $ yay -S nvidia-open-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 
 # grub-mkconfig -o /boot/grub/grub.cfg
 # mkinitcpio -P
+
+--------------------------------------------------------------------------------
+--      Reconnect to wireless network on reboot
+--------------------------------------------------------------------------------
+
+$ nmctl device                                          - List networks
+$ nmctl device wifi connect {SSID} password {password}  - Connect to network

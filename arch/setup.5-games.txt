@@ -14,12 +14,6 @@ Steam Settings
   Compatibility
     Enable Steam Play for all other titles: Enabled
 
--- OLD OUTDATED METHOD
--- $ mkdir ~/.steam/root/compatibilitytools.d
--- ! Download latest release {version} from <https://github.com/GloriousEggroll/proton-ge-custom/releases>
--- $ tar -xf GE-Proton{version}.tar.gz -C ~/.steam/root/compatibilitytools.d/
--- ! Restart Steam to udpate Proton versions
-
 $ flatpak install flathub net.davidotek.pupgui2
 ! Open and install latest ProtonGE for steam
 
@@ -90,6 +84,6 @@ Test Drive Unlimited
     Control
       Options
         Steering Sensitivty: -1 from center
-        Steering Bars Sens:  0 from right
+        Steering Bars Sens:   0 from right
         Enable Wheel:        Yes
         Linearity:           +3 from left
