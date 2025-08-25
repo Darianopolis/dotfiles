@@ -3,8 +3,8 @@
 --------------------------------------------------------------------------------
 
 ! Find key on https://aur.chaotic.cx/docs
-# sudo pacman-key --recv-key ${keyid} --keyserver keyserver.ubuntu.com
-# sudo pacman-key --lsign-key ${keyid}
+# sudo pacman-key --recv-key {keyid} --keyserver keyserver.ubuntu.com
+# sudo pacman-key --lsign-key {keyid}
 # sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
 # sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
@@ -167,6 +167,18 @@ IMPORTANT - ON KERNEL UPDATE
   ModelBouncingKeys=1
 
 ! This requires a restart of any applicaiton that uses libinput (e.g. the compositor) to take affect
+
+--------------------------------------------------------------------------------
+--        Disable KDE Baloo File Indexing Service
+--------------------------------------------------------------------------------
+
+$ systemctl --user mask plasma-baloorunner.service
+$ rm -rf ~/.local/share/baloo/
+
+-- TODO: This last step may not be necessary and doesn't seem to help anyway
+> ~/.config/baloofilerc
+  [Basic Settings]
+  Indexing-Enabled=false
 
 --------------------------------------------------------------------------------
 --        KDE Plasma settings

@@ -1,21 +1,16 @@
 Arch
 
+- Experiment with systemd-boot as a lightweight faster alternative to GRUB?
+
+- Trim running processes (aggressively kill processes that aren't being actively used)
+  - E.g. expressvpn service shouldn't be running unless VPN is enabled
+
 - vim setup with COC.vim or ALE.vim for LSP support?
 - document configuring links
   - VS Code link does not generate correctly until code has been run at least once!
 - helper install/setup scripts
-- missing system tray icon for antimicrox
-  - https://github.com/flathub/io.github.antimicrox.antimicrox/issues/10
-  - icon shows in main arch repo version, but windowing is borked for that
-- Replace AntiMicroX with InputPlumber
-  - Resolve Taranis showing up as gamepad in ETS2?
-
-- Prevent joystick from showing up as gamepad in games?
-  - https://cubiclenate.com/2024/02/27/disable-input-devices-in-wayland/
-  - SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES
 
 - KDE Plasma Scripting
-
   - https://develop.kde.org/docs/plasma/kwin/
 
   kpackagetool6 --type=KWin/Script -r plasmazones

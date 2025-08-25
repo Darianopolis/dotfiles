@@ -7,9 +7,13 @@
 {hostname}                      E.g. arch
 {keymap}                        E.g. uk
 {timezone}                      E.g. Europe/London
-${locales.all}                  E.g. en_US.UTF-8 UTF-8
+{locales.all}                   E.g. en_US.UTF-8 UTF-8
                                      en_GB.UTF-8 UTF-8
-${locales.primary}              E.g. en_GB.UTF-8
+{locales.primary}               E.g. en_GB.UTF-8
+{swap.size}                     E.g. 64G
+
+{wifi.ssid}                          WiFi Network SSID
+{wifi.passwd}                        Wifi Network Password
 
 --------------------------------------------------------------------------------
 --        Initial installation environment setup
@@ -20,8 +24,8 @@ $ timedatectl
 
 $ iwctl
   device list           - To find adapter {name}
-  station {name} scan   - To find network {SSID}
-  station {name} connect {SSID}
+  station {name} scan   - To find network {wifi.ssid}
+  station {name} connect {wifi.ssid}
 
 --------------------------------------------------------------------------------
 --        Drive setup
@@ -88,16 +92,16 @@ $ iwctl
 --        Locale
 --------------------------------------------------------------------------------
 
-# echo "${locales.all}" > /etc/locale.gen
+# echo "{locales.all}" > /etc/locale.gen
 # locale-gen
-# localectl set-locale LANG=${locales.primary} LC_TIME=C
+# localectl set-locale LANG={locales.primary} LC_TIME=C
 
 --------------------------------------------------------------------------------
 --        Keymap
 --------------------------------------------------------------------------------
 
-# echo "KEYMAP=${keymap}" > /etc/vconsole.conf
-# localectl set-keymap --no-convert ${keymap}
+# echo "KEYMAP={keymap}" > /etc/vconsole.conf
+# localectl set-keymap --no-convert {keymap}
 
 --------------------------------------------------------------------------------
 --        journald
@@ -111,14 +115,31 @@ $ iwctl
 --        Swap
 --------------------------------------------------------------------------------
 
-# mkswap -U clear --size 64G --file /swapfile
+# mkswap -U clear --size {swap.size} --file /swapfile
 > /etc/fstab
   /swapfile none swap defaults 0 0
 
+--------------------------------------------------------------------------------
+--        Disable Memory Overcommit (optional - see WARNING)
+--------------------------------------------------------------------------------
+
 -- Disable overcommit (optional)
+---- 0 = overcommit up to arbitrary limit
+---- 1 = always overcommit
+---- 2 - never overcommit
+
+-- WARNING: Disabling overcommit can result in processes crashing due to failed
+            allocations under heavy memory usage (e.g. when launching games)
+            It also completely prevents the usage of C++'s address-sanitizer
+            which *relies* on overcommit
 
 > /etc/sysctl.d/99-overcommit.conf
   vm.overcommit_memory=2
+
+-- To change overcommit at runtime
+
+$ cat /proc/sys/vm/overcommit_memory
+$ echo {new_commit_mode} | sudo tee /proc/sys/vm/overcommit_memory
 
 --------------------------------------------------------------------------------
 --        Accounts
@@ -127,7 +148,7 @@ $ iwctl
 # passwd
 
 $ useradd -m -g users -G wheel -s /bin/bash {username}
-$ passwd ${username}
+$ passwd {username}
 
 $ visudo
   %wheel ALL=(ALL:ALL): ALL
@@ -170,6 +191,8 @@ $ visudo
 --        NVIDIA
 --------------------------------------------------------------------------------
 
+-- WARNING: use `nvidia-dkms` instead of `nvidia-open-dkms` on 10 series cards
+
   -- Uninstall existing drivers with `-Rdns --nodeps`
 
 $    yay -Rdns --nodeps nvidia-open-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
@@ -201,6 +224,9 @@ $ yay -S nvidia-open-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 # systemctl enable nvidia-suspend.service
 # systemctl enable nvidia-resume.service
 
+-- TODO: Sort out video encode/decode mess
+-- NOTE: For now you can skip this and go to the next section
+
 -- VAAPI -> NVDEC video encode/decode translation layer
 -- https://wiki.archlinux.org/title/Hardware_video_acceleration
 --  +-> https://github.com/elFarto/nvidia-vaapi-driver/?tab=readme-ov-file#installation
@@ -218,8 +244,15 @@ $ yay -S nvidia-open-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta
 # mkinitcpio -P
 
 --------------------------------------------------------------------------------
+--      Reboot
+--------------------------------------------------------------------------------
+
+$ exit                      To exit out ot chroot
+$ systemctl-reboot          To reboot system, make sure to boot from new install
+
+--------------------------------------------------------------------------------
 --      Reconnect to wireless network on reboot
 --------------------------------------------------------------------------------
 
-$ nmctl device                                          - List networks
-$ nmctl device wifi connect {SSID} password {password}  - Connect to network
+$ nmcli device                                                  - List networks
+$ nmcli device wifi connect {wifi.ssid} password {wifi.passwd}  - Connect to network
