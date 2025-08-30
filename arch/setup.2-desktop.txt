@@ -52,16 +52,12 @@ $ cd .. && rm -rf yay
 # pacman -S
     konsole                        - Terminal Emulator
     kate                           - Text Editor
-    zed                            - Text Editor
     kalk                           - Calculator
     dolphin                        - File Browser
-    ark                            - Archive Manager
     spectacle                      - Screenshot tool
     flatpak                        - Application Store
     firefox                        - Browser
     mission-center                 - System Resource Monitor
-    thunderbird                    - Email Client
-    okular                         - Document Viewer
 $ flatpak install flathub
     com.microsoft.Edge             - Web Browser
     com.github.tchx84.Flatseal     - Flatpak sandbox control
@@ -74,16 +70,6 @@ $ yay -S
 --------------------------------------------------------------------------------
 
 # pacman -S wl-clipboard    - Wayland terminal clipboard sink/source (wl-copy|wl-paste)
-
---------------------------------------------------------------------------------
---        VS Code
---------------------------------------------------------------------------------
-
-$ yay -S visual-studio-code-bin
-
-> Command: Configure Runtime Arguments
-  Add
-    "password-store":"gnome-libsecret"
 
 --------------------------------------------------------------------------------
 --        Keychains & Secret Service

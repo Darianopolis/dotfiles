@@ -165,7 +165,7 @@ $ visudo
 --        Bootloader (systemd-boot)
 --------------------------------------------------------------------------------
 
--- NOTE: When running in arch-chroot with systemd v256, run the following OUTSIDE the chroot first
+-- NOTE: When running in arch-chroot with systemd v256, run the following **OUTSIDE** the arch-chroot first
 
 # bootctl --esp-path=/mnt/boot install
 

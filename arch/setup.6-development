@@ -27,7 +27,7 @@ $ git config --global credential.credentialStore gpg
 $ go install github.com/boyter/scc@master
 
 --------------------------------------------------------------------------------
---        IDEs
+--        JetBrains Toolbox
 --------------------------------------------------------------------------------
 
 $ yay -S jetbrains-toolbox
