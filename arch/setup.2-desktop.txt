@@ -51,18 +51,17 @@ $ cd .. && rm -rf yay
 
 # pacman -S
     konsole                        - Terminal Emulator
-    kitty                          - Terminal Emulator
     kate                           - Text Editor
     zed                            - Text Editor
     kalk                           - Calculator
     dolphin                        - File Browser
     ark                            - Archive Manager
-    okular                         - Document Viewer
     spectacle                      - Screenshot tool
     flatpak                        - Application Store
     firefox                        - Browser
-    thunderbird                    - Email Client
     mission-center                 - System Resource Monitor
+    thunderbird                    - Email Client
+    okular                         - Document Viewer
 $ flatpak install flathub
     com.microsoft.Edge             - Web Browser
     com.github.tchx84.Flatseal     - Flatpak sandbox control
@@ -123,9 +122,11 @@ $ gpg --gen-key
 ! {gpg-id} :: long string of characters from the key as shown by `gpg --list-keys`
 $ pass init {gpg-id}
 
-# pacman -S kwayland5                               - Needed for pinentry-qt5
-$ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
-$ gpg-connect-agent reloadagent /bye
+--- TODO: Are the following steps still necessary?
+
+--- # pacman -S kwayland5                               - Needed for pinentry-qt5
+--- $ echo "pinentry-program /usr/bin/pinentry-qt5" > ~/.gnupg/gpg-agent.conf
+--- $ gpg-connect-agent reloadagent /bye
 
 --------------------------------------------------------------------------------
 --        Printing Service
@@ -134,28 +135,6 @@ $ gpg-connect-agent reloadagent /bye
 # pacman -S system-config-printer cups cups-pdf
 $ yay -S epson-inkjet-printer-escpr2                - needed for Epson ET-8550
 # systemctl enable --now cups.service
-
---------------------------------------------------------------------------------
---        Mouse Acceleration        (https://github.com/Gnarus-G/maccel)
---------------------------------------------------------------------------------
-
-$ curl -OL https://www.maccel.org/install.sh
-! Verify install script
-# MACCEL_LEETMOUSE_HID_PARSER=1 sh install.sh
-
-# usermod -aG maccel USERNAME
-
-$ maccel set sens-mult 0.5
-$ maccel set accel 0.075
-$ maccel set offset 2
-
-# maccel bindall
-
-IMPORTANT - ON KERNEL UPDATE
-  # maccel unbindall
-  # sh /opt/maccel/uninstall.sh
-  ! Reboot into updated kernel
-  ! Follow previous steps to reinstall
 
 --------------------------------------------------------------------------------
 --        Disable libinput mouse button debouncing
@@ -190,7 +169,7 @@ KDE System Settings
       Mouse
         Device
           {mouse.device.name}
-            Pointer Speed:        -0.4
+            Pointer Speed:        -0.7
             Pointer acceleration: None
       Screen Edges
         Screen TopLeft:                       None
@@ -210,6 +189,8 @@ KDE System Settings
   Appearance & Style
     Colours & Themes
       Global Theme: Breeze Dark
+    Animations
+      Global animation speed:   Instant
   Apps & Windows
     Window Management
       KWin Scrips
@@ -223,7 +204,6 @@ KDE System Settings
               Remember and restore window geometries: Disable
   Workspace
     General Behaviour
-      Animation Speed:                    Instant
       Middle Click Pastes selected text:  Disable
     Search
       Plasma Search

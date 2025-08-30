@@ -34,6 +34,7 @@ $ ./{downloaded-run-file}
 --        Multimedia
 --------------------------------------------------------------------------------
 
+# flatpak install flathub com.spotify.Client
 # pacman -S vlc vlc-plugin-ffmpeg
 
 --------------------------------------------------------------------------------
@@ -61,7 +62,7 @@ $ flatpak install flathub com.obsproject.Studio
 
 # pacman -S inkscape blender
 $ flatpak install flathub
-    org.kde.Krita
+    org.kde.krita
     com.github.PintaProject.Pinta
     org.gimp.GIMP
 
@@ -71,16 +72,3 @@ $ flatpak install flathub
 
 # pacman -S evtest joyutils
 $ yay -S game-devices-udev
-
---------------------------------------------------------------------------------
---        AntiMicroX (Joystick remapper)
---------------------------------------------------------------------------------
-
-$ flatpak install flathub io.github.antimicrox.antimicrox
-$ cd /usr/lib/udev/rules.d/
-# wget https://raw.githubusercontent.com/AntiMicroX/antimicrox/master/other/60-antimicrox-uinput.rules
-! restart
-AntiMicroX
-  Settings
-    General
-      Profile Directory: /home/{username}/.dotfles/antimicrox

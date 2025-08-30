@@ -69,6 +69,7 @@ Packages
     -Qe                     Show explicitly installed packages
     -Qm                     Show unoffical (AUR) installed packages
     -Rns                    Remove packages (R), Remove configuration (n), Remove unnused dependencies (s)
+    -Rdns                   Same as above + ignore dependency checks (d) [Useful for uninstalling nvidia drivers]
 
     Update keyring before full upgrade (if out of date)
       # pacman -Sy archlinux-keyring
