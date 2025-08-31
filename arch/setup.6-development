@@ -1,23 +1,31 @@
 --------------------------------------------------------------------------------
+--        Variables
+--------------------------------------------------------------------------------
+
+{git.name}        E.g. John Doe
+{git.email}       E.g. johnd@foo.bar
+
+--------------------------------------------------------------------------------
 --        Git
 --------------------------------------------------------------------------------
 
 $ git config --global --add safe.directory "*"
-$ git config --global core.autocrlf input         Preserve line endings
+$ git config --global core.autocrlf input
 $ git config --global core.editor "vim"
-$ git config --global user.name "NAME"
-$ git config --global user.email "EMAIL"
+$ git config --global user.name "{git.name}"
+$ git config --global user.email "{git.email}"
 $ git config --global init.defaultBranch main
 
---------------------------------------------------------------------------------
---        Git Credential Manager
---------------------------------------------------------------------------------
+-- Git credential manager (git -> GCM -> gpg+pass -> secretservice)
 
 # pacman -S dotnet-runtime-8.0 dotnet-sdk-8.0
 $ dotnet tool install -g git-credential-manager
-
 $ git-credential-manager configure
 $ git config --global credential.credentialStore gpg
+
+-- TODO: Get the following working with secretservice directly
+
+$ git config --global --replace-all credential.helper "/usr/lib/git-core/git-credential-libsecret"
 
 --------------------------------------------------------------------------------
 --        Development - Core

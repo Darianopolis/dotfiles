@@ -77,10 +77,14 @@ $ yay -S
 --------------------------------------------------------------------------------
 
 > ~/.config/kwalletrc
-  [Wallet]
-  Enabled=false
+   [Wallet]
+   Enabled=false
+
+-- Kill kwallet if was already running
 
 # pkill -f kwallet
+
+! Create a KeepassXC database {keepass.database}
 
 KeepassXC
   Tools
@@ -102,8 +106,17 @@ KeepassXC
           Show notifications when passwords are retrieved by clients: OFF
           Confirm when passwords are retrieved by clients:            OFF
           Confirm when clients request entry deletion:                OFF
+        Exposed database groups:
+          {keepass.database}
+            Manage
+              Tick - Expose entries under this group:
+                Root
 
-! Create a KeepassXC database
+--------------------------------------------------------------------------------
+--        GPG
+--------------------------------------------------------------------------------
+
+---- TODO: Can this be removed when using libsecret for git authentication?
 
 $ gpg --gen-key
 ! {gpg-id} :: long string of characters from the key as shown by `gpg --list-keys`
