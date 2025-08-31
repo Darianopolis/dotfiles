@@ -32,7 +32,7 @@ class Rect:
 
 # ------------------------------------------------------------------------------
 
-workarea = Vec2(3840, 2160)
+workarea = Vec2(3840, 2160 - 44)
 # padding_outer = 7
 # padding_inner = 4
 padding_outer = 0

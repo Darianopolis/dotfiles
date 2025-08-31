@@ -53,6 +53,7 @@ $ cd .. && rm -rf yay
     konsole                        - Terminal Emulator
     kate                           - Text Editor
     kalk                           - Calculator
+    kronometer                     - Timer
     dolphin                        - File Browser
     spectacle                      - Screenshot tool
     flatpak                        - Application Store
