@@ -45,6 +45,9 @@ I still don't care about cookies
 
 Enhancer for YouTube
 
+  ! Install through https://www.mrfdev.com/enhancer-for-youtube
+  ! (the developer pulled it from the firefox store due to app update process issues)
+
   Options
     Playback quality
       Automatically select a playback quality = 2160p

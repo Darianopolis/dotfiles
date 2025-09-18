@@ -42,6 +42,7 @@ $ cd .. && rm -rf yay
 
 # pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji  - Common system unicode font
 # pacman -S otf-firamono-nerd                           - Terminal nerd fonts
+# pacman -S gnu-free-fonts                              - Extended language support
 
 ! See more at <https://wiki.archlinux.org/title/Fonts>
 

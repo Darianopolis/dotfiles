@@ -1,0 +1,11 @@
+Settings
+  General
+    Language
+      User Interface Language: English (UK)
+  Appearance
+    Window Appearance
+      User Interface Density
+        Compact
+        Compact Menu Layout
+      Status Bar: Status Info Overlay
+    Menu Icon Style: Menu Icon
