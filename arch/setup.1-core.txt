@@ -56,7 +56,7 @@ $ iwctl
 # mount {drives.arch}p2 /mnt
 # mount --mkdir {drives.arch}p1 /mnt/boot
 
-# pacstrap -K /mnt base linux linux-firmware amd-ucode vim
+# pacstrap -K /mnt base linux linux-firmware [amd-ucode] [intel-ucode] [sof-firmware] vim
 
 # genfstab -U /mnt >> /mnt/etc/fstab
 # arch-chroot /mnt
@@ -73,8 +73,8 @@ $ iwctl
     base-devel                  - Core packages
     linux-headers               - Linux kernel & firmware
     networkmanager              - Networking
-    grub efibootmgr [os-prober] - Bootmanager
-    vi sudo git wget            - Utilities
+    efibootmgr [os-prober]      - Boot
+    sudo git wget               - Utilities
     pipewire lib32-pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-jack - Audio
 
 --------------------------------------------------------------------------------
@@ -151,10 +151,10 @@ $ echo {new_commit_mode} | sudo tee /proc/sys/vm/overcommit_memory
 
 # passwd
 
-$ useradd -m -g users -G wheel -s /bin/bash {username}
-$ passwd {username}
+# useradd -m -g users -G wheel -s /bin/bash {username}
+# passwd {username}
 
-$ visudo
+# EDITOR=vim visudo
   %wheel ALL=(ALL:ALL): ALL
 
 > /etc/security/faillock.conf
@@ -165,15 +165,23 @@ $ visudo
 --        Bootloader (systemd-boot)
 --------------------------------------------------------------------------------
 
--- NOTE: When running in arch-chroot with systemd v256, run the following **OUTSIDE** the arch-chroot first
+# bootctl install --variables=yes
 
-# bootctl --esp-path=/mnt/boot install
+# systemctl enable systemd-boot-update.service
 
--- NOTE: With systemd v257 (not yet released as of time of writing, append `--variables=yes` to the following command instead)
+> /etc/pacman.d/hooks/95-systemd-boot.hook
 
-# bootctl install
+  [Trigger]
+  Type = Package
+  Operation = Upgrade
+  Target = systemd
 
--- NOTE: Don't use *tabs* in these configuration files, spaces only
+  [Action]
+  Description = Gracefully upgrading systemd-boot...
+  When = PostTransaction
+  Exec = /usr/bin/systemctl restart systemd-boot-update.service
+
+-- Configuration
 
 > /boot/loader/loader.conf
 
@@ -195,12 +203,6 @@ $ visudo
   linux   /vmlinuz-linux
   initrd  /initramfs-linux-fallback.img
   options root=UUID={drives.arch.uuid} rw rootfstype=ext4 add_efi_memmap {kernel.parameters}
-
-# bootctl update
-
--- Can check entries with
-
-# bootctl list
 
 --------------------------------------------------------------------------------
 --        Disable USB Autosuspend
