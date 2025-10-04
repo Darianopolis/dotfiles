@@ -58,7 +58,7 @@ $ cmake --build build --target install
 --        Vulkan Development
 --------------------------------------------------------------------------------
 
-# pacman -S vulkan-extra-tools renderdoc
+# pacman -S vulkan-tools vulkan-validation-layers vulkan-extra-tools renderdoc
 $ yay -S vulkan-caps-viewer-wayland(-bin)
 
 ! Download latest `vulkanCapsViewer.AppImage` from <https://vulkan.gpuinfo.org/download.php>

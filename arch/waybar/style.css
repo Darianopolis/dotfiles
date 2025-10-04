@@ -1,0 +1,57 @@
+* {
+    font-family: "Noto Sans";
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 2px 2px 2px;
+}
+
+label {
+    padding: 0 10px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Clock */
+
+#clock {
+    background-color: #64727D;
+}
+
+/* System monitors */
+
+#memory {
+    background-color: #9b59b6;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+/* Audio */
+
+#pulseaudio {
+    background-color: #f1c40f;
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+/* Tray */
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}

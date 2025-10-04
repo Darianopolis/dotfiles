@@ -1,0 +1,22 @@
+--------------------------------------------------------------------------------
+--        Niri
+--------------------------------------------------------------------------------
+
+# pacman -S
+    niri                Compositor
+    mako                Noticiation daemon
+    waybar              Systme bar
+    pavucontrol         Audio management
+    xwayland-satellite  XWayland compatibility layer
+    polkit-kde-agent    Policy agent
+
+! Copy ./niri/config.kdl     to ~/.config/niri/config.kdl
+! Copy ./waybar/config.jsonc to ~/.config/waybar/config.jsonc
+! Copy ./waybar/style.css    to ~/.config/waybar/style.css
+
+$ dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
+
+$ systemctl --user add-wants niri.service mako.service
+$ systemctl --user add-wants niri.service waybar.service
+$ systemctl --user add-wants niri.service xwayland-satellite.service
+$ systemctl --user add-wants niri.service plasma-polkit-agent.service
