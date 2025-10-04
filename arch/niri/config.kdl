@@ -1,3 +1,29 @@
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+//         Outputs
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+output "DP-1" {
+    mode "3840x2160"
+    scale 1.0
+    position x=0 y=0
+    focus-at-startup
+}
+
+output "DP-2" {
+    mode "3840x2160"
+    scale 1.0
+    position x=-3840 y=0
+}
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+//         General
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
 input {
     keyboard {
         xkb {
@@ -20,19 +46,6 @@ input {
     warp-mouse-to-focus
 
     focus-follows-mouse max-scroll-amount="95%"
-}
-
-output "DP-1" {
-    mode "3840x2160"
-    scale 1.0
-    position x=0 y=0
-    focus-at-startup
-}
-
-output "DP-2" {
-    mode "3840x2160"
-    scale 1.0
-    position x=-3840 y=0
 }
 
 layout {
@@ -91,27 +104,37 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 debug {
-    disable-resize-throttling
+    // disable-resize-throttling
     honor-xdg-activation-with-invalid-serial
+}
+
+clipboard { disable-primary; }
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+//         Window Rules
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+// ---- General rules
+
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+}
+
+// ---- Specific rules
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="org.kde.kalk"
+    match app-id="io.missioncenter.MissionCenter"
+    open-floating true
 }
 
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=16 y=16 relative-to="bottom-right"
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
-    geometry-corner-radius 5
-    clip-to-geometry true
 }
 
 window-rule {
@@ -133,19 +156,30 @@ window-rule {
     default-window-height { fixed 500; }
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+window-rule {
+    match app-id="XEyes"
+    open-floating true
 
+    default-column-width { fixed 250; }
+    default-window-height { fixed 250; }
+}
+
+window-rule {
+    match app-id="org.keepassxc.KeePassXC"
+    match app-id="1Password"
+
+    open-floating true
     block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 }
 
-clipboard { disable-primary; }
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+//         Binds
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -154,8 +188,11 @@ binds {
 
     Mod+T hotkey-overlay-title="Open a Terminal: Konsole" { spawn "konsole"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+B hotkey-overlay-title="Open browser: Firefox" { spawn "firefox"; }
+    Mod+X { spawn "kalk"; }
+    Mod+Shift+Delete { spawn "missioncenter"; }
+
+    Mod+I { spawn "xeyes"; }
 
     // Consumer Control Keys
 
