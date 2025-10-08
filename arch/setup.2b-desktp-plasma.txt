@@ -24,6 +24,8 @@ $ rm -rf ~/.local/share/baloo/
 --        KDE Plasma settings
 --------------------------------------------------------------------------------
 
+! Copy `./plasma/environment.sh` to `~/.config/plasma-workspace/env/environment.sh`
+
 KDE System Settings
   Input & Output
     Mouse & Touchpad

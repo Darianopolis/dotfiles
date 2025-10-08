@@ -2,19 +2,9 @@ Use native Wayland backend for Electron apps
   https://wiki.archlinux.org/title/Wayland#Electron
   --enable-features=VaapiVideoEncoder,VaapiVideoDecoder,VaapiVideoDecodeLinuxGL,Vulkan,WebRTCPipeWireCapturer --ozone-platform=wayland %U
 
-Improved bash prompt setup?
-  https://www.youtube.com/watch?v=0phdCAFFicY&list=PLhJQdULc4pyWR-u84ATOcNdG72ynrzls3&index=8
-  Find better alternative to blesh for bash auto suggestions
-
 Distro independent package managers
   - homebrew  (https://christitus.com/best-package-manager/)
   - Nix
-
-Experiment with Wayfire?
-  - wlr-randr
-  - xdg-desktop-portal
-  - xwaylandvideobridge
-  - https://github.com/WayfireWM/wayfire/wiki/Tutorial
 
 CoreSuite + PaperDE?
   https://cubocore.gitlab.io/index.html
@@ -31,22 +21,5 @@ Find program/daemons for
   - screenshot
   - media playback
 
-Add scripts for switching between DE/WMs
-  https://www.youtube.com/watch?v=6O6WBtchg_c
-  repair-portals
-    $ killall xdk-desktop-portal
-    $ systemctl --user restart pipewire
-
 Try out Whisper for software mic monitoring via pipewire
   - https://flathub.org/apps/it.mijorus.whisper
-
-Bottles/Lutris get DX12 showing in games
-  https://www.reddit.com/r/linux_gaming/comments/1dsasq8/world_of_warcraft_nvidia_no_dx12ray_tracing/
-  https://forum.garudalinux.org/t/ray-tracing-in-wow/25874/5
-  https://forum.garudalinux.org/t/dx12-is-not-supported-bottles-lutris-heroic-visual-c-runtime-required-steam-launcher-proton-ge/36806/49?page=3
-
-Hardware video acceleration (VA-API)
-  https://wiki.archlinux.org/title/Hardware_video_acceleration
-    libva-nvidia-driver
-    https://github.com/elFarto/nvidia-vaapi-driver/?tab=readme-ov-file#installation
-  https://ubuntuhandbook.org/index.php/2021/08/enable-hardware-video-acceleration-va-api-for-firefox-in-ubuntu-20-04-18-04-higher/

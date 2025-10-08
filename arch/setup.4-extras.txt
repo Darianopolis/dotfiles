@@ -77,7 +77,6 @@ $ ./{downloaded-run-file}
 --        Media players
 --------------------------------------------------------------------------------
 
---- # flatpak install flathub com.spotify.Client
 # pacman -S spotify-launcher
 # pacman -S vlc vlc-plugin-ffmpeg
 
@@ -97,11 +96,13 @@ $ flatpak install flathub com.obsproject.Studio
 --        Digital Content Creation (DCC)
 --------------------------------------------------------------------------------
 
-# pacman -S inkscape blender
-$ flatpak install flathub
-    org.kde.krita
-    com.github.PintaProject.Pinta
-    org.gimp.GIMP
+# pacman -S
+    inkscape      - Vector graphics
+    blender       - 3D Modelling
+    krita         - Painting
+    gimp          - Photo Editing
+
+$ flatpak install flathub com.github.PintaProject.Pinta
 
 --------------------------------------------------------------------------------
 --        USB Device support & debugging

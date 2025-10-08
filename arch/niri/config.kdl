@@ -104,7 +104,9 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 debug {
+    // NOTE: SDL3 application in Wayland mode do not seem to trigger resize acknowledgement
     // disable-resize-throttling
+
     honor-xdg-activation-with-invalid-serial
 }
 

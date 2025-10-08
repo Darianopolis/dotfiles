@@ -34,7 +34,9 @@ $ flatpak install flathub com.heroicgameslauncher.hgl
 --          WINE
 --------------------------------------------------------------------------------
 
-$ flatpak install flathub net.lutris.Lutris com.usebottles.bottles
+$ flatpak install flathub
+    net.lutris.Lutris
+    com.usebottles.bottles
 
 --------------------------------------------------------------------------------
 --          ETS2

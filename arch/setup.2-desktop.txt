@@ -56,6 +56,7 @@ $ cd .. && rm -rf yay
     kronometer                     - Timer
     dolphin                        - File Browser
     spectacle                      - Screenshot tool
+    gwenview                       - Image Viewer
     flatpak                        - Application Store
     firefox                        - Browser
     mission-center                 - System Resource Monitor

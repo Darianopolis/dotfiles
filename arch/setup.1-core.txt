@@ -221,7 +221,7 @@ $ echo {new_commit_mode} | sudo tee /proc/sys/vm/overcommit_memory
 --        AMD
 --------------------------------------------------------------------------------
 
-# pacman -S mesa vulkan-radeon
+# pacman -S mesa vulkan-radeon lib32-vulkan-radeon
 
 --------------------------------------------------------------------------------
 --        NVIDIA

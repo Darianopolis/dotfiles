@@ -1,0 +1,2 @@
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
+export SDL_VIDEO_DRIVER="wayland,x11"
