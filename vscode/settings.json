@@ -46,5 +46,31 @@
     "files.eol": "\n",
     "C_Cpp.intelliSenseEngine": "disabled",
     "zig.zls.enabled": "on",
-    "workbench.secondarySideBar.defaultVisibility": "hidden"
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "editor.fontSize": 16,
+    "workbench.colorCustomizations": {
+        "[Default Dark Modern]": {
+
+            // FG.Primary = #A9B7C6
+
+            // BG.Primary   = #232525
+            // BG.Secondary = #1d1f1f
+            // BG.Tertiary  = #1a1d1d
+
+            "editor.foreground": "#A9B7C6" /* FG.Primary */,
+            "editor.background": "#232525" /* BG.Primary */,
+
+            // "menu.background":   "#232525" /* BG.Primary */,
+
+            // "titleBar.activeBackground":   "#1a1d1d" /* BG.Tertiary */,
+            // "titleBar.inactiveBackground": "#1a1d1d" /* BG.Tertiary */,
+            // "activityBar.background":      "#1a1d1d" /* BG.Tertiary */,
+
+            // "sideBar.background":     "#1a1d1d" /* BG.Secondary */,
+
+            // "tab.activeBackground":   "#232525" /* BG.Primary */,
+            // "tab.activeBorder":       "#232525" /* BG.Primary */,
+            // "tab.inactiveBackground": "#1a1d1d" /* BG.Secondary */,
+        }
+    }
 }

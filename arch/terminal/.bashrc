@@ -36,37 +36,40 @@ export HISTFILESIZE=10000
 export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch"
 export HISTCONTROL=ignoredups
 
-# Add user package locations
+# ------------------------------------------------------------------------------
 
 export PATH="$HOME/.local/bin:$PATH:$HOME/go/bin"
-export LD_LIBRARY_PATH="/usr/local/lib"
+# export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
-# SDL use Wayland
+# ------------------------------------------------------------------------------
 
 # export SDL_VIDEO_DRIVER="wayland"
-
-# .NET
+# ------------------------------------------------------------------------------
 
 export PATH="$PATH:$HOME/.dotnet/tools"
-
-# Clang
+# ------------------------------------------------------------------------------
 
 # export CC=clang
 # export CXX=clang
-
-# List Interactive
+# ------------------------------------------------------------------------------
 
 . li-bashrc
-
-# Zed
+# ------------------------------------------------------------------------------
 
 alias zed=zeditor
+# ------------------------------------------------------------------------------
 
-# Python
-
-export PATH="$HOME/.mypython/bin:$PATH"
-
-# git-cache
+# export PATH="$HOME/.mypython/bin:$PATH"
+# ------------------------------------------------------------------------------
 
 export GIT_CACHE_DIR="$HOME/.gitcache"
+
+# ------------------------------------------------------------------------------
+
+alias code='ELECTRON_OZONE_PLATFORM_HINT=wayland code --ozone-platform=wayland'
+
+# ------------------------------------------------------------------------------
+
+alias scc='scc --no-cocomo'
+alias sccf='scc --no-cocomo --by-file'

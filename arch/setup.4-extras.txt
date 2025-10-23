@@ -78,6 +78,8 @@ $ ./{downloaded-run-file}
 --------------------------------------------------------------------------------
 
 # pacman -S spotify-launcher
+! Copy `spotify/spotify-launcher.conf` to `~/.config/spotify-launcher.conf`
+
 # pacman -S vlc vlc-plugin-ffmpeg
 
 --------------------------------------------------------------------------------
