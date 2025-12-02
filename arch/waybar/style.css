@@ -16,7 +16,11 @@ window#waybar > box {
 label,
 #tray,
 #window {
-    padding: 0 10px;
+    /* padding: 0 10px 0 0; */
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: rgba(76.5, 76.5, 76.5, 0.5);
+    padding: 0;
     font-size: 14px;
 }
 
@@ -25,21 +29,23 @@ label,
 /* Clock */
 
 #clock {
+    padding: 0 6px 2px 7px;
     color: #ffffff;
-    font-size: 18px
+    font-size: 18px;
 }
 
 /* System monitors */
 
 #memory {
-    padding: 0 18px 0 10px;
-    background-color: #9b59b6;
+    padding: 0 14px 2px 7px;
+    /* background-color: #9b59b6; */
     color: #ffffff;
     font-size: 18px;
 }
 
 #network {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
+    padding: 0 6px 2px 7px;
     color: #ffffff;
     font-size: 18px;
 }
@@ -47,13 +53,16 @@ label,
 /* Audio */
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    /* background-color: #f1c40f;
+    color: #000000; */
+    padding: 0 6px 2px 7px;
+    color: #ffffff;
     font-size: 16px;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    /* background-color: #90b1b1; */
+    padding: 0 6px 2px 7px;
     color: #2a5c45;
     font-size: 16px;
 }
@@ -66,7 +75,9 @@ label,
 /* Tray */
 
 #tray {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
+    padding: 0 8px 1px 7;
+    border-left-style: none;
     color: #ffffff;
 }
 

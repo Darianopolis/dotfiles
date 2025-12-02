@@ -17,6 +17,7 @@ uBlock Origin
     www.youtube.com##ytd-rich-shelf-renderer:has([href^="/playables"])
     www.youtube.com##ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope
     youtube.com##grid-shelf-view-model
+    www.youtube.com##.ytd-expandable-metadata-renderer
 
 --------------------------------------------------------------------------------
 --        Privacy

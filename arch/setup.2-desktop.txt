@@ -73,6 +73,8 @@ $ yay -S
 
 # pacman -S wl-clipboard    - Wayland terminal clipboard sink/source (wl-copy|wl-paste)
 
+# pacman -S lxqt-sudo       - GUI frontend for sudo
+
 --------------------------------------------------------------------------------
 --        Keychains & Secret Service
 --------------------------------------------------------------------------------

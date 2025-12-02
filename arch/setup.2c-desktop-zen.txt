@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------
+--        Zen
+--------------------------------------------------------------------------------
+
+-- Build
+
+$ git clone https://github.com/darianopolis/zen
+$ python build.py -BRI
+
+-- Launch
+
+$ zen --xwayland :0 --log-file zen.log -s resources/startup.lua
+
+--------------------------------------------------------------------------------
+--        Supporting applications
+--------------------------------------------------------------------------------
+
+# pacman -S
+    pavucontrol             Audio manager
+    blueman                 Bluetooth manager
+    swaync                  Notification daemon
+    waybar                  System tray
+    wlr-randr               Output management
+    slurp                   Output region selection
+    grim                    Screenshot
+    xdg-desktop-portal-wlr  Screenshare portal
+    gnome-keyring           Simple secret service provider
+
+
+--------------------------------------------------------------------------------
+--        Terminal based file manageemnt (WIP setup)
+--------------------------------------------------------------------------------
+
+# pacman -S yazi            Terminal file chooser
+
+$ yay -S
+    xdg-desktop-portal-termfilechooser-hunkyburrito-git     File Chooser portal

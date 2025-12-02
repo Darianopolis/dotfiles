@@ -6,11 +6,11 @@
     "modules-left": [
     ],
     "modules-center": [
-        "clock"
     ],
     "modules-right": [
         "tray",
         "pulseaudio",
+        "clock",
         "network",
         "memory",
         "custom/power"
@@ -26,14 +26,15 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% \uefc5",
+        "on-click": "missioncenter"
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ifname} ",
+        "format-wifi": "{essid} ({signalStrength}%) ",
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}   {format_source}",
         "format-bluetooth": "{volume}% {icon}   {format_source}",
         "format-bluetooth-muted": " {icon}   {format_source}",
@@ -52,15 +53,15 @@
         "on-click": "pavucontrol"
     },
     "custom/power": {
-        "format" : "⏻",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
+        "format" : "",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
             "soft-reboot": "systemctl soft-reboot"
-		}
+        }
     }
 }

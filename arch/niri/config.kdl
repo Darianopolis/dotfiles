@@ -49,7 +49,7 @@ input {
 }
 
 layout {
-    gaps 2
+    gaps 7
 
     center-focused-column "never"
 
@@ -66,16 +66,15 @@ layout {
     default-column-width { proportion 0.33333; }
 
     focus-ring {
-        width 2
-
-        // active-color "#7fc8ff"
-        active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
-
-        inactive-color "#505050"
+        off
     }
 
     border {
-        off
+        width 2
+
+        active-color "rgba(102, 102, 255, 1)"
+
+        inactive-color "rgba(76.5, 76.5, 76.5, 1)"
     }
 
     tab-indicator {
@@ -91,7 +90,7 @@ gestures {
 }
 
 environment {
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    // ELECTRON_OZONE_PLATFORM_HINT "auto"
     SDL_VIDEO_DRIVER "wayland,x11"
 }
 
@@ -112,6 +111,8 @@ debug {
 
 clipboard { disable-primary; }
 
+spawn-at-startup "swaybg -m fill -i /media/home/Media/wallpapers/the-valley-minimal-4k-9y-120713155.jpg"
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 //         Window Rules
@@ -120,10 +121,10 @@ clipboard { disable-primary; }
 
 // ---- General rules
 
-window-rule {
-    geometry-corner-radius 5
-    clip-to-geometry true
-}
+// window-rule {
+//     geometry-corner-radius 5
+//     clip-to-geometry true
+// }
 
 // ---- Specific rules
 
@@ -188,9 +189,10 @@ binds {
 
     // Application hotkeys
 
-    Mod+T hotkey-overlay-title="Open a Terminal: Konsole" { spawn "konsole"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+B hotkey-overlay-title="Open browser: Firefox" { spawn "firefox"; }
+    Mod+T { spawn "konsole"; }
+    Mod+D { spawn-sh "rofi -show drun"; }
+    Mod+Shift+D { spawn-sh "rofi -show run"; }
+    Mod+B { spawn "firefox"; }
     Mod+X { spawn "kalk"; }
     Mod+Shift+Delete { spawn "missioncenter"; }
 
