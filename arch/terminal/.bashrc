@@ -38,6 +38,10 @@ export HISTCONTROL=ignoredups
 
 # ------------------------------------------------------------------------------
 
+export XCURSOR_THEME="breeze_cursors"
+
+# ------------------------------------------------------------------------------
+
 export PATH="$HOME/.local/bin:$PATH:$HOME/go/bin"
 # export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
@@ -45,31 +49,61 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 # ------------------------------------------------------------------------------
 
 # export SDL_VIDEO_DRIVER="wayland"
+
 # ------------------------------------------------------------------------------
 
 export PATH="$PATH:$HOME/.dotnet/tools"
+
 # ------------------------------------------------------------------------------
 
 # export CC=clang
 # export CXX=clang
+
 # ------------------------------------------------------------------------------
 
 . li-bashrc
+
 # ------------------------------------------------------------------------------
 
 alias zed=zeditor
+
 # ------------------------------------------------------------------------------
 
 # export PATH="$HOME/.mypython/bin:$PATH"
+
+# ------------------------------------------------------------------------------
+
+alias renderdoc='QT_QPA_PLATFORM=xcb $HOME/dev/renderdoc/build/bin/qrenderdoc'
+
 # ------------------------------------------------------------------------------
 
 export GIT_CACHE_DIR="$HOME/.gitcache"
 
 # ------------------------------------------------------------------------------
 
-alias code='ELECTRON_OZONE_PLATFORM_HINT=wayland code --ozone-platform=wayland'
+export PATH="$PATH:$HOME/dev/VulkanTools/build/vkconfig_cmd"
+
+# ------------------------------------------------------------------------------
+
+# export ELECTRON_OZONE_PLATFORM_HINT="auto"
+
+# ------------------------------------------------------------------------------
+
+# alias code='env -u DISPLAY ELECTRON_OZONE_PLATFORM_HINT=wayland code --ozone-platform=wayland'
 
 # ------------------------------------------------------------------------------
 
 alias scc='scc --no-cocomo'
 alias sccf='scc --no-cocomo --by-file'
+
+export WALLPAPER='/media/home/Media/wallpapers/the-valley-minimal-4k-9y-120713155.jpg'
+
+# ------------------------------------------------------------------------------
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
