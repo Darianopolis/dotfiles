@@ -1,5 +1,21 @@
 
 --------------------------------------------------------------------------------
+--          AMD Tweaks
+--------------------------------------------------------------------------------
+
+ENV radv_gfx12_hiz_wa=full|partial|disabled
+
+  This applies a workaround for a hardware hiZ bug on GFX12 (9070 / 9070 XT) GPUs that was
+  causing hangs in certain games.
+
+  This is set to "full" by default which causes significant regressions in some games (e.g. BeamNG.drive)
+  Prefer to set to partial/disabled unless a game has stability issues.
+
+  See: https://gitlab.freedesktop.org/mesa/mesa/-/issues/14420
+
+  TODO: Set this to "partial" globally by default?
+
+--------------------------------------------------------------------------------
 --          Steam + Proton GE
 --------------------------------------------------------------------------------
 
@@ -37,6 +53,12 @@ $ flatpak install flathub com.heroicgameslauncher.hgl
 $ flatpak install flathub
     net.lutris.Lutris
     com.usebottles.bottles
+
+--------------------------------------------------------------------------------
+--          BeamNG
+--------------------------------------------------------------------------------
+
+! Add radv_gfx12_hiz_wa=partial to launch options in Steam
 
 --------------------------------------------------------------------------------
 --          ETS2
