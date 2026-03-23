@@ -33,12 +33,13 @@ PS1='[\u@\h \W]\$ '
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch"
+export HISTIGNORE="ls:ll:clear:git status:pwd:fastfetch:rm"
 export HISTCONTROL=ignoredups
 
 # ------------------------------------------------------------------------------
 
 export XCURSOR_THEME="breeze_cursors"
+export XCURSOR_SIZE=24
 
 # ------------------------------------------------------------------------------
 
@@ -90,6 +91,7 @@ export PATH="$PATH:$HOME/dev/VulkanTools/build/vkconfig_cmd"
 # ------------------------------------------------------------------------------
 
 # alias code='env -u DISPLAY ELECTRON_OZONE_PLATFORM_HINT=wayland code --ozone-platform=wayland'
+alias code='env -u WAYLAND_DISPLAY ELECTRON_OZONE_PLATFORM_HINT=x11 code --ozone-platform=x11'
 
 # ------------------------------------------------------------------------------
 
