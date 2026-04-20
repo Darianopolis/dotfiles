@@ -27,7 +27,7 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "memory": {
-        "format": "{}% \uefc5",
+        "format": "{}% 󰍛",
         "on-click": "missioncenter"
     },
     "network": {

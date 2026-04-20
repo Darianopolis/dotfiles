@@ -8,9 +8,9 @@ window#waybar {
 }
 
 window#waybar > box {
-    margin: 0 7px 7px 7px;
+    /* margin: 0 7px 7px 7px; */
     background-color: rgba(31, 31, 31, 0.5);
-    border: 2px solid rgba(76.5, 76.5, 76.5, 1);
+    /* border: 2px solid rgba(76.5, 76.5, 76.5, 1); */
 }
 
 label,
@@ -37,7 +37,7 @@ label,
 /* System monitors */
 
 #memory {
-    padding: 0 14px 2px 7px;
+    padding: 0 9px 2px 7px;
     /* background-color: #9b59b6; */
     color: #ffffff;
     font-size: 18px;
