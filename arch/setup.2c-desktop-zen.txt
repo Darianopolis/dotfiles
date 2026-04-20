@@ -18,7 +18,7 @@ $ zen --xwayland :0 --log-file zen.log -s resources/startup.lua
 # pacman -S
     pavucontrol             Audio manager
     blueman                 Bluetooth manager
-    swaync                  Notification daemon
+    dunst                   Notification daemon
     waybar                  System tray
     wlr-randr               Output management
     slurp                   Output region selection
