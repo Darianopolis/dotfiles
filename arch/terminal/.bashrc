@@ -102,6 +102,10 @@ export WALLPAPER='/media/home/Media/wallpapers/the-valley-minimal-4k-9y-12071315
 
 # ------------------------------------------------------------------------------
 
+alias git-fixup='git commit --amend --no-edit'
+
+# ------------------------------------------------------------------------------
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"

@@ -58,7 +58,7 @@
             // BG.Tertiary  = #1a1d1d
 
             "editor.foreground": "#A9B7C6" /* FG.Primary */,
-            "editor.background": "#232525" /* BG.Primary */,
+            // "editor.background": "#232525" /* BG.Primary */,
 
             // "menu.background":   "#232525" /* BG.Primary */,
 
@@ -72,5 +72,18 @@
             // "tab.activeBorder":       "#232525" /* BG.Primary */,
             // "tab.inactiveBackground": "#1a1d1d" /* BG.Secondary */,
         }
-    }
+    },
+    "explorer.autoReveal": false,
+    "explorer.autoRevealExclude": {
+        ".build": true
+    },
+    "slang.format.enableFormatOnType": false,
+    "update.showReleaseNotes": false,
+    "glsllint.glslangValidatorArgs": [
+        "--target-env",
+        "vulkan1.2",
+        "-Isrc"
+    ],
+    "workbench.colorTheme": "Dark Modern",
+    "files.autoSave": "afterDelay"
 }
