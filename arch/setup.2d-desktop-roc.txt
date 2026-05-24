@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------
+--        Roc
+--------------------------------------------------------------------------------
+
+-- Build
+
+$ git clone https://github.com/Darianopolis/Roc
+$ python build.py -BRI
+
+-- Configure
+
+  XCURSOR_SIZE=24
+  XCURSOR_THEME=breeze_cursors
+  WALLPAPER=/path/to/wallpaper
+
+-- Launch
+
+$ roc --xwayland :0
+
+--------------------------------------------------------------------------------
+--        Supporting applications
+--------------------------------------------------------------------------------
+
+# pacman -S
+    pavucontrol             Audio manager
+    blueman                 Bluetooth manager
+    dunst                   Notification daemon
+    gnome-keyring           Simple secret service provider
+    breeze-cursors          Cursor theme
+
+--------------------------------------------------------------------------------
+--        Disable localsearch indexing (from Nautilus)
+--------------------------------------------------------------------------------
+
+$ localsearch index
+$ localsearch index --remove $INDEX_PATH        For each entry in the previous command
+$ localsearch reset --filesystem

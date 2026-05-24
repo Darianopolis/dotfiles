@@ -7,6 +7,8 @@
     xorg-xinit xdg-desktop-portal-gtk             - Integration packages
     keepassxc pass libsecret                      - Keychains & Secret Service
     plasma-browser-integration                    - Browser integration
+    plasma5support
+    plasma-workspace-wallpapers
 
 --------------------------------------------------------------------------------
 --        Disable KDE Baloo File Indexing Service
