@@ -46,6 +46,18 @@ $ cd .. && rm -rf yay
 ! See more at <https://wiki.archlinux.org/title/Fonts>
 
 --------------------------------------------------------------------------------
+--        Core Application Support
+--------------------------------------------------------------------------------
+
+# pacman -S
+    fuse                           - AppImage support
+    flatpak                        - Flatpak package support
+
+$ flatpak install flathub
+    com.github.tchx84.Flatseal     - Flatpak sandbox control
+    it.mijorus.gearlever           - AppImage manager
+
+--------------------------------------------------------------------------------
 --        Core Applications
 --------------------------------------------------------------------------------
 
@@ -57,13 +69,12 @@ $ cd .. && rm -rf yay
     dolphin                        - File Browser
     spectacle                      - Screenshot tool
     gwenview                       - Image Viewer
-    flatpak                        - Application Store
     firefox                        - Browser
     mission-center                 - System Resource Monitor
+
 $ flatpak install flathub
     com.microsoft.Edge             - Web Browser
-    com.github.tchx84.Flatseal     - Flatpak sandbox control
-    it.mijorus.gearlever           - AppImage manager
+
 $ yay -S
     1password                      - Password Manager
 
@@ -135,8 +146,8 @@ $ pass init {gpg-id}
 --        Printing Service
 --------------------------------------------------------------------------------
 
-# pacman -S system-config-printer cups cups-pdf
-$ yay -S epson-inkjet-printer-escpr2                - needed for Epson ET-8550
+# pacman -S system-config-printer cups cups-pdf colord
+$ yay -S epson-inkjet-printer-escpr2                        - needed for Epson ET-8550
 # systemctl enable --now cups.service
 
 --------------------------------------------------------------------------------
