@@ -8,13 +8,14 @@ $ yay -S qdirstat         - Wiztree-like viewer for filesystem contents
 # pacman -S ark           - Archive Manager
 
 --------------------------------------------------------------------------------
---        Discord
+--        Discord (Vesktop)
 --------------------------------------------------------------------------------
 
-# pacman -S discord     - Standard package
+# yay -S vesktop
 
-> ~/.config/discord/settings.json
-  + "SKIP_HOST_UPDATE": true
+> /usr/share/applications/vesktop.desktop
+
+  Exec=vesktop --ozone-platform=wayland %U
 
 --------------------------------------------------------------------------------
 --        VS Code

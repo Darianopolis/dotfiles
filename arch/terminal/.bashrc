@@ -86,7 +86,7 @@ export PATH="$PATH:$HOME/dev/VulkanTools/build/vkconfig_cmd"
 
 # ------------------------------------------------------------------------------
 
-# export ELECTRON_OZONE_PLATFORM_HINT="auto"
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # ------------------------------------------------------------------------------
 
