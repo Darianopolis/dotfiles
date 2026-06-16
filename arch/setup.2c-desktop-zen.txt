@@ -9,7 +9,7 @@ $ python build.py -BRI
 
 -- Launch
 
-$ zen --xwayland :0 --log-file zen.log -s resources/startup.lua
+$ zen -s resources/startup.lua
 
 --------------------------------------------------------------------------------
 --        Supporting applications

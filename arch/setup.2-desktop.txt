@@ -163,4 +163,4 @@ $ yay -S epson-inkjet-printer-escpr2                        - needed for Epson E
   MatchUdevType=mouse
   ModelBouncingKeys=1
 
-! This requires a restart of any applicaiton that uses libinput (e.g. the compositor) to take affect
+! This requires a restart of any application that uses libinput (e.g. the compositor) to take affect
