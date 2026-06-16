@@ -1,7 +1,5 @@
 Arch
 
-- Experiment with systemd-boot as a lightweight faster alternative to GRUB?
-
 - Trim running processes (aggressively kill processes that aren't being actively used)
   - E.g. expressvpn service shouldn't be running unless VPN is enabled
 
@@ -9,34 +7,3 @@ Arch
 - document configuring links
   - VS Code link does not generate correctly until code has been run at least once!
 - helper install/setup scripts
-
-- KDE Plasma Scripting
-  - https://develop.kde.org/docs/plasma/kwin/
-
-  kpackagetool6 --type=KWin/Script -r plasmazones
-  kpackagetool6 --type=KWin/Script -i .
-  kwriteconfig6 --file kwinrc --group Plugins --key plasmazonesEnabled true
-  qdbus6 org.kde.KWin /KWin reconfigure
-
-- DRM/KMS Example
-
-  - https://github.com/dvdhrm/docs/blob/815de035b291cfdf3c858d4420482ffa42c878a1/drm-howto/modeset.c
-  - https://github.com/ascent12/drm_doc/blob/master/01_intro/src/main.c
-
-- Remove auth fail delay on sudo
-  - https://unix.stackexchange.com/questions/658771/remove-delay-after-wrong-sudo-password-entry-on-arch-linux
-
-Windows
-
-- Drop AHK scripts?
-- Improve setup-links script (python?)
-- ExpressVPN
-- CLion & VS Code
-  - Missing shell "Open with X" options
-  - Can be enabled after installation
-- Python Jinja install?
-  - pip install Jinja2
-
-Both
-
-- Add NSight to development setup

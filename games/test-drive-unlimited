@@ -1,0 +1,23 @@
+{locations.programs}      Location for storing standalone programs outside of package management (E.g. /media/home/Programs)
+
+! Download [Test_Drive_Unlimited_Win_Files_EN.7z] from <https://oldgamesdownload.com/test-drive-unlimited/>
+! Unpack into "{locations.programs}/Test Drive Unlimited"
+! Add Shortcut [C:\Programs\TDU\Game Files\TestDriveUnlimited.exe]
+! Steam - Games - Add a Non-Steam Game to My Library
+    Shortcut
+      Target:   "{locations.programs}/Test Drive Unlimited/Test_Drive_Unlimited_Win_Files_EN/Game Files/TestDriveUnlimited.exe"
+      Start In: "{locations.programs}/Test Drive Unlimited/Test_Drive_Unlimited_Win_Files_EN/Game Files/"
+      Launch Options: DXVK_FRAME_RATE=60 PROTON_ENABLE_WAYLAND=1 SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT=0x1234/0x1111 %command%
+
+Test Drive Unlimited
+  Options
+    Game Settings
+      Seat Positions
+        Position: -1 from center
+        Height:   -1 from right
+    Control
+      Options
+        Steering Sensitivty: -1 from center
+        Steering Bars Sens:   0 from right
+        Enable Wheel:        Yes
+        Linearity:           +3 from left
