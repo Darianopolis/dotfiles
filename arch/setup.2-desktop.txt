@@ -78,11 +78,9 @@ $ flatpak install flathub
     firefox                        - Browser
     mission-center                 - System Resource Monitor
 
-$ flatpak install flathub
-    com.microsoft.Edge             - Web Browser
-
 $ yay -S
     1password                      - Password Manager
+    brave-origin-bin               - Web Browser
 
 --------------------------------------------------------------------------------
 --        Utilities
