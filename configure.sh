@@ -1,15 +1,18 @@
 #!/bin/bash
 
-# TODO: Backup or prompt on overriding previous files
-
 cd "$(dirname "$0")"
-
 echo "Setting up dotfiles from: $(pwd)"
 
-cp $(pwd)/terminal/.bashrc ~/.bashrc
-# cp $(pwd)/terminal/kitty.conf ~/.config/kitty/kitty.conf
+# .bashrc
 
-cp $(pwd)/../vscode/settings.json $HOME/.config/Code/User/settings.json
+cp terminal/.bashrc ~/.bashrc
 
-sudo cp $(pwd)/update.sh /usr/local/bin/update
-sudo chmod +x /usr/local/bin/update
+# VS Code
+
+mkdir -p ~/.config/Code/User
+cp vscode/settings.json ~/.config/Code/User/settings.json
+
+# Update Script
+
+cp update.sh ~/.local/bin/update
+chmod +x ~/.local/bin/update
