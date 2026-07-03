@@ -77,6 +77,8 @@ $ flatpak install flathub
     gwenview                       - Image Viewer
     firefox                        - Browser
     mission-center                 - System Resource Monitor
+    btop                           - Terminal resource monitor
+    rocm-smi-lib                   - Required for btop to see AMDGPU devices
 
 $ yay -S
     1password                      - Password Manager
