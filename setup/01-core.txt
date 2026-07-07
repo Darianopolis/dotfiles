@@ -223,6 +223,11 @@ $ echo {new_commit_mode} | sudo tee /proc/sys/vm/overcommit_memory
 
 # pacman -S mesa vulkan-radeon lib32-vulkan-radeon
 
+-- Mask off the GPUOFF power feature
+-- See enum PP_FEATURE_MASK in drivers/gpu/drm/amd/include/ for the exact bit values
+
+! {kernel.parameters} += amdgpu.ppfeaturemask=0xffff7fff
+
 --------------------------------------------------------------------------------
 --        NVIDIA
 --------------------------------------------------------------------------------
