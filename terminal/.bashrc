@@ -40,7 +40,13 @@ alias li='. ls-interactive.sh'
 # Editors
 
 alias zed=zeditor
-alias code='env -u WAYLAND_DISPLAY ELECTRON_OZONE_PLATFORM_HINT=x11 code --ozone-platform=x11'
+
+export VSCODE_USE_WAYLAND=1
+if [ $VSCODE_USE_WAYLAND == "1" ]; then
+    alias code="env -u DISPLAY ELECTRON_OZONE_PLATFORM_HINT=wayland code --ozone-platform=wayland"
+else
+    alias code="env -u WAYLAND_DISPLAY ELECTRON_OZONE_PLATFORM_HINT=x11 code --ozone-platform=x11"
+fi
 
 # Development Tools
 
@@ -51,5 +57,7 @@ alias renderdoc='QT_QPA_PLATFORM=xcb $HOME/dev/renderdoc/build/bin/qrenderdoc'
 alias scc='scc --no-cocomo'
 
 # Git
+
+export GCM_CREDENTIAL_STORE=secretservice
 
 alias git-fixup='git commit --amend --no-edit'

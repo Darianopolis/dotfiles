@@ -16,16 +16,15 @@ $ git config --global user.name "{git.name}"
 $ git config --global user.email "{git.email}"
 $ git config --global init.defaultBranch main
 
--- Git credential manager (git -> GCM -> gpg+pass -> secretservice)
+-- Git Credential Manager
 
 # pacman -S dotnet-runtime-8.0 dotnet-sdk-8.0
 $ dotnet tool install -g git-credential-manager
 $ git-credential-manager configure
-$ git config --global credential.credentialStore gpg
+$ git config --global credential.credentialStore secretservice
 
--- TODO: Get the following working with secretservice directly
-
-$ git config --global --replace-all credential.helper "/usr/lib/git-core/git-credential-libsecret"
+-- TODO: Is this still necessary for secret service integration?
+-- $ git config --global --replace-all credential.helper "/usr/lib/git-core/git-credential-libsecret"
 
 --------------------------------------------------------------------------------
 --        Development - Core
